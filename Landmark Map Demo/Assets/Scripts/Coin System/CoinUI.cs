@@ -12,6 +12,6 @@ public class CoinUI : MonoBehaviour
     // Sets the coin display to a number of coins
     public void SetCoinDisplay(int numCoins)
     {
-        coinDisplay.text = numCoins.ToString();
+        coinDisplay.text = "Coins: " + numCoins.ToString();
     }
 }
