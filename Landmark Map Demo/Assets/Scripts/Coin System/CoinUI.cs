@@ -9,9 +9,27 @@ public class CoinUI : MonoBehaviour
 {
     [SerializeField] private Text coinDisplay;
 
+    [Header("Insufficient Funds")]
+    [SerializeField] private GameObject insufficientFundsWarning;
+    [SerializeField] private float warningTime;
+
     // Sets the coin display to a number of coins
     public void SetCoinDisplay(int numCoins)
     {
         coinDisplay.text = "Coins: " + numCoins.ToString();
+    }
+
+    public void ShowInsufficientFunds()
+    {
+        StartCoroutine(InsufficientFundsRoutine());
+    }
+
+    private IEnumerator InsufficientFundsRoutine()
+    {
+        insufficientFundsWarning.SetActive(true);
+
+        yield return new WaitForSeconds(warningTime);
+
+        insufficientFundsWarning.SetActive(false);
     }
 }

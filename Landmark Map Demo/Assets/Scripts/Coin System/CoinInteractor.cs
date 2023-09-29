@@ -18,7 +18,7 @@ public class CoinInteractor : MonoBehaviour
     private void TryCoinInteraction()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit, 100, interactable))
+        if (Physics.Raycast(ray, out RaycastHit hit, 500, interactable))
         {
             if (hit.transform.CompareTag("Coin Source"))
             {

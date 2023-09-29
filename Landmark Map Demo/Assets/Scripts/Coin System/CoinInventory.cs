@@ -27,6 +27,8 @@ public class CoinInventory : MonoBehaviour
             return true;
         }
 
+        coinUI.ShowInsufficientFunds();
+
         return false;
     }
 
