@@ -5,9 +5,19 @@ using UnityEngine;
 
 public class CoinInventory : MonoBehaviour
 {
+    public static CoinInventory Singleton;
+
     [SerializeField] private CoinUI coinUI;
 
     private int _numCoins;
+
+    private void Awake()
+    {
+        if (Singleton == null)
+            Singleton = this;
+        else
+            Debug.LogError("There can not be more than one instance of a singleton");
+    }
 
     // Adds a certain number of coins
     public void AddCoins(int numToAdd)

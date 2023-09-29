@@ -8,8 +8,8 @@ public class WorldInteractor : MonoBehaviour
     [Header("Interaction System")]
     [SerializeField] private GameObject interactingIndicator;
     [SerializeField] private Button interactButton;
+    [SerializeField] private Button exitInteraction;
     [SerializeField] private LayerMask interactable;
-    [SerializeField] private KeyCode clearInteractKey = KeyCode.Escape;
 
     [Header("References")]
     [SerializeField] private CoinInventory coinInventory;
@@ -17,11 +17,13 @@ public class WorldInteractor : MonoBehaviour
     private InteractableObject _currentInteractableObject;
     private bool _inInteraction;
 
+    private void Start()
+    {
+        exitInteraction.onClick.AddListener(ClearInteraction);
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(clearInteractKey))
-            ClearInteraction();
-                
         if (Input.GetKeyUp(KeyCode.Mouse0))
             OnClick();
     }
@@ -67,19 +69,19 @@ public class WorldInteractor : MonoBehaviour
         interactingIndicator.SetActive(false);
     }
 
-    // Tries to pickup or discard coins
+    // Tries to pickup or discard coins 
     private void TryCoinInteraction(RaycastHit hit)
     {
         if (hit.transform.CompareTag("Coin Source"))
         {
-            CoinSource coinSource = hit.transform.GetComponent<CoinSource>();
+            TestingCoinSource coinSource = hit.transform.GetComponent<TestingCoinSource>();
 
             coinInventory.AddCoins(coinSource.NumberOfCoins);
         }
 
         if (hit.transform.CompareTag("Coin Remover"))
         {
-            CoinRemover coinRemover = hit.transform.GetComponent<CoinRemover>();
+            TestingCoinRemover coinRemover = hit.transform.GetComponent<TestingCoinRemover>();
 
             coinInventory.TryRemoveCoins(coinRemover.NumberOfCoins);
         }
