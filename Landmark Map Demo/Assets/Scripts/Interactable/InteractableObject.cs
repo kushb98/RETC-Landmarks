@@ -24,4 +24,9 @@ public class InteractableObject : MonoBehaviour
         _selected = false;
         selectedIndicator.SetActive(false);
     }
+
+    public virtual void Interact()
+    {
+        Debug.LogWarning(this + " has no Interact method implemented");
+    }
 }

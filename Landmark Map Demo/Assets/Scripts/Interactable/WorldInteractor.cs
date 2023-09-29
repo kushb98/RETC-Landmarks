@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WorldInteractor : MonoBehaviour
 {
     [Header("Interaction System")]
     [SerializeField] private GameObject interactingIndicator;
+    [SerializeField] private Button interactButton;
     [SerializeField] private LayerMask interactable;
     [SerializeField] private KeyCode clearInteractKey = KeyCode.Escape;
 
@@ -24,16 +26,6 @@ public class WorldInteractor : MonoBehaviour
             OnClick();
     }
 
-    // Clears the current interactable object
-    private void ClearInteraction()
-    {
-        _currentInteractableObject.Deselect();
-        _currentInteractableObject = null;
-
-        _inInteraction = false;
-        interactingIndicator.SetActive(false);
-    }
-
     // What heppens when the player clicks on the screen
     private void OnClick()
     {
@@ -44,22 +36,35 @@ public class WorldInteractor : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit, 500, interactable))
         {
-            TryObjectInteraction(hit);
+            if (hit.transform.CompareTag("Interactable Object"))
+                InitializeInteraction(hit);
+
             TryCoinInteraction(hit);
         }
     }
 
-    // Tries to interact with an interactable object
-    private void TryObjectInteraction(RaycastHit hit)
+    // Initializes an object interaction, sets the current interactable object
+    private void InitializeInteraction(RaycastHit hit)
     {
-        if (hit.transform.CompareTag("Interactable Object"))
-        {
-            interactingIndicator.SetActive(true);
+        interactingIndicator.SetActive(true);
+        _inInteraction = true;
 
-            _inInteraction = true;
-            _currentInteractableObject = hit.transform.GetComponent<InteractableObject>();
-            _currentInteractableObject.Select();
-        }
+        _currentInteractableObject = hit.transform.GetComponent<InteractableObject>();
+        _currentInteractableObject.Select();
+
+        interactButton.onClick.AddListener(_currentInteractableObject.Interact);
+    }
+
+    // Clears the current interactable object
+    private void ClearInteraction()
+    {
+        interactButton.onClick.RemoveAllListeners();
+
+        _currentInteractableObject.Deselect();
+        _currentInteractableObject = null;
+
+        _inInteraction = false;
+        interactingIndicator.SetActive(false);
     }
 
     // Tries to pickup or discard coins
