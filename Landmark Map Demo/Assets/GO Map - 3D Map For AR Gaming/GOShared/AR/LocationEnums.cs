@@ -22,7 +22,8 @@ namespace LocationManagerEnums
         London,
         SearchMode,
         NoGPSTest,
-        Custom
+        Custom,
+        Chicago
     };
 
     public enum MotionPreset
@@ -85,6 +86,8 @@ namespace LocationManagerEnums
                 case DemoLocation.SearchMode:
                 case DemoLocation.Custom:
                     return null;
+                case DemoLocation.Chicago:
+					return new Coordinates(41.881832, -87.623177, 0);
                 default:
                     return null;
             }
