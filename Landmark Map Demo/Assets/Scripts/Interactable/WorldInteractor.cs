@@ -28,7 +28,7 @@ public class WorldInteractor : MonoBehaviour
             OnClick();
     }
 
-    // What heppens when the player clicks on the screen
+    // What happens when the player clicks on the screen
     private void OnClick()
     {
         if (_inInteraction)
