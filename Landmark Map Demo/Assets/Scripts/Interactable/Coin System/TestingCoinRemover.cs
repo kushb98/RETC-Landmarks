@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinRemover : MonoBehaviour
+public class TestingCoinRemover : MonoBehaviour
 {
     [SerializeField][Range(1, 10)] private int numberOfCoins;
     public int NumberOfCoins
