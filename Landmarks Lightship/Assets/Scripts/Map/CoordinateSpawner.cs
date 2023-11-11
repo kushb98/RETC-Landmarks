@@ -8,7 +8,6 @@ using static UnityEditor.FilePathAttribute;
 public class CoordinateSpawner : MonoBehaviour
 {
 
-    
     [SerializeField] private LayerGameObjectPlacement _objectSpawner; // A "LayerGameObjectPlacement" is a MapLayer that places a particular obejct
 
     void Start()
@@ -18,7 +17,7 @@ public class CoordinateSpawner : MonoBehaviour
 
     private void SpawnObejct()
     {
-        LatLng location = new LatLng(47.620670, -122.348363);
+        LatLng location = new LatLng(47.620513, -122.349303);
         var rotation = new Quaternion(0, 0, 0, 0);
 
         _objectSpawner.PlaceInstance(location, rotation);
