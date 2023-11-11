@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class CoinUI : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI coinDisplay;
+    [SerializeField] private Text coinDisplay;
 
     [Header("Insufficient Funds")]
     [SerializeField] private GameObject insufficientFundsWarning;

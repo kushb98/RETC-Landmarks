@@ -565,7 +565,7 @@ MonoBehaviour:
   _features: 
   _materials:
   - {fileID: 2100000, guid: f84663cdc4fadda4aae0c481b15b8127, type: 2}
-  _minHeight: 0.0045
+  _minHeight: 0.1
   _maxHeight: 100000
 --- !u!1 &6264390028887809546
 GameObject:

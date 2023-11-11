@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinSource : MonoBehaviour
+public class CoinSource : InteractableObject
 {
     [SerializeField][Range(1, 10)] private int numberOfCoins;
-    public int NumberOfCoins
+
+    public override void Interact()
     {
-        get { return numberOfCoins; }
-        private set { numberOfCoins = value; }
+        CoinInventory.Singleton.AddCoins(numberOfCoins);
     }
 }
