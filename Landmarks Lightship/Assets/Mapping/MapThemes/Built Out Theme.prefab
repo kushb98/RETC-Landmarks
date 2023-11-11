@@ -306,6 +306,73 @@ MonoBehaviour:
   _features: 21000000
   _prefab: {fileID: 6900594401148361998, guid: 11d9445076339a347b85f46584a60682, type: 3}
   maxOffset: 0.5
+--- !u!1 &3243621308758044660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4908708601489035531}
+  - component: {fileID: 96923993823633035}
+  m_Layer: 0
+  m_Name: Road TextMeshLabelBuilder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4908708601489035531
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243621308758044660}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4630994868801563132}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &96923993823633035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243621308758044660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e60401ff0d542a38fdc27735f1ee37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _undefinedFeatures: 
+  _boundaryFeatures: 
+  _structureFeatures: 
+  _landUseFeatures: 
+  _placesFeatures: 
+  _linearFeatures: 150000001c0000001e0000002200000023000000240000002a0000003100000036000000
+  _transitFeatures: 
+  _waterFeatures: 
+  _builderName: Testing Road Text Mesh Builder
+  _minLOD: 0
+  _maxLOD: 17
+  _zOffset: 0.01
+  _mapLayer: 7
+  _features: 150000001c0000001e0000002200000023000000240000002a0000003100000036000000
+  _labelPrefab: {fileID: 8655810874048586348, guid: 5b3c190e4375dbf4db250bc111d6c9d3,
+    type: 3}
+  _maxLabelStringsPerTile: 1
+  _scaleWithMapRadius: 0
+  _scaleFactor: 1
+  _minimumScale: 0
+  _maximumScale: Infinity
+  _alignWithLinearFeatures: 1
+  _includedFeatures: -1
 --- !u!1 &3283733435138997351
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,6 +1045,7 @@ Transform:
   - {fileID: 6319791288738042041}
   - {fileID: 845502961612255294}
   - {fileID: 6806951353992245068}
+  - {fileID: 4908708601489035531}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3832171538974188836
@@ -1009,6 +1077,7 @@ MonoBehaviour:
   - {fileID: 2278524854826226502}
   - {fileID: 5238032979209855861}
   - {fileID: 5463602928002322820}
+  - {fileID: 96923993823633035}
   _skybox: {fileID: 2100000, guid: 918aa3034ead14caa92c5f7b38712ea0, type: 2}
   _useDefaultIfUnassigned: 0
   _skyboxColor: {r: 1, g: 1, b: 1, a: 0}
