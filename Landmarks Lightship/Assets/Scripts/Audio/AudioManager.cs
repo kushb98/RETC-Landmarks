@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour
 
 	[Header("-----Audio Clip")]
 	public AudioClip playerFootsteps;
+    public AudioClip hoverSound;
+    public AudioClip clickSound;
 
 
 	// Start is called before the first frame update
