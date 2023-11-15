@@ -28,8 +28,6 @@ public class RandomizedObjectBuilder : AreaObjectBuilder
     /// <inheritdoc />
     protected override Vector3 GetObjectPosition(IMapTileFeature feature)
     {
-
-
         if (feature is not IAreaFeature areaFeature)
         {
             // This method should only be called for area features,

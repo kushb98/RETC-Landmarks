@@ -4,9 +4,9 @@ using TMPro;
 
 public class RankManager : MonoBehaviour
 {
-    public Text rankText;
-    public Text expText;
-    public Text levelText;
+    public TextMeshProUGUI rankText;
+    public TextMeshProUGUI expText;
+    public TextMeshProUGUI levelText;
     public Slider expSlider;
 
     private int currentRank = 1;
@@ -56,7 +56,7 @@ public class RankManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        string rankName = "";
+        string rankName = "None";
 
         if (currentRank >= 1 && currentRank <= 3)
         {
@@ -75,6 +75,7 @@ public class RankManager : MonoBehaviour
             rankName = "Trailblazer";
         }
 
+        Debug.Log(rankText.text);
         rankText.text = "Rank: " + rankName;
         expText.text = "EXP: " + currentEXP + " / " + expRequired;
         levelText.text = "Level: " + currentRank;
