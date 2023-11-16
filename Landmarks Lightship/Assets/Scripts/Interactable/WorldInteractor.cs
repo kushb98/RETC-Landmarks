@@ -3,8 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// An interface wetween all sytems and the environment
+/// </summary>
 public class WorldInteractor : MonoBehaviour
 {
+    [Header("Setting")]
+    [SerializeField] private float interactionRange = 200;
+
     [Header("Interaction System")]
     [SerializeField] private GameObject interactingIndicator;
     [SerializeField] private Button interactButton;
@@ -28,20 +34,21 @@ public class WorldInteractor : MonoBehaviour
             OnClick();
     }
 
-    // What happens when the player clicks on the screen
+    // Fires a raycast to see if the player has just clicked on anything
     private void OnClick()
     {
         if (_inInteraction)
+        {
             return; // TODO: Put code for what happens durring interactions here
-
+        }
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit, 500, interactable))
+        if (Physics.Raycast(ray, out RaycastHit hit, interactionRange, interactable))
         {
             if (hit.transform.CompareTag("Interactable Object"))
                 InitializeInteraction(hit);
 
-            TryCoinInteraction(hit);
+            TryCoinInteraction(hit); // This is depreciated!
         }
     }
 
@@ -70,6 +77,7 @@ public class WorldInteractor : MonoBehaviour
     }
 
     // Tries to pickup or discard coins 
+    // This is depreciated!
     private void TryCoinInteraction(RaycastHit hit)
     {
         if (hit.transform.CompareTag("Coin Source"))

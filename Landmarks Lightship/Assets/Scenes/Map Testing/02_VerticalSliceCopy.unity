@@ -1228,13 +1228,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62eaa3dc68a86374fb62ff7eef5b09d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionRange: 200
   interactingIndicator: {fileID: 1654565684}
   interactButton: {fileID: 2035733513}
   exitInteraction: {fileID: 1776567316}
   interactable:
     serializedVersion: 2
     m_Bits: 65
-  coinInventory: {fileID: 0}
+  coinInventory: {fileID: 598012015}
 --- !u!114 &736267174 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6766812590267712968, guid: b788caf524c30444f85f967a8858cbd5,
@@ -2814,6 +2815,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1771920139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1771920140}
+  m_Layer: 0
+  m_Name: Basic EXP Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1771920140
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771920139}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 122.53364, y: 518.6584, z: -0.0017089844}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1776567315
 GameObject:
   m_ObjectHideFlags: 0
@@ -2972,10 +3004,10 @@ RectTransform:
   - {fileID: 1437933355}
   m_Father: {fileID: 1869357738}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 16, y: -16}
-  m_SizeDelta: {x: 720.5494, y: 104.2643}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -742, y: -54}
+  m_SizeDelta: {x: 720.5493, y: 104.2643}
   m_Pivot: {x: 0, y: 0.9999998}
 --- !u!114 &1819844383
 MonoBehaviour:
@@ -3568,3 +3600,4 @@ SceneRoots:
   - {fileID: 1719235447}
   - {fileID: 1080423167}
   - {fileID: 1585673779}
+  - {fileID: 1771920140}

@@ -2,10 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The basis for any interactable objects in the game
+/// Provides basic functionality and allows for integration with WorldInteractor
+/// </summary>
 public class InteractableObject : MonoBehaviour
 {
     [SerializeField] private GameObject selectedIndicator;
+    [SerializeField] private string name = "New Interactable Object";
+
     private bool _selected;
+    protected bool _ready = true;
 
     // Returns whether the object is selected
     public bool Selected
@@ -26,6 +33,11 @@ public class InteractableObject : MonoBehaviour
     {
         _selected = false;
         selectedIndicator.SetActive(false);
+    }
+    
+    public virtual bool ReadyForInteraction()
+    {
+        return _ready;
     }
 
     // Interacts with the object
