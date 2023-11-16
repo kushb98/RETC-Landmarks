@@ -18,34 +18,31 @@ public class StreetName : InteractableObject
     [SerializeField] private TextMeshPro nameText;
     [SerializeField] private SpriteRenderer selectedImage;
 
-    public override void Interact()
+    protected override void Start()
     {
-        if(_ready)
-            Consume();
-        else
-        {
-            // Give some negative feedback
-        }
-    }
-
-    // Resets the street name and makes it available for use again
-    private void MakeReady()
-    {
-        _ready = true;
+        base.Start();
 
         nameText.color = availableColor;
         selectedImage.color = availableColor;
     }
 
-    private void Consume()
-    {
-        _ready = false;
+    // Resets the street name and makes it available for use again
+    protected override void MakeReady()
+    { 
+        base.MakeReady();
+        
+        nameText.color = availableColor;
+        selectedImage.color = availableColor;
+    }
 
+    protected override void Consume()
+    {
+        base.Consume();
+        
         nameText.color = consumedColor;
         selectedImage.color = consumedColor;
 
         CoinInventory.Singleton.AddCoins(coinReward);
         RankManager.Singleton.IncreaseEXP(expReward);
-        // add EXP reward
     }
 }

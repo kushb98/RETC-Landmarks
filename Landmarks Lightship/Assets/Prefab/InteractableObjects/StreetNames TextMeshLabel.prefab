@@ -71,9 +71,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedIndicator: {fileID: 3252719396887660159}
+  readyOnStart: 1
   name: Street Name
   coinReward: 2
-  EXPReward: 300
+  expReward: 300
   availableColor: {r: 1, g: 0.8062809, b: 0.015686274, a: 1}
   consumedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   nameText: {fileID: 7120834711098836762}
@@ -181,7 +182,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4816730590475849535}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -0.01}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -272,8 +273,8 @@ RectTransform:
   m_GameObject: {fileID: 6987291757317898485}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8036833195269248552}
   - {fileID: 1118651951619613354}

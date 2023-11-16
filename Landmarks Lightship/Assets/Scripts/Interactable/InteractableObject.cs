@@ -8,11 +8,23 @@ using UnityEngine;
 /// </summary>
 public class InteractableObject : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private GameObject selectedIndicator;
+
+    [Header("Settings")]
+    [SerializeField] private bool readyOnStart = true;
     [SerializeField] private string name = "New Interactable Object";
 
-    private bool _selected;
-    protected bool _ready = true;
+    private bool _selected = false;
+    protected bool _ready = false;
+
+    protected virtual void Start()
+    {
+        if(readyOnStart)
+        {
+            _ready = true;
+        }
+    }
 
     // Returns whether the object is selected
     public bool Selected
@@ -43,6 +55,23 @@ public class InteractableObject : MonoBehaviour
     // Interacts with the object
     public virtual void Interact()
     {
-        Debug.LogWarning(this + " has no Interact method implemented");
+        if (_ready)
+        {
+            Consume();
+        }
+        else
+        {
+            // Give some negative feedback
+        }
+    }
+
+    protected virtual void Consume()
+    {
+        _ready = false;
+    }
+
+    protected virtual void MakeReady()
+    {
+        _ready = true;
     }
 }
