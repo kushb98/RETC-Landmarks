@@ -1,4 +1,5 @@
 using Niantic.Lightship.Maps.Builders.Standard.Objects;
+using Niantic.Lightship.Maps.Core;
 using Niantic.Lightship.Maps.Core.Features;
 using Niantic.Lightship.Maps.Utilities;
 using Niantic.Platform.Debugging;
@@ -7,9 +8,22 @@ using System.Collections.Generic;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
+/// <summary>
+/// This is a script that extends AreaObjectBuilder but adds funtionality to randomize positioning
+/// </summary>
 public class RandomizedObjectBuilder : AreaObjectBuilder
 {
     [SerializeField] private float maxOffset = 0.5f;
+    [SerializeField][Range(0, 1f)] private float chanceToSpawn = 1f;
+
+    protected override void BuildFeature(IMapTile mapTile, GameObject parent, IMapTileFeature feature)
+    {
+        float randomNumber = Random.Range(0, 1f);
+        if (randomNumber <= chanceToSpawn)
+        {
+            base.BuildFeature(mapTile, parent, feature);
+        }
+    }
 
     /// <inheritdoc />
     protected override Vector3 GetObjectPosition(IMapTileFeature feature)

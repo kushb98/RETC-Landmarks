@@ -2,10 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The basis for any interactable objects in the game
+/// Provides basic functionality and allows for integration with WorldInteractor
+/// </summary>
 public class InteractableObject : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private GameObject selectedIndicator;
-    private bool _selected;
+
+    [Header("Settings")]
+    [SerializeField] private bool readyOnStart = true;
+    [SerializeField] private string name = "New Interactable Object";
+
+    private bool _selected = false;
+    protected bool _ready = false;
+
+    protected virtual void Start()
+    {
+        if(readyOnStart)
+        {
+            _ready = true;
+        }
+    }
 
     // Returns whether the object is selected
     public bool Selected
@@ -27,10 +46,32 @@ public class InteractableObject : MonoBehaviour
         _selected = false;
         selectedIndicator.SetActive(false);
     }
+    
+    public virtual bool ReadyForInteraction()
+    {
+        return _ready;
+    }
 
     // Interacts with the object
     public virtual void Interact()
     {
-        Debug.LogWarning(this + " has no Interact method implemented");
+        if (_ready)
+        {
+            Consume();
+        }
+        else
+        {
+            // Give some negative feedback
+        }
+    }
+
+    protected virtual void Consume()
+    {
+        _ready = false;
+    }
+
+    protected virtual void MakeReady()
+    {
+        _ready = true;
     }
 }
