@@ -69,8 +69,11 @@ public class WorldInteractor : MonoBehaviour
     {
         interactButton.onClick.RemoveAllListeners();
 
-        _currentInteractableObject.Deselect();
-        _currentInteractableObject = null;
+        if(_currentInteractableObject != null)
+        {
+            _currentInteractableObject.Deselect();
+            _currentInteractableObject = null;
+        }
 
         _inInteraction = false;
         interactingIndicator.SetActive(false);
