@@ -6,16 +6,10 @@ public class ItemPickup : InteractableObject
 {
     public Item Item;
 
- 
     protected override void Consume()
     {
         InventoryManager.Instance.Add(Item);
-
-        Deselect();
-
-        Destroy(gameObject);
-
-        //base.Consume();
+        Destroy(gameObject); // This works because OnDestroy is overridden in InteractableObject!
     }
 
     /*
