@@ -35,7 +35,7 @@ public class TopDownCameraSwitch : MonoBehaviour
             readySwap = true;
         }
 
-        print(Quaternion.Euler(55f, 0f, 0f));
+        //print(Quaternion.Euler(55f, 0f, 0f));
 
         //print(OrthographicCamera.orthographicSize);
         if (OrbitCamera.transform.rotation.x == .5f && OrbitCameraObject.activeSelf && readySwap == true)
