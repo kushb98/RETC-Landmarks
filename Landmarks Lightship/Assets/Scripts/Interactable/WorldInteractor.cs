@@ -8,17 +8,18 @@ using UnityEngine.UI;
 /// </summary>
 public class WorldInteractor : MonoBehaviour
 {
-    [Header("Setting")]
+    [Header("Settings")]
     [SerializeField] private float interactionRange = 200;
 
-    [Header("Interaction System")]
+    [Header("References")]
+    [SerializeField] private CoinInventory coinInventory;
+    [SerializeField] private CameraController cameraController;
+
+    [Header("UI References")]
     [SerializeField] private GameObject interactingIndicator;
     [SerializeField] private Button interactButton;
     [SerializeField] private Button exitInteraction;
     [SerializeField] private LayerMask interactable;
-
-    [Header("References")]
-    [SerializeField] private CoinInventory coinInventory;
 
     private InteractableObject _currentInteractableObject;
     private bool _inInteraction;
@@ -59,18 +60,23 @@ public class WorldInteractor : MonoBehaviour
         _inInteraction = true;
 
         _currentInteractableObject = hit.transform.GetComponent<InteractableObject>();
-        _currentInteractableObject.Select();
-
+        
+        _currentInteractableObject.Select(this);
         interactButton.onClick.AddListener(_currentInteractableObject.Interact);
+        cameraController.FocusOn(_currentInteractableObject.transform);
     }
 
     // Clears the current interactable object
-    private void ClearInteraction()
+    public void ClearInteraction()
     {
+        cameraController.BreakFocus();
         interactButton.onClick.RemoveAllListeners();
 
-        _currentInteractableObject.Deselect();
-        _currentInteractableObject = null;
+        if(_currentInteractableObject != null)
+        {
+            _currentInteractableObject.Deselect();
+            _currentInteractableObject = null;
+        }
 
         _inInteraction = false;
         interactingIndicator.SetActive(false);

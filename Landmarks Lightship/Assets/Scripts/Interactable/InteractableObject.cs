@@ -8,15 +8,15 @@ using UnityEngine;
 /// </summary>
 public class InteractableObject : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private GameObject selectedIndicator;
-
     [Header("Settings")]
     [SerializeField] private bool readyOnStart = true;
     [SerializeField] private string name = "New Interactable Object";
 
+    private WorldInteractor _worldInteractor;
+
     private bool _selected = false;
     protected bool _ready = false;
+    
 
     protected virtual void Start()
     {
@@ -34,17 +34,17 @@ public class InteractableObject : MonoBehaviour
     }
 
     // Selects the object
-    public void Select()
+    public void Select(WorldInteractor worldInteractor)
     {
         _selected = true;
-        selectedIndicator.SetActive(true);
+        _worldInteractor = worldInteractor;
     }
 
     // Deselects the object
     public void Deselect()
     {
         _selected = false;
-        selectedIndicator.SetActive(false);
+        _worldInteractor = null;
     }
     
     public virtual bool ReadyForInteraction()
@@ -62,6 +62,15 @@ public class InteractableObject : MonoBehaviour
         else
         {
             // Give some negative feedback
+        }
+    }
+
+    protected void OnDestroy()
+    {
+        if (_selected)
+        {
+            _worldInteractor.ClearInteraction();
+            Deselect();
         }
     }
 

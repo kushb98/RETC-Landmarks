@@ -14,7 +14,10 @@ public class InventoryManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+            Instance = this;
+        else
+            Debug.LogError("Multiple Inventory Managers In Scene");
     }
 
     public void Add(Item item)

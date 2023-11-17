@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 368636056090293482}
   m_Layer: 0
   m_Name: TestRoamling3
-  m_TagString: Roamling
+  m_TagString: Interactable Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,6 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b349a03948c58a54db167e09584aa017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  readyOnStart: 1
+  name: Roamling 3
   Item: {fileID: 11400000, guid: deac3c2dec03a8a44941c4b77af90188, type: 2}
 --- !u!1001 &4367747999062117802
 PrefabInstance:
