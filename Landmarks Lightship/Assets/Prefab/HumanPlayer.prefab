@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4482326199306576876}
   - component: {fileID: 2182080130117689530}
+  - component: {fileID: 6030963960841085512}
   m_Layer: 0
   m_Name: HumanPlayer
   m_TagString: Untagged
@@ -49,6 +50,23 @@ MonoBehaviour:
   _editorMovementSpeed: 20
   _camera: {fileID: 0}
   _model: {fileID: 0}
+--- !u!114 &6030963960841085512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6086869370182357616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b7f8859f094044192fe72bf01b1971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lightshipMapView: {fileID: 0}
+  _editorMovementSpeed: 60
+  _camera: {fileID: 0}
+  _model: {fileID: 0}
+  isWalking: 0
 --- !u!1001 &4823584117959661896
 PrefabInstance:
   m_ObjectHideFlags: 0
