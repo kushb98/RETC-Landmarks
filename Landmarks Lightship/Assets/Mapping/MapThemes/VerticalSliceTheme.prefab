@@ -338,9 +338,9 @@ MonoBehaviour:
   _zOffset: 0
   _mapLayer: 4
   _features: 4400000001000000030000000c0000000d00000010000000110000001200000013000000140000001d000000490000004a0000001f00000021000000220000004c0000004d0000004e000000290000002b0000005000000031000000510000005200000036000000550000003b0000003c000000
-  _prefab: {fileID: 2706641027663776789, guid: 98da03af771ee6a41b000883795c45bb, type: 3}
+  _prefab: {fileID: 2047125903275526746, guid: 2dc66ed0c012b6540976d5a1768fa95b, type: 3}
   maxOffset: 0.5
-  chanceToSpawn: 0.01
+  chanceToSpawn: 0.082
 --- !u!1 &2505446112869667383
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,8 +696,8 @@ MonoBehaviour:
   _features: 
   _materials:
   - {fileID: 2100000, guid: f84663cdc4fadda4aae0c481b15b8127, type: 2}
-  _minHeight: 0.02
-  _maxHeight: 0.02
+  _minHeight: 0.003
+  _maxHeight: 0.003
 --- !u!1 &5154305129807596750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,8 +1492,8 @@ MonoBehaviour:
   - {fileID: 5463602928002322820}
   - {fileID: 96923993823633035}
   - {fileID: 7303813193834629710}
-  - {fileID: 6901663955703694646}
   - {fileID: 5486937409247647015}
+  - {fileID: 6901663955703694646}
   _skybox: {fileID: 2100000, guid: 918aa3034ead14caa92c5f7b38712ea0, type: 2}
   _useDefaultIfUnassigned: 0
   _skyboxColor: {r: 1, g: 1, b: 1, a: 0}

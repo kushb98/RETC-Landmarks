@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f800c70fd46d93459143f838509e4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinDisplay: {fileID: 2508475196639713285}
+  coinDisplay: {fileID: 0}
   insufficientFundsWarning: {fileID: 5567456088591538427}
   warningTime: 0.6
 --- !u!1 &1435772398068100794
@@ -529,7 +529,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702471765368225297}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -538,7 +538,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.000022888184, y: -0.000030517578}
   m_SizeDelta: {x: 1600, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4051686172479343931
@@ -1147,13 +1147,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionRange: 200
+  coinInventory: {fileID: 4612141918092056870}
+  cameraController: {fileID: 0}
   interactingIndicator: {fileID: 8356987798967585379}
   interactButton: {fileID: 6520447079692742587}
   exitInteraction: {fileID: 6202357099964871023}
   interactable:
     serializedVersion: 2
     m_Bits: 65
-  coinInventory: {fileID: 4612141918092056870}
 --- !u!114 &4612141918092056870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3206,13 +3207,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionRange: 200
+  coinInventory: {fileID: 2332024601745329578}
+  cameraController: {fileID: 0}
   interactingIndicator: {fileID: 5801081277807169716}
   interactButton: {fileID: 2373052441764554519}
   exitInteraction: {fileID: 7519700202872307035}
   interactable:
     serializedVersion: 2
     m_Bits: 65
-  coinInventory: {fileID: 2332024601745329578}
 --- !u!114 &2332024601745329578
 MonoBehaviour:
   m_ObjectHideFlags: 0

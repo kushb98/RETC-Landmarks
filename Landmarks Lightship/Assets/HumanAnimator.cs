@@ -27,14 +27,14 @@ public class HumanAnimator : MonoBehaviour
 
         if (Input.GetAxisRaw("Horizontal") != 0f || Input.GetAxisRaw("Vertical") != 0f)
         {
-            print("Is Moving!");
+          //  print("Is Moving!");
             PlayerAnim.SetBool("IsMoving", true);
 
         }
 
         else if (Vector3.Distance(currentPos, prevPos) < 0.05f)
         {
-            print("Is not moving!");
+           // print("Is not moving!");
             PlayerAnim.SetBool("IsMoving", false);
         }
 
