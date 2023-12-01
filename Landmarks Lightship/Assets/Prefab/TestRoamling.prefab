@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 191.7, y: 52, z: 85}
-  m_LocalScale: {x: 20.1, y: 20.1, z: 20.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6594772657616047914}
@@ -69,6 +69,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b349a03948c58a54db167e09584aa017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  readyOnStart: 1
+  name: Roamling 1
   Item: {fileID: 11400000, guid: 803e817fc24bb8040bd83c6b409ee053, type: 2}
 --- !u!65 &760954124414630608
 BoxCollider:

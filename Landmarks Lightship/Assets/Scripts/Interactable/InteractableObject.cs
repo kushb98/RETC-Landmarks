@@ -2,10 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The basis for any interactable objects in the game
+/// Provides basic functionality and allows for integration with WorldInteractor
+/// </summary>
 public class InteractableObject : MonoBehaviour
 {
-    [SerializeField] private GameObject selectedIndicator;
-    private bool _selected;
+    [Header("Settings")]
+    [SerializeField] private bool readyOnStart = true;
+    [SerializeField] private string name = "New Interactable Object";
+
+    private WorldInteractor _worldInteractor;
+
+    private bool _selected = false;
+    protected bool _ready = false;
+    
+
+    protected virtual void Start()
+    {
+        if(readyOnStart)
+        {
+            _ready = true;
+        }
+    }
 
     // Returns whether the object is selected
     public bool Selected
@@ -15,22 +34,53 @@ public class InteractableObject : MonoBehaviour
     }
 
     // Selects the object
-    public void Select()
+    public void Select(WorldInteractor worldInteractor)
     {
         _selected = true;
-        selectedIndicator.SetActive(true);
+        _worldInteractor = worldInteractor;
     }
 
     // Deselects the object
     public void Deselect()
     {
         _selected = false;
-        selectedIndicator.SetActive(false);
+        _worldInteractor = null;
+    }
+    
+    public virtual bool ReadyForInteraction()
+    {
+        return _ready;
     }
 
     // Interacts with the object
     public virtual void Interact()
     {
-        Debug.LogWarning(this + " has no Interact method implemented");
+        if (_ready)
+        {
+            Consume();
+        }
+        else
+        {
+            // Give some negative feedback
+        }
+    }
+
+    protected void OnDestroy()
+    {
+        if (_selected)
+        {
+            _worldInteractor.ClearInteraction();
+            Deselect();
+        }
+    }
+
+    protected virtual void Consume()
+    {
+        _ready = false;
+    }
+
+    protected virtual void MakeReady()
+    {
+        _ready = true;
     }
 }

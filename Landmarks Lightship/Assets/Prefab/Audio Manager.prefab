@@ -50,7 +50,7 @@ MonoBehaviour:
   sfxSource: {fileID: 7792064212874325039}
   playerFootsteps: {fileID: 8300000, guid: 6ca2337cc76310a45a42bd55779aaf25, type: 3}
   hoverSound: {fileID: 0}
-  clickSound: {fileID: 0}
+  clickSound: {fileID: 8300000, guid: ce3c27ea62f982c40948f06799a7bfee, type: 3}
 --- !u!1 &5014300448903064902
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,13 +223,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.02
+  m_Pitch: 0.9
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 135
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

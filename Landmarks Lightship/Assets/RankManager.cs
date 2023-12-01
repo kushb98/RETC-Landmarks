@@ -4,10 +4,12 @@ using TMPro;
 
 public class RankManager : MonoBehaviour
 {
-    public Text rankText;
-    public Text expText;
-    public Text levelText;
-    public Slider expSlider;
+    public static RankManager Singleton;
+
+    [SerializeField] private TextMeshProUGUI rankText;
+    [SerializeField] private TextMeshProUGUI expText;
+    [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] private Slider expSlider;
 
     private int currentRank = 1;
     private int currentEXP = 0;
@@ -19,6 +21,12 @@ public class RankManager : MonoBehaviour
     private string[] rankNames = { "Scout", "Pathfinder", "Adventurer", "Trailblazer" };
     private int[] rankExpThresholds = { 6000, 12000, 18000, 20000 }; // EXP thresholds for rank names
 
+    private void Awake()
+    {
+        if (Singleton == null)
+            Singleton = this;
+    }
+
     private void Start()
     {
         UpdateUI();
@@ -26,10 +34,10 @@ public class RankManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Check if the left mouse button is clicked
+    /*  if (Input.GetMouseButtonDown(0)) // Check if the left mouse button is clicked
         {
             IncreaseEXP(expIncreaseOnMouseClick); // Increase EXP when clicked
-        }
+        }*/
     }
 
     public void IncreaseEXP(int amount)
@@ -56,7 +64,7 @@ public class RankManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        string rankName = "";
+        string rankName = "None";
 
         if (currentRank >= 1 && currentRank <= 3)
         {

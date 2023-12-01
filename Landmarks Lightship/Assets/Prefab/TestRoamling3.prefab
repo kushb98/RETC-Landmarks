@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 368636056090293482}
   m_Layer: 0
   m_Name: TestRoamling3
-  m_TagString: Roamling
+  m_TagString: Interactable Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 283, y: 15, z: 451}
-  m_LocalScale: {x: 55, y: 55, z: 55}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6059695654688639137}
@@ -133,6 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b349a03948c58a54db167e09584aa017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  readyOnStart: 1
+  name: Roamling 3
   Item: {fileID: 11400000, guid: deac3c2dec03a8a44941c4b77af90188, type: 2}
 --- !u!1001 &4367747999062117802
 PrefabInstance:

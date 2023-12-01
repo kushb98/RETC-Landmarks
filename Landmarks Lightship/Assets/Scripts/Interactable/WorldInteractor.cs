@@ -3,16 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// An interface wetween all sytems and the environment
+/// </summary>
 public class WorldInteractor : MonoBehaviour
 {
-    [Header("Interaction System")]
+    [Header("Settings")]
+    [SerializeField] private float interactionRange = 200;
+
+    [Header("References")]
+    [SerializeField] private CoinInventory coinInventory;
+    [SerializeField] private CameraController cameraController;
+
+    [Header("UI References")]
     [SerializeField] private GameObject interactingIndicator;
     [SerializeField] private Button interactButton;
     [SerializeField] private Button exitInteraction;
     [SerializeField] private LayerMask interactable;
-
-    [Header("References")]
-    [SerializeField] private CoinInventory coinInventory;
 
     private InteractableObject _currentInteractableObject;
     private bool _inInteraction;
@@ -28,20 +35,21 @@ public class WorldInteractor : MonoBehaviour
             OnClick();
     }
 
-    // What happens when the player clicks on the screen
+    // Fires a raycast to see if the player has just clicked on anything
     private void OnClick()
     {
         if (_inInteraction)
+        {
             return; // TODO: Put code for what happens durring interactions here
-
+        }
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit, 500, interactable))
+        if (Physics.Raycast(ray, out RaycastHit hit, interactionRange, interactable))
         {
             if (hit.transform.CompareTag("Interactable Object"))
                 InitializeInteraction(hit);
 
-            TryCoinInteraction(hit);
+            TryCoinInteraction(hit); // This is depreciated!
         }
     }
 
@@ -52,24 +60,30 @@ public class WorldInteractor : MonoBehaviour
         _inInteraction = true;
 
         _currentInteractableObject = hit.transform.GetComponent<InteractableObject>();
-        _currentInteractableObject.Select();
-
+        
+        _currentInteractableObject.Select(this);
         interactButton.onClick.AddListener(_currentInteractableObject.Interact);
+        cameraController.FocusOn(_currentInteractableObject.transform);
     }
 
     // Clears the current interactable object
-    private void ClearInteraction()
+    public void ClearInteraction()
     {
+        cameraController.BreakFocus();
         interactButton.onClick.RemoveAllListeners();
 
-        _currentInteractableObject.Deselect();
-        _currentInteractableObject = null;
+        if(_currentInteractableObject != null)
+        {
+            _currentInteractableObject.Deselect();
+            _currentInteractableObject = null;
+        }
 
         _inInteraction = false;
         interactingIndicator.SetActive(false);
     }
 
     // Tries to pickup or discard coins 
+    // This is depreciated!
     private void TryCoinInteraction(RaycastHit hit)
     {
         if (hit.transform.CompareTag("Coin Source"))
