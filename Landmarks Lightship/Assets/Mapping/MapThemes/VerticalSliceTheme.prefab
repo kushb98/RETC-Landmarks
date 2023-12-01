@@ -340,7 +340,7 @@ MonoBehaviour:
   _features: 4400000001000000030000000c0000000d00000010000000110000001200000013000000140000001d000000490000004a0000001f00000021000000220000004c0000004d0000004e000000290000002b0000005000000031000000510000005200000036000000550000003b0000003c000000
   _prefab: {fileID: 2047125903275526746, guid: 2dc66ed0c012b6540976d5a1768fa95b, type: 3}
   maxOffset: 0.5
-  chanceToSpawn: 0.082
+  chanceToSpawn: 0.058
 --- !u!1 &2505446112869667383
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,6 +632,7 @@ Transform:
   m_Children:
   - {fileID: 6823473501323291085}
   - {fileID: 3921515350075416930}
+  - {fileID: 3236876519782731714}
   - {fileID: 5194394722714966752}
   - {fileID: 4908708601489035531}
   m_Father: {fileID: 4630994868801563132}
@@ -1423,6 +1424,67 @@ Transform:
   - {fileID: 4194218786263974761}
   m_Father: {fileID: 4630994868801563132}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8433197127974186505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3236876519782731714}
+  - component: {fileID: 3975362714671201561}
+  m_Layer: 0
+  m_Name: BuildingStressTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3236876519782731714
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8433197127974186505}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8333095685500862239}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3975362714671201561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8433197127974186505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b74e50080ef07d48b48b53f89531d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _undefinedFeatures: 
+  _boundaryFeatures: 
+  _structureFeatures: 
+  _landUseFeatures: 4400000001000000030000000c0000000d00000010000000110000001200000013000000140000001d000000490000004a0000001f00000021000000220000004c0000004d0000004e000000290000002b0000005000000031000000510000005200000036000000550000003b0000003c000000
+  _placesFeatures: 
+  _linearFeatures: 
+  _transitFeatures: 
+  _waterFeatures: 
+  _builderName: Roamling Builder
+  _minLOD: 0
+  _maxLOD: 17
+  _zOffset: 0
+  _mapLayer: 4
+  _features: 4400000001000000030000000c0000000d00000010000000110000001200000013000000140000001d000000490000004a0000001f00000021000000220000004c0000004d0000004e000000290000002b0000005000000031000000510000005200000036000000550000003b0000003c000000
+  _prefab: {fileID: 6555399154572785297, guid: a0bcde8bdb3d4794cb0fe61128514e9c, type: 3}
+  maxOffset: 0.5
+  chanceToSpawn: 0.988
 --- !u!1 &8856361436128326381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1494,6 +1556,7 @@ MonoBehaviour:
   - {fileID: 7303813193834629710}
   - {fileID: 5486937409247647015}
   - {fileID: 6901663955703694646}
+  - {fileID: 3975362714671201561}
   _skybox: {fileID: 2100000, guid: 918aa3034ead14caa92c5f7b38712ea0, type: 2}
   _useDefaultIfUnassigned: 0
   _skyboxColor: {r: 1, g: 1, b: 1, a: 0}
