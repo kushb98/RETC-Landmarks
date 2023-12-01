@@ -4,25 +4,25 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// An interface wetween all sytems and the environment
+/// The WorldInteractor class is a mediator between the player and the game environment.
+/// It provides functionality to interact with objects in the game world that are derived from the InteractableObject class.
 /// </summary>
 public class WorldInteractor : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private float interactionRange = 200;
+    [SerializeField] float interactionRange = 200;
 
     [Header("References")]
-    [SerializeField] private CoinInventory coinInventory;
-    [SerializeField] private CameraController cameraController;
+    [SerializeField] CameraController cameraController;
 
     [Header("UI References")]
-    [SerializeField] private GameObject interactingIndicator;
-    [SerializeField] private Button interactButton;
-    [SerializeField] private Button exitInteraction;
-    [SerializeField] private LayerMask interactable;
+    [SerializeField] GameObject interactingIndicator;
+    [SerializeField] Button interactButton;
+    [SerializeField] Button exitInteraction;
+    [SerializeField] LayerMask interactable;
 
-    private InteractableObject _currentInteractableObject;
-    private bool _inInteraction;
+    InteractableObject _currentInteractableObject;
+    bool _inInteraction;
 
     private void Start()
     {
@@ -35,12 +35,14 @@ public class WorldInteractor : MonoBehaviour
             OnClick();
     }
 
-    // Fires a raycast to see if the player has just clicked on anything
+    /// <summary>
+    /// Fires a raycast to check if the player has clicked on an InteractableObject.
+    /// </summary>
     private void OnClick()
     {
         if (_inInteraction)
         {
-            return; // TODO: Put code for what happens durring interactions here
+            return;
         }
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -48,31 +50,34 @@ public class WorldInteractor : MonoBehaviour
         {
             if (hit.transform.CompareTag("Interactable Object"))
                 InitializeInteraction(hit);
-
-            TryCoinInteraction(hit); // This is depreciated!
         }
     }
 
-    // Initializes an object interaction, sets the current interactable object
+    /// <summary>
+    /// Initializes an interaction with an InteractableObject.
+    /// </summary>
+    /// <param name="hit">The RaycastHit object containing information about the clicked InteractableObject.</param>
     private void InitializeInteraction(RaycastHit hit)
     {
         interactingIndicator.SetActive(true);
         _inInteraction = true;
 
         _currentInteractableObject = hit.transform.GetComponent<InteractableObject>();
-        
+
         _currentInteractableObject.Select(this);
         interactButton.onClick.AddListener(_currentInteractableObject.Interact);
         cameraController.FocusOn(_currentInteractableObject.transform);
     }
 
-    // Clears the current interactable object
+    /// <summary>
+    /// Clears the current interaction.
+    /// </summary>
     public void ClearInteraction()
     {
         cameraController.BreakFocus();
         interactButton.onClick.RemoveAllListeners();
 
-        if(_currentInteractableObject != null)
+        if (_currentInteractableObject != null)
         {
             _currentInteractableObject.Deselect();
             _currentInteractableObject = null;
@@ -80,24 +85,5 @@ public class WorldInteractor : MonoBehaviour
 
         _inInteraction = false;
         interactingIndicator.SetActive(false);
-    }
-
-    // Tries to pickup or discard coins 
-    // This is depreciated!
-    private void TryCoinInteraction(RaycastHit hit)
-    {
-        if (hit.transform.CompareTag("Coin Source"))
-        {
-            TestingCoinSource coinSource = hit.transform.GetComponent<TestingCoinSource>();
-
-            coinInventory.AddCoins(coinSource.NumberOfCoins);
-        }
-/*
-        if (hit.transform.CompareTag("Coin Remover"))
-        {
-            TestingCoinRemover coinRemover = hit.transform.GetComponent<TestingCoinRemover>();
-
-            coinInventory.TryRemoveCoins(coinRemover.NumberOfCoins);
-        }*/
     }
 }
