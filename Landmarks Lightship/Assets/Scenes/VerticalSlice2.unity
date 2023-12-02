@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1834612, g: 0.22903696, b: 0.30586663, a: 1}
+  m_IndirectSpecularColor: {r: 0.18346149, g: 0.22903728, b: 0.30586746, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -244,6 +244,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6614101381701084594, guid: 88c6861d76b4c49e18329bfbc54d44b5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.92387956
+      objectReference: {fileID: 0}
+    - target: {fileID: 6614101381701084594, guid: 88c6861d76b4c49e18329bfbc54d44b5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.38268343
+      objectReference: {fileID: 0}
+    - target: {fileID: 6614101381701084594, guid: 88c6861d76b4c49e18329bfbc54d44b5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 6614101382141779484, guid: 88c6861d76b4c49e18329bfbc54d44b5,
         type: 3}
       propertyPath: m_Name
@@ -254,6 +269,11 @@ PrefabInstance:
       propertyPath: _focusObject
       value: 
       objectReference: {fileID: 1667325206}
+    - target: {fileID: 6614101382141779485, guid: 88c6861d76b4c49e18329bfbc54d44b5,
+        type: 3}
+      propertyPath: _gestureSettings._mouseScrollZoomSpeed
+      value: -1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6614101382141779490, guid: 88c6861d76b4c49e18329bfbc54d44b5,
         type: 3}
       propertyPath: m_RootOrder
@@ -1955,7 +1975,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1085078093
 MonoBehaviour:
   m_ObjectHideFlags: 0
