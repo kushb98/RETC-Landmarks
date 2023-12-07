@@ -18,64 +18,78 @@ public class QuestionSystem : MonoBehaviour
       }
 
     public void OptionSelected(int selectedOptionIndex)
-      {
-          if (options[selectedOptionIndex].GetComponent<AnswerScript>().isCorrect)
-          {
-              // Code for correct answer
-          }
-          else
-          {
-              attemptsLeft--;
+    {
+        if (options[selectedOptionIndex].GetComponent<AnswerScript>().isCorrect)
+        {
+            // Code for correct answer
 
-              // Disable the selected incorrect option
-              options[selectedOptionIndex].SetActive(false);
+            Debug.Log("Correct Answer!");
 
-              if (attemptsLeft <= 0)
-              {
-                  // Maximum attempts reached for this question
-                  Debug.Log("Maximum attempts reached for this question.");
-                  QnA.RemoveAt(currentQuestion);
-                  attemptsLeft = 2; // Reset attempts for the next question
-                  generateQuestion();
-              }
-              else
-              {
-                  // Show remaining options for the second attempt
-                  ShowRemainingOptions();
-              }
-          }
-      }
+            // Set all options active after clicking the correct answer
+            foreach (GameObject option in options)
+            {
+                option.SetActive(true);
+            }
+
+            // Remove the current question and generate a new one
+            QnA.RemoveAt(currentQuestion);
+            generateQuestion();
+        }
+        else
+        {
+            attemptsLeft--;
+
+            // Disable the selected incorrect option
+            options[selectedOptionIndex].SetActive(false);
+
+            if (attemptsLeft <= 0)
+            {
+                // Maximum attempts reached for this question
+                Debug.Log("Maximum attempts reached for this question.");
+                QnA.RemoveAt(currentQuestion);
+                attemptsLeft = 2; // Reset attempts for the next question
+                generateQuestion();
+            }
+            else
+            {
+                // Show remaining options for the second attempt
+                ShowRemainingOptions();
+            }
+        }
+    }
+
 
     void ShowRemainingOptions()
-      {
-          bool correctOptionActive = false;
+    {
+        bool correctOptionActive = false;
 
-          // Disable incorrect options, keeping the correct one intact
-          for (int i = 0; i < options.Length; i++)
-          {
-              if (!options[i].GetComponent<AnswerScript>().isCorrect && options[i].activeSelf)
-              {
-                  options[i].SetActive(false);
-              }
-              else if (options[i].GetComponent<AnswerScript>().isCorrect && options[i].activeSelf)
-              {
-                  correctOptionActive = true;
-              }
-          }
+        // Enable correct options and disable incorrect ones
+        for (int i = 0; i < options.Length; i++)
+        {
+            if (options[i].GetComponent<AnswerScript>().isCorrect && options[i].activeSelf)
+            {
+                correctOptionActive = true;
+            }
+            else
+            {
+                options[i].SetActive(false);
+            }
+        }
 
-          // Ensure the correct option remains active if it was active before
-          if (!correctOptionActive)
-          {
-              for (int i = 0; i < options.Length; i++)
-              {
-                  if (options[i].GetComponent<AnswerScript>().isCorrect)
-                  {
-                      options[i].SetActive(true);
-                      break;
-                  }
-              }
-          }
-      }
+        // Ensure the correct option remains active if it was active before
+        if (!correctOptionActive)
+        {
+            for (int i = 0; i < options.Length; i++)
+            {
+                if (options[i].GetComponent<AnswerScript>().isCorrect)
+                {
+                    options[i].SetActive(true);
+                    break;
+                }
+            }
+        }
+    }
+
 
 
 
@@ -92,27 +106,32 @@ public class QuestionSystem : MonoBehaviour
       }
 
     void SetAnswers()
-      {
-          for (int i = 0; i < options.Length; i++)
-          {
-              options[i].GetComponent<AnswerScript>().isCorrect = false;
-              TextMeshProUGUI textComponent = options[i].GetComponentInChildren<TextMeshProUGUI>();
+    {
+        for (int i = 0; i < options.Length; i++)
+        {
+            options[i].SetActive(true); // Set all options to active
 
-              if (textComponent != null)
-              {
-                  textComponent.text = QnA[currentQuestion].Answers[i];
-              }
-              else
-              {
-                  Debug.LogError("Text component not found in option " + i);
-              }
+            options[i].GetComponent<AnswerScript>().isCorrect = false;
+            TextMeshProUGUI textComponent = options[i].GetComponentInChildren<TextMeshProUGUI>();
 
-              if (QnA[currentQuestion].CorrectAnswer == i + 1)
-              {
-                  options[i].GetComponent<AnswerScript>().isCorrect = true;
-              }
-          }
-      }
+            if (textComponent != null)
+            {
+                textComponent.text = QnA[currentQuestion].Answers[i];
+            }
+            else
+            {
+                Debug.LogError("Text component not found in option " + i);
+            }
+
+            if (QnA[currentQuestion].CorrectAnswer - 1 == i)
+            {
+                options[i].GetComponent<AnswerScript>().isCorrect = true;
+            }
+        }
+    }
+
+
+
 
     void generateQuestion()
       {
