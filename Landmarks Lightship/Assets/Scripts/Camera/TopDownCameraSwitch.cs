@@ -52,7 +52,7 @@ public class TopDownCameraSwitch : MonoBehaviour
         camerarotationtracker = OrbitCamera.transform.rotation.eulerAngles.x;
 
 
-        print(camerarotationtracker);
+       // print(camerarotationtracker); keep this commented out outside debugging or Unity crashes
 
         //Re-enable swapping if zoomed in a tiny bit beyond the orbit max
         if (OrbitCamera.transform.rotation.eulerAngles.x <= 59.9 && readySwap == false)
