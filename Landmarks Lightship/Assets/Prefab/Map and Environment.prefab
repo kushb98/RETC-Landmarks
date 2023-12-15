@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5529408048870211264}
   - component: {fileID: 6365678864457145549}
   m_Layer: 0
-  m_Name: Landmark Coodinate Spawner
+  m_Name: Coodinate Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,6 +103,7 @@ Transform:
   - {fileID: 1227659322885384919}
   - {fileID: 5529408048870211264}
   - {fileID: 6155351816691375400}
+  - {fileID: 1111267258198429131}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7799551907024019083
@@ -223,6 +224,51 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &8220454362023949833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1111267258198429131}
+  - component: {fileID: 7312496526662350074}
+  m_Layer: 0
+  m_Name: JSON Landmark Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1111267258198429131
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8220454362023949833}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.539268, y: 3.1323137, z: -9.980669}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1728984206261705201}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7312496526662350074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8220454362023949833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298c7c5efd8e4444a9f022c54065deb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coordinateSpawner: {fileID: 6365678864457145549}
 --- !u!1001 &5906515957116608700
 PrefabInstance:
   m_ObjectHideFlags: 0

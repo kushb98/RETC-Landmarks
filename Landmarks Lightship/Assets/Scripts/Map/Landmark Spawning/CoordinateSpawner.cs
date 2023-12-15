@@ -5,10 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-//using static UnityEditor.FilePathAttribute;
 using UnityEngine.Android;
-
-
 
 public class CoordinateSpawner : MonoBehaviour
 {
@@ -59,7 +56,7 @@ public class CoordinateSpawner : MonoBehaviour
 
     private void Start()
     {
-        BasicSpawnLandmarks();
+        //BasicSpawnLandmarks();
     }
 
     private void BasicSpawnLandmarks()
@@ -79,7 +76,7 @@ public class CoordinateSpawner : MonoBehaviour
         }
     }*/
 
-    private void SpawnLandmark(LatLng postion, Quaternion rotation, LanmarkEnum buildingType)
+    public void SpawnLandmark(LatLng postion, Quaternion rotation, LanmarkEnum buildingType)
     {
         int buildingHash = buildingType.GetHashCode();
 
