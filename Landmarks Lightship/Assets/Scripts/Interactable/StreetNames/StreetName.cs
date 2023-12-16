@@ -11,8 +11,9 @@ public class StreetName : InteractableObject
     [SerializeField] private int expReward = 300;
 
     [Header("Settings")]
-    [SerializeField] private Color availableColor = Color.yellow;
+    [SerializeField] private Color readyColor = Color.yellow;
     [SerializeField] private Color consumedColor = Color.gray;
+    [SerializeField] private Color outOfRangeColor = Color.black;
 
     [Header("References")]
     [SerializeField] private TextMeshPro nameText;
@@ -20,8 +21,8 @@ public class StreetName : InteractableObject
     protected override void Start()
     {
         base.Start();
-
-        nameText.color = availableColor;
+        
+        nameText.color = outOfRangeColor;
     }
 
     // Resets the street name and makes it available for use again
@@ -29,7 +30,7 @@ public class StreetName : InteractableObject
     { 
         base.MakeReady();
         
-        nameText.color = availableColor;
+        nameText.color = readyColor;
     }
 
     protected override void Consume()
@@ -40,5 +41,22 @@ public class StreetName : InteractableObject
 
         CoinInventory.Singleton.AddCoins(coinReward);
         RankManager.Singleton.IncreaseEXP(expReward);
+    }
+
+    protected override void OnOutOfRange()
+    {
+        base.OnOutOfRange();
+        
+        nameText.color = outOfRangeColor;
+    }
+
+    protected override void OnInRange()
+    {
+        base.OnInRange();
+        
+        if (_ready)
+            nameText.color = readyColor;
+        else
+            nameText.color = consumedColor;
     }
 }
