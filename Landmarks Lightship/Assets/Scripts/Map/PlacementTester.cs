@@ -6,11 +6,12 @@ using Niantic.Lightship.Maps.MapLayers;
 using Niantic.Lightship.Maps.Core.Coordinates;
 using Niantic.Lightship.Maps;
 
-/* Basic placement test from the tutorial at 
- * https://lightship.dev/docs/beta/maps/unity/how-to/place_objects_on_map/
- * By Martin Allsbrook martin.allsbrook@colorado.edu
- */
 
+/// <summary>
+/// Basic placement test from the tutorial at 
+/// https://lightship.dev/docs/beta/maps/unity/how-to/place_objects_on_map/
+/// By Martin Allsbrook martin.allsbrook@colorado.edu
+/// </summary>
 public class PlacementTester : MonoBehaviour
 {
     [SerializeField] private LayerGameObjectPlacement _objectSpawner; // A "LayerGameObjectPlacement" is a MapLayer that places a particular obejct
@@ -19,7 +20,9 @@ public class PlacementTester : MonoBehaviour
 
     [SerializeField] private LightshipMapView _lightshipMapView;
 
-    // Basic Update method to get inputs
+    /// <summary>
+    /// Update method to get inputs. Detects touch or mouse click and calls TestObjectPlacement method.
+    /// </summary>
     private void Update()
     {
         var touchPosition = Vector3.zero;
@@ -46,6 +49,10 @@ public class PlacementTester : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Places an object at the touch position with the rotation of the camera.
+    /// </summary>
+    /// <param name="touchPosition">The position of the touch or mouse click.</param>
     private void TestObjectPlacement(Vector3 touchPosition)
     {
         var location = ScreenPointToLatLong(touchPosition);
@@ -56,7 +63,11 @@ public class PlacementTester : MonoBehaviour
         _objectSpawner.PlaceInstance(location, rotation);
     }
 
-    // Method coppied from MapGameMapInterations.cs
+    /// <summary>
+    /// Converts a screen point to latitude and longitude.
+    /// </summary>
+    /// <param name="screenPosition">The position on the screen.</param>
+    /// <returns>The latitude and longitude of the screen position.</returns>
     private LatLng ScreenPointToLatLong(Vector3 screenPosition)
     {
         var clickRay = _mapCamera.ScreenPointToRay(screenPosition);

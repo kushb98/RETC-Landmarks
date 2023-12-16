@@ -8,6 +8,8 @@ using UnityEngine.Android;
 
 public class PlayerController : MonoBehaviour
 {
+	public static PlayerController Instance { get; private set; } // My GitHub Copilot made this a property, don't know if it's necessary
+
 	private AudioManager audioManager;
 
 	[SerializeField]
@@ -44,6 +46,15 @@ public class PlayerController : MonoBehaviour
 
 	private void Awake()
 	{
+		if (Instance == null)
+		{
+            Instance = this;
+        }
+        else
+		{
+            Debug.LogError("Multiple PlayerControllers in scene");
+        }
+
 		audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
 	}
 	private void Start()
