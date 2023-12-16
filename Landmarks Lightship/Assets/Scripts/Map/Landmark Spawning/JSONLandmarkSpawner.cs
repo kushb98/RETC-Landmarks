@@ -34,8 +34,6 @@ public class JSONLandmarkSpawner : MonoBehaviour
 
     private void Start()
     {
-        //CreateTestDocument();
-
         landmarksList = new LandmarksList();
         landmarksList = LoadFromJSON("Resources/JSON Files/landmarksList.txt");
 
