@@ -12,12 +12,27 @@ public class CoinUI : MonoBehaviour
     [Header("Insufficient Funds")]
     [SerializeField] private GameObject insufficientFundsWarning;
     [SerializeField] private float warningTime;
+    //added 
+    //private int numCoins;
 
     // Sets the coin display to a number of coins
     public void SetCoinDisplay(int numCoins)
     {
         coinDisplay.text = "Coins: " + numCoins.ToString();
     }
+
+    // Added to save coin data
+   /* public void LoadData(GameData data)
+	{
+		this.numCoins = data.numCoins;
+	}
+
+    public void SaveData(ref GameData data)
+    {
+        data.numCoins = this.numCoins;
+    }
+    */
+
 
     public void ShowInsufficientFunds()
     {

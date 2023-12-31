@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class Item : ScriptableObject
 {
-    public int id;
+    public ItemID id;
     public string itemName;
     public int value;
     public Sprite icon;
+    public enum ItemID { None, Sword, Shield, Bow, Arrow, Potion, Coin}
 
 
 }
