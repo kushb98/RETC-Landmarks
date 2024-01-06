@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class CoinInventory : MonoBehaviour
+public class CoinInventory : MonoBehaviour, IDataPersistence
 {
     public static CoinInventory Singleton;
 
@@ -18,6 +18,7 @@ public class CoinInventory : MonoBehaviour
         else
             Debug.LogError("There can not be more than one instance of a singleton");
     }
+
 
     // Adds a certain number of coins
     public void AddCoins(int numToAdd)
@@ -47,4 +48,18 @@ public class CoinInventory : MonoBehaviour
     {
         return _numCoins >= numToCheck;
     }
+
+    // Added to save coin data
+    public void LoadData(GameData data)
+	{
+       coinUI.SetCoinDisplay(data._numCoins);
+		this._numCoins = data._numCoins;
+	}
+    
+    public void SaveData(ref GameData data)
+    {
+        data._numCoins = this._numCoins;
+        Debug.Log("Saving coin data");
+    }
+
 }

@@ -16,3 +16,5 @@ MonoBehaviour:
   itemName: Cashew Bear
   value: 2
   icon: {fileID: 21300000, guid: 4440b2c0f258b8142aaf6e65a014cdcc, type: 3}
+  Hunger: 50
+  Happiness: 5
