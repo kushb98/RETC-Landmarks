@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VerticalSlice2.unity
     guid: e38ff05ef0501564586934f84e4d4710
+  - enabled: 1
+    path: Assets/Scenes/SavingTest.unity
+    guid: 2b12a9f21dfb5e84283449bf40d4fa26
   m_configObjects: {}

@@ -9,7 +9,9 @@ public class Item : ScriptableObject
     public string itemName;
     public int value;
     public Sprite icon;
-    public enum ItemID { None, Sword, Shield, Bow, Arrow, Potion, Coin}
+    public int Hunger;
+    public int Happiness;
+    public enum ItemID { None, Axolotl, Bear, Turtle }
 
 
 }
