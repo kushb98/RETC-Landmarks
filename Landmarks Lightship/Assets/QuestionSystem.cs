@@ -6,7 +6,10 @@ using static Question;
 
 public class QuestionSystem : MonoBehaviour
 {
+    public static QuestionSystem Instance;
+
     [SerializeField] private Question[] potentialQuestions;
+    private List<Question> potentialQuestionsList = new List<Question>();
 
     [Header("UI Elements")]
     [SerializeField] AnswerOption[] answerOptions;
@@ -14,27 +17,46 @@ public class QuestionSystem : MonoBehaviour
     [SerializeField] TextMeshProUGUI attemptsLeftText;
 
     // Stats abt the current question
+    private Question _currentQuestion;
     private AnswerEnum correctAnswer;
     private int attemptsLeft = 2; // Number of attempts allowed
 
-    private void Start()
+    private void Awake()
     {
-        // Set the question to a random question to test
-        SetQuestion(potentialQuestions[Random.Range(0, potentialQuestions.Length)]);
+        if (Instance == null)
+            Instance = this;
+
+        potentialQuestionsList.AddRange(potentialQuestions);
+
+        gameObject.SetActive(false);
+    }
+
+    public void AskRandomQuestion()
+    {
+        gameObject.SetActive(true);
+
+        Question question = potentialQuestionsList[Random.Range(0, potentialQuestionsList.Count)];
+
+        SetQuestion(question);
     }
 
     private void SetQuestion(Question question)
     {
+        ResetAttempts();
+
+        _currentQuestion = question;
+
         questionText.text = question.QuestionString;
         correctAnswer = question.CorrectAnswer;
 
         // Set the answer options
-        for (int i = 0; i < answerOptions.Length; i++)
+        for (int i = 0; i < question.AnswerStrings.Length; i++)
         {
+            Debug.Log("Setting answer " + i + " to " + question.AnswerStrings[i]);
             answerOptions[i].SetQuestion(question.AnswerStrings[i]);
         }
 
-        for (int i = answerOptions.Length; i < question.AnswerStrings.Length; i++)
+        for (int i = question.AnswerStrings.Length; i < answerOptions.Length; i++)
         {
             answerOptions[i].Disable();
         }
@@ -46,7 +68,7 @@ public class QuestionSystem : MonoBehaviour
 
         if (answerEnum == (int)correctAnswer)
         {
-            Debug.Log("Correct!");
+            OnCorrectAnswerChosen();
         }
         else
         {
@@ -59,5 +81,22 @@ public class QuestionSystem : MonoBehaviour
                 Debug.Log("Out of attempts!");
             }
         }
+    }
+
+    private void OnCorrectAnswerChosen()
+    {
+        RankManager.Singleton.IncreaseEXP(_currentQuestion.RewardEXP);
+
+        Debug.Log("Correct!");
+
+        potentialQuestionsList.Remove(_currentQuestion);
+
+        gameObject.SetActive(false);
+    }
+
+    private void ResetAttempts()
+    {
+        attemptsLeft = 2;
+        attemptsLeftText.text = attemptsLeft.ToString();
     }
 }

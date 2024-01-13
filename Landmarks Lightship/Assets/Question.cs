@@ -8,6 +8,7 @@ public class Question : ScriptableObject
     [SerializeField] private string question;
     [SerializeField] private string[] answers;
     [SerializeField] private AnswerEnum correctAnswer;
+    [SerializeField] private int rewardEXP = 500;
 
     public enum AnswerEnum
     {
@@ -27,5 +28,10 @@ public class Question : ScriptableObject
     public AnswerEnum CorrectAnswer
     {
         get { return correctAnswer; }
+    }
+
+    public int RewardEXP
+    {
+        get { return rewardEXP; }
     }
 }
