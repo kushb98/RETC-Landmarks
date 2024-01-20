@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7de4fe1c46f12d548a58dc34efbeff6b, type: 3}
-  m_Name: Test Question
+  m_Name: Test Question 2
   m_EditorClassIdentifier: 
-  question: The answer to this question is 5
+  question: The answer to this question is 2
   answers:
   - 1
   - 2
   - 3
   - 4
   - 5
-  correctAnswer: 4
-  rewardEXP: 500
+  - 6
+  - 7
+  correctAnswer: 1
+  rewardEXP: 300

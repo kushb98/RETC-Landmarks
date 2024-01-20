@@ -3741,6 +3741,23 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5448957362832571113, guid: 1ea805cc2a5697444828a745d226a8a9,
+        type: 3}
+      propertyPath: potentialQuestions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5448957362832571113, guid: 1ea805cc2a5697444828a745d226a8a9,
+        type: 3}
+      propertyPath: potentialQuestions.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: a9cc6412244ea83478f38dfe225c39bb,
+        type: 2}
+    - target: {fileID: 5448957362832571113, guid: 1ea805cc2a5697444828a745d226a8a9,
+        type: 3}
+      propertyPath: potentialQuestions.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4a7dcbea66a7a0246b67ced049c3a98f,
+        type: 2}
     - target: {fileID: 5924795034366550308, guid: 1ea805cc2a5697444828a745d226a8a9,
         type: 3}
       propertyPath: m_Pivot.x

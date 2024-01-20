@@ -74,7 +74,7 @@ public class QuestionSystem : MonoBehaviour
         {
             Debug.Log("Incorrect!");
             attemptsLeft--;
-            attemptsLeftText.text = attemptsLeft.ToString();
+            attemptsLeftText.text = "Attempts Left: " + attemptsLeft.ToString();
 
             if (attemptsLeft <= 0)
             {
@@ -97,6 +97,6 @@ public class QuestionSystem : MonoBehaviour
     private void ResetAttempts()
     {
         attemptsLeft = 2;
-        attemptsLeftText.text = attemptsLeft.ToString();
+        attemptsLeftText.text = "Attempts Left: " + attemptsLeft.ToString();
     }
 }

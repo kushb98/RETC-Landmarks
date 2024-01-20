@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 215}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: 242.29999}
+  m_SizeDelta: {x: 743.41, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7712332781886246722
 CanvasRenderer:
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -275.02686, y: 0, z: -279.38, w: 0}
+  m_margin: {x: 1.7611084, y: 0, z: -0.5418701, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -170,7 +170,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 187}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 743.41, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1731926933242604625
 CanvasRenderer:
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: What day is today?
+  m_text: 'Attempts Remaining: 2'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 222c75715af7141738c1896ae483b052, type: 2}
   m_sharedMaterial: {fileID: 7000765360261137454, guid: 222c75715af7141738c1896ae483b052,
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -275.02686, y: 0, z: -279.38, w: 0}
+  m_margin: {x: -0.28918457, y: 0, z: 1.5084229, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1053,7 +1053,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5924795034366550308
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1494,7 +1494,7 @@ PrefabInstance:
     - target: {fileID: 561751167646934338, guid: a92a2adb421dff24bb7fdb12369a98ce,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 200
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 561751167646934338, guid: a92a2adb421dff24bb7fdb12369a98ce,
         type: 3}
@@ -1544,7 +1544,7 @@ PrefabInstance:
     - target: {fileID: 561751167646934338, guid: a92a2adb421dff24bb7fdb12369a98ce,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 106.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 561751167646934338, guid: a92a2adb421dff24bb7fdb12369a98ce,
         type: 3}
