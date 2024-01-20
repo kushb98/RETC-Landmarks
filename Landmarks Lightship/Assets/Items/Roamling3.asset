@@ -16,3 +16,5 @@ MonoBehaviour:
   itemName: Mushroom Turtle
   value: 3
   icon: {fileID: 21300000, guid: dcd44eadb7fed474e86fe26f876658b2, type: 3}
+  Hunger: 50
+  Happiness: 5

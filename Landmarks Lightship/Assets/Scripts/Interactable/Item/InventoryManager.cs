@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryManager : MonoBehaviour, IDataPersistence
 {
     public static InventoryManager Instance;
     public List<Item> Items = new List<Item>();
@@ -18,6 +18,16 @@ public class InventoryManager : MonoBehaviour
             Instance = this;
         else
             Debug.LogError("Multiple Inventory Managers In Scene");
+    }
+
+    public void LoadData(GameData data)
+    {
+
+    }
+
+    public void SaveData(ref GameData data)
+    {
+
     }
 
     public void Add(Item item)

@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class Item : ScriptableObject
 {
-    public int id;
+    public ItemID id;
     public string itemName;
     public int value;
     public Sprite icon;
+    public int Hunger;
+    public int Happiness;
+    public enum ItemID { None, Axolotl, Bear, Turtle }
 
 
 }
