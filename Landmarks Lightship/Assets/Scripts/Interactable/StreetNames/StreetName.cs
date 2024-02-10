@@ -43,11 +43,13 @@ public class StreetName : InteractableObject
         if (timeSinceVisit >= visitDelay)
             
             visits++;
- 
-            if (visits >= 5)
-                Familiarity = "Familiar";
-            else if (visits < 5 && visits > 0)
-                Familiarity = "Discovered";
+
+        if (visits >= 6)
+            Familiarity = "Familiar";
+        else if (visits == 2)
+            Familiarity = "First Encounter";
+        else if (visits < 6 && visits > 1)
+            Familiarity = "Discovered";
 
     }
 
@@ -94,7 +96,7 @@ public class StreetName : InteractableObject
         base.OnInRange();
         if (visits == 0)
             visits++;
-            Familiarity = "Discovered";
+            Familiarity = "First Encounter";
             
         
         if (_ready)
