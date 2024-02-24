@@ -1160,6 +1160,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   potentialQuestions:
   - {fileID: 11400000, guid: a42f68c33f500714db73414581e8de18, type: 2}
+  - {fileID: 11400000, guid: a9cc6412244ea83478f38dfe225c39bb, type: 2}
+  - {fileID: 11400000, guid: 4a7dcbea66a7a0246b67ced049c3a98f, type: 2}
   answerOptions:
   - {fileID: 6943339301317512889}
   - {fileID: 280256980322710584}
