@@ -45,11 +45,22 @@ public class StreetName : InteractableObject
             visits++;
 
         if (visits >= 6)
+        {
+            RankManager.Singleton.IncreaseEXP(300);
             Familiarity = "Familiar";
+        }
         else if (visits == 2)
+        {
+            RankManager.Singleton.IncreaseEXP(500);
             Familiarity = "First Encounter";
+        }
+
+
         else if (visits < 6 && visits > 1)
+        {
+            RankManager.Singleton.IncreaseEXP(100);
             Familiarity = "Discovered";
+        }
 
     }
 
@@ -95,7 +106,8 @@ public class StreetName : InteractableObject
     {
         base.OnInRange();
         if (visits == 0)
-            visits++;
+            visits++; 
+            RankManager.Singleton.IncreaseEXP(100);
             Familiarity = "First Encounter";
             
         
