@@ -13,6 +13,7 @@ public class WorldInteractor : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private CoinInventory coinInventory;
+    [SerializeField] private FamiliarityUI fUI;
     [SerializeField] private CameraController cameraController;
 
     [Header("UI References")]
@@ -23,6 +24,8 @@ public class WorldInteractor : MonoBehaviour
 
     private InteractableObject _currentInteractableObject;
     private bool _inInteraction;
+
+    public StreetName currentStreetName;
 
     private void Start()
     {
@@ -49,6 +52,10 @@ public class WorldInteractor : MonoBehaviour
             if (hit.transform.CompareTag("Interactable Object"))
             {
                 _currentInteractableObject = hit.transform.GetComponent<InteractableObject>();
+                currentStreetName = hit.transform.GetComponent<StreetName>();
+
+                
+
 
                 if (_currentInteractableObject.InRange())
                 {
@@ -67,6 +74,15 @@ public class WorldInteractor : MonoBehaviour
         _currentInteractableObject.Select(this);
         interactButton.onClick.AddListener(_currentInteractableObject.Interact);
         cameraController.FocusOn(_currentInteractableObject.transform);
+
+        if (currentStreetName != null)
+        {
+            fUI.SetFamiliarity();
+        }
+
+
+
+
     }
 
     // Clears the current interactable object
@@ -83,6 +99,7 @@ public class WorldInteractor : MonoBehaviour
 
         _inInteraction = false;
         interactingIndicator.SetActive(false);
+        
     }
 
 }

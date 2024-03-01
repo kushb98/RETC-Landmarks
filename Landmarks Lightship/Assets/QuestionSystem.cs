@@ -2,149 +2,101 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
-
+using static Question;
 
 public class QuestionSystem : MonoBehaviour
 {
-    public TextMeshProUGUI questionText;
-    public List<QuestionsandAnswers> QnA;
-    public GameObject[] options;
-    public int currentQuestion;
+    public static QuestionSystem Instance;
+
+    [SerializeField] private Question[] potentialQuestions;
+    private List<Question> potentialQuestionsList = new List<Question>();
+
+    [Header("UI Elements")]
+    [SerializeField] AnswerOption[] answerOptions;
+    [SerializeField] TextMeshProUGUI questionText;
+    [SerializeField] TextMeshProUGUI attemptsLeftText;
+
+    // Stats abt the current question
+    private Question _currentQuestion;
+    private AnswerEnum correctAnswer;
     private int attemptsLeft = 2; // Number of attempts allowed
 
-    private void Start()
-      {
-          generateQuestion();
-      }
-
-    public void OptionSelected(int selectedOptionIndex)
+    private void Awake()
     {
-        if (options[selectedOptionIndex].GetComponent<AnswerScript>().isCorrect)
+        if (Instance == null)
+            Instance = this;
+
+        potentialQuestionsList.AddRange(potentialQuestions);
+
+        gameObject.SetActive(false);
+    }
+
+    public void AskRandomQuestion()
+    {
+        gameObject.SetActive(true);
+
+        Question question = potentialQuestionsList[Random.Range(0, potentialQuestionsList.Count)];
+
+        SetQuestion(question);
+    }
+
+    private void SetQuestion(Question question)
+    {
+        ResetAttempts();
+
+        _currentQuestion = question;
+
+        questionText.text = question.QuestionString;
+        correctAnswer = question.CorrectAnswer;
+
+        // Set the answer options
+        for (int i = 0; i < question.AnswerStrings.Length; i++)
         {
-            // Code for correct answer
+            Debug.Log("Setting answer " + i + " to " + question.AnswerStrings[i]);
+            answerOptions[i].SetQuestion(question.AnswerStrings[i]);
+        }
 
-            Debug.Log("Correct Answer!");
+        for (int i = question.AnswerStrings.Length; i < answerOptions.Length; i++)
+        {
+            answerOptions[i].Disable();
+        }
+    }
 
-            // Set all options active after clicking the correct answer
-            foreach (GameObject option in options)
-            {
-                option.SetActive(true);
-            }
+    public void SelectAnswer(int answerEnum)
+    {
+        int answerIndex = (int)answerEnum;
 
-            // Remove the current question and generate a new one
-            QnA.RemoveAt(currentQuestion);
-            generateQuestion();
+        if (answerEnum == (int)correctAnswer)
+        {
+            OnCorrectAnswerChosen();
         }
         else
         {
+            Debug.Log("Incorrect!");
             attemptsLeft--;
-
-            // Disable the selected incorrect option
-            options[selectedOptionIndex].SetActive(false);
+            attemptsLeftText.text = "Attempts Left: " + attemptsLeft.ToString();
 
             if (attemptsLeft <= 0)
             {
-                // Maximum attempts reached for this question
-                Debug.Log("Maximum attempts reached for this question.");
-                QnA.RemoveAt(currentQuestion);
-                attemptsLeft = 2; // Reset attempts for the next question
-                generateQuestion();
-            }
-            else
-            {
-                // Show remaining options for the second attempt
-                ShowRemainingOptions();
+                Debug.Log("Out of attempts!");
             }
         }
     }
 
-
-    void ShowRemainingOptions()
+    private void OnCorrectAnswerChosen()
     {
-        bool correctOptionActive = false;
+        RankManager.Singleton.IncreaseEXP(_currentQuestion.RewardEXP);
 
-        // Enable correct options and disable incorrect ones
-        for (int i = 0; i < options.Length; i++)
-        {
-            if (options[i].GetComponent<AnswerScript>().isCorrect && options[i].activeSelf)
-            {
-                correctOptionActive = true;
-            }
-            else
-            {
-                options[i].SetActive(false);
-            }
-        }
+        Debug.Log("Correct!");
 
-        // Ensure the correct option remains active if it was active before
-        if (!correctOptionActive)
-        {
-            for (int i = 0; i < options.Length; i++)
-            {
-                if (options[i].GetComponent<AnswerScript>().isCorrect)
-                {
-                    options[i].SetActive(true);
-                    break;
-                }
-            }
-        }
+        potentialQuestionsList.Remove(_currentQuestion);
+
+        gameObject.SetActive(false);
     }
 
-
-
-
-
-    void RemoveIncorrectOption()
-      {
-          for (int i = 0; i < options.Length; i++)
-          {
-              if (!options[i].GetComponent<AnswerScript>().isCorrect)
-              {
-                  options[i].SetActive(false); // Disable the GameObject of the incorrect option
-              }
-          }
-      }
-
-    void SetAnswers()
+    private void ResetAttempts()
     {
-        for (int i = 0; i < options.Length; i++)
-        {
-            options[i].SetActive(true); // Set all options to active
-
-            options[i].GetComponent<AnswerScript>().isCorrect = false;
-            TextMeshProUGUI textComponent = options[i].GetComponentInChildren<TextMeshProUGUI>();
-
-            if (textComponent != null)
-            {
-                textComponent.text = QnA[currentQuestion].Answers[i];
-            }
-            else
-            {
-                Debug.LogError("Text component not found in option " + i);
-            }
-
-            if (QnA[currentQuestion].CorrectAnswer - 1 == i)
-            {
-                options[i].GetComponent<AnswerScript>().isCorrect = true;
-            }
-        }
+        attemptsLeft = 2;
+        attemptsLeftText.text = "Attempts Left: " + attemptsLeft.ToString();
     }
-
-
-
-
-    void generateQuestion()
-      {
-          if (QnA.Count > 0)
-          {
-              currentQuestion = Random.Range(0, QnA.Count);
-
-              questionText.text = QnA[currentQuestion].Questions;
-              SetAnswers();
-          }
-          else
-          {
-              Debug.LogError("QnA list is empty! Ensure it has questions and answers.");
-          }
-      }
 }

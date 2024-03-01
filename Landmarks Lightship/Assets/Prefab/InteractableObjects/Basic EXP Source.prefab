@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7007047507056753114}
-  - component: {fileID: 472025747085470550}
+  - component: {fileID: 6947796466156320050}
   - component: {fileID: 5286719386007305576}
   - component: {fileID: 677350279850366298}
   m_Layer: 6
@@ -67,7 +67,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9059290195375846147}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &472025747085470550
+--- !u!114 &6947796466156320050
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -76,16 +76,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7351613700709629956}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48e3e0b74ce9e68479d788bc53fed89f, type: 3}
+  m_Script: {fileID: 11500000, guid: bd29c86c62437084c8665dad9d93f0e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   readyOnStart: 1
-  name: EXP Sphere
+  name: Question Source
   objectMaterial: {fileID: 3511465226885373051}
   rewardEXP: 500
-  readyColor: {r: 0.19575472, g: 0.7830189, b: 0.19575472, a: 1}
-  consumedColor: {r: 0.67723006, g: 0.7830189, b: 0.6759078, a: 1}
-  outOfRangeColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
+  readyColor: {r: 0, g: 1, b: 0, a: 1}
+  consumedColor: {r: 0.877242, g: 1, b: 0.8537736, a: 1}
+  outOfRangeColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!135 &5286719386007305576
 SphereCollider:
   m_ObjectHideFlags: 0

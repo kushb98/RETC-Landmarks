@@ -18,11 +18,59 @@ public class StreetName : InteractableObject
     [Header("References")]
     [SerializeField] private TextMeshPro nameText;
 
+    [Header("References")]
+    [SerializeField] public string Familiarity;
+    [SerializeField] private int visits;
+    [SerializeField] public float visitDelay = 20f;
+    [SerializeField] private float timeSinceVisit;
+    int previousVisits;
+
     protected override void Start()
     {
         base.Start();
+
+        visitDelay = 1f;
         
         nameText.color = outOfRangeColor;
+    }
+
+    public override void Select(WorldInteractor worldInteractor)
+    {
+        base.Select(worldInteractor);
+        print("Is Selected");
+        previousVisits = visits;
+
+        if (timeSinceVisit >= visitDelay)
+            
+            visits++;
+
+        if (visits >= 6)
+        {
+            RankManager.Singleton.IncreaseEXP(300);
+            Familiarity = "Familiar";
+        }
+        else if (visits == 2)
+        {
+            RankManager.Singleton.IncreaseEXP(500);
+            Familiarity = "First Encounter";
+        }
+
+
+        else if (visits < 6 && visits > 1)
+        {
+            RankManager.Singleton.IncreaseEXP(100);
+            Familiarity = "Discovered";
+        }
+
+    }
+
+
+    public override void Deselect()
+    {
+        base.Deselect();
+
+        if (previousVisits != visits)
+            timeSinceVisit = 0;
     }
 
     // Resets the street name and makes it available for use again
@@ -41,6 +89,10 @@ public class StreetName : InteractableObject
 
         CoinInventory.Singleton.AddCoins(coinReward);
         RankManager.Singleton.IncreaseEXP(expReward);
+
+        
+
+
     }
 
     protected override void OnOutOfRange()
@@ -53,10 +105,22 @@ public class StreetName : InteractableObject
     protected override void OnInRange()
     {
         base.OnInRange();
+        if (visits == 0)
+            visits++; 
+            RankManager.Singleton.IncreaseEXP(100);
+            Familiarity = "First Encounter";
+            
         
         if (_ready)
             nameText.color = readyColor;
         else
             nameText.color = consumedColor;
+    }
+
+    private void Update()
+    {
+        
+        if (visits > 0)
+            timeSinceVisit = timeSinceVisit + Time.deltaTime;
     }
 }

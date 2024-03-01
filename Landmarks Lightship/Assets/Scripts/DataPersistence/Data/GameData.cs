@@ -7,6 +7,7 @@ public class GameData
 {
     public int _numCoins;
     public Dictionary<string, bool> itemsCollected;
+    public Item roamling;
 
     public GameData()
     {

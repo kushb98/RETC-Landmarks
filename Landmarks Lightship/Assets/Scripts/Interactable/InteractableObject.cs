@@ -34,14 +34,14 @@ public class InteractableObject : MonoBehaviour
     }
 
     // Selects the object
-    public void Select(WorldInteractor worldInteractor)
+    public virtual void Select(WorldInteractor worldInteractor)
     {
         _selected = true;
         _worldInteractor = worldInteractor;
     }
 
     // Deselects the object
-    public void Deselect()
+    public virtual void Deselect()
     {
         _selected = false;
         _worldInteractor = null;

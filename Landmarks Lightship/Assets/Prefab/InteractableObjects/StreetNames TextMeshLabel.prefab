@@ -79,6 +79,8 @@ MonoBehaviour:
   consumedColor: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
   outOfRangeColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
   nameText: {fileID: 7120834711098836762}
+  Familiarity: Undiscovered
+  visits: 0
 --- !u!54 &7280788629022528835
 Rigidbody:
   m_ObjectHideFlags: 0
