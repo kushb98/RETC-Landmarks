@@ -1771,6 +1771,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1310388897120421742, guid: 793ff187340ae4a4191b3752e1739a43,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310388897120421742, guid: 793ff187340ae4a4191b3752e1739a43,
+        type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
