@@ -16,3 +16,10 @@ MonoBehaviour:
   itemName: Cashew Bear
   value: 2
   icon: {fileID: 21300000, guid: 4440b2c0f258b8142aaf6e65a014cdcc, type: 3}
+  Hunger: 60
+  maxHunger: 100
+  Happiness: 70
+  maxHappiness: 100
+  onClickEvent:
+    m_PersistentCalls:
+      m_Calls: []
