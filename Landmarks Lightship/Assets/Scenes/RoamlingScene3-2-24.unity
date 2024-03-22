@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1834612, g: 0.22903696, b: 0.30586663, a: 1}
+  m_IndirectSpecularColor: {r: 0.18346149, g: 0.22903728, b: 0.30586746, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2505,11 +2505,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5177098113990427758, guid: 4e94a500a7ee1e9498d5d515bff0f991,
-        type: 3}
-      propertyPath: m_Name
-      value: Happiness
-      objectReference: {fileID: 0}
     - target: {fileID: 7119122839858377020, guid: 4e94a500a7ee1e9498d5d515bff0f991,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2609,11 +2604,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8508186052606553460, guid: 4e94a500a7ee1e9498d5d515bff0f991,
-        type: 3}
-      propertyPath: m_Name
-      value: Hunger
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2802,11 +2792,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7494851058788481738, guid: 5307b87b81026324e9930d69407f98ea,
-        type: 3}
-      propertyPath: m_Name
-      value: Hunger
-      objectReference: {fileID: 0}
     - target: {fileID: 7640912108517354788, guid: 5307b87b81026324e9930d69407f98ea,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -2841,11 +2826,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9013038408692451259, guid: 5307b87b81026324e9930d69407f98ea,
-        type: 3}
-      propertyPath: m_Name
-      value: Happiness
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -16,9 +16,9 @@ MonoBehaviour:
   itemName: Broccoli Axolotl
   value: 1
   icon: {fileID: 21300000, guid: 2f927fb3e945c0a42bc293d959415e96, type: 3}
-  Hunger: 60
+  Hunger: 72
   maxHunger: 100
-  Happiness: 31
+  Happiness: 72
   maxHappiness: 100
   onClickEvent:
     m_PersistentCalls:

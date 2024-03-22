@@ -11,6 +11,15 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
 
     public Transform ItemContent;
     public GameObject InventoryItem;
+    public GameObject CashewBearMenu;
+    public GameObject MushroomTurtleMenu;
+    public GameObject AxolotlMenu;
+    public GameObject Inventory;
+    public int roamlingID;
+    public Item roamling;
+    public Item roamling2;
+    public Item roamling3;
+
 
     private void Awake()
     {
@@ -73,5 +82,40 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
     {
         // Invoke Unity events from the item
         item.onClickEvent.Invoke();
+
+        // Update UI with the current item's hunger and happiness values
+        item.UpdateUI();
+
+        //enable Roamlings Menu canvas if item id is CashewBear and set roamling to CashewBear
+        if (item.itemName == "Cashew Bear")
+        {
+            roamlingID = 2;
+           // roamling = roamling2;
+            CashewBearMenu.SetActive(true);
+            Inventory.SetActive(false);
+
+        }
+
+        if (item.itemName == "Mushroom Turtle")
+        {
+            roamlingID = 3;
+           // roamling = roamling3;
+            MushroomTurtleMenu.SetActive(true);
+            Inventory.SetActive(false);
+        }
+
+        if (item.itemName == "Axolotl")
+        {
+            roamlingID = 1;
+            AxolotlMenu.SetActive(true);
+            Inventory.SetActive(false);
+        }
+
+
+
+
+        Debug.Log($"Item {item.itemName} clicked");
+
     }
 }
+

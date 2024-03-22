@@ -11,8 +11,9 @@ public class RoamlingController : MonoBehaviour
     public RectTransform hungerFillArea;
     public RectTransform happinessFillArea;
 
-    // Reference to the Roamling (Item) scriptable object
+    // List of Roamling objects
     public Item roamling;
+    
 
     void Start()
     {
@@ -31,6 +32,10 @@ public class RoamlingController : MonoBehaviour
 
     void UpdateUI()
     {
+
+       
+        
+
         // Normalize values between 0 and 1 using maxHunger and maxHappiness
         float normalizedHunger = NormalizeValue(roamling.Hunger, 0, roamling.maxHunger);
         float normalizedHappiness = NormalizeValue(roamling.Happiness, 0, roamling.maxHappiness);
@@ -40,10 +45,14 @@ public class RoamlingController : MonoBehaviour
 
         // Update happiness slider and text
         UpdateSlider(happinessSlider, normalizedHappiness, roamling.Happiness, happinessText, happinessFillArea);
+
+     
     }
 
     void UpdateSlider(Slider slider, float normalizedValue, int value, TextMeshProUGUI text, RectTransform fillArea)
     {
+
+
         // Update slider value and text
         slider.value = normalizedValue;
         text.text = $"{slider.name}: {value}";
@@ -62,13 +71,24 @@ public class RoamlingController : MonoBehaviour
 
     public void IncreaseHappiness(float amount)
     {
+        if (roamling.Happiness >= roamling.maxHappiness)
+
+            return;
+
         roamling.Happiness += (int)amount;
-        UpdateUI(); // Update UI immediately
+
+
+        UpdateUI(); 
+
     }
 
     public void DecreaseHunger(float amount)
     {
+        if (roamling.Hunger <= 0)
+            return;
+
         roamling.Hunger -= (int)amount;
-        UpdateUI(); // Update UI immediately
+        UpdateUI(); 
     }
+    
 }
