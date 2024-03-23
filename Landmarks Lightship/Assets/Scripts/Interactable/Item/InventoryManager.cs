@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Rendering.Universal;
 
 public class InventoryManager : MonoBehaviour, IDataPersistence
 {
     public static InventoryManager Instance;
     public List<Item> Items = new List<Item>();
-
+    public GameObject RoamlingMenu;
     public Transform ItemContent;
     public GameObject InventoryItem;
-    public GameObject CashewBearMenu;
+    public RoamlingController roamlingController;
+   public GameObject CashewBearMenu;
     public GameObject MushroomTurtleMenu;
     public GameObject AxolotlMenu;
     public GameObject Inventory;
@@ -19,6 +21,9 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
     public Item roamling;
     public Item roamling2;
     public Item roamling3;
+
+    // Dictionary to map item names to roamling objects
+    public Dictionary<string, Item> roamlingDictionary = new Dictionary<string, Item>();
 
 
     private void Awake()
@@ -86,30 +91,76 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
         // Update UI with the current item's hunger and happiness values
         item.UpdateUI();
 
-        //enable Roamlings Menu canvas if item id is CashewBear and set roamling to CashewBear
-        if (item.itemName == "Cashew Bear")
-        {
-            roamlingID = 2;
-           // roamling = roamling2;
-            CashewBearMenu.SetActive(true);
-            Inventory.SetActive(false);
+        
+        //use the update roamling stats method to update the roamling stats based off the item clicked
+        roamlingController.UpdateRoamlingStats(item);
 
+        //enable RoamlingMenu and show the hunger and happiness bars based off the roamling
+
+        RoamlingMenu.SetActive(true);
+        Inventory.SetActive(false);
+
+        // Fetch the corresponding roamling from the dictionary based on the item name
+        if (roamlingDictionary.ContainsKey(item.itemName))
+        {
+            Item selectedRoamling = roamlingDictionary[item.itemName];
+            roamlingController.UpdateRoamlingStats(selectedRoamling);
+        }
+        else
+        {
+            //Debug.LogError("Roamling not found for item: " + item.itemName);
+            return;
         }
 
+        //if the item clicked is the CashewBear, set the roamling to CashewBear
+       /* if (item.itemName == "Cashew Bear")
+        {
+            roamling = roamling2;
+        }
+
+        //if the item clicked is the MushroomTurtle, set the roamling to MushroomTurtle
         if (item.itemName == "Mushroom Turtle")
         {
-            roamlingID = 3;
-           // roamling = roamling3;
-            MushroomTurtleMenu.SetActive(true);
-            Inventory.SetActive(false);
-        }
+            roamling = roamling3;
+        } /*
 
-        if (item.itemName == "Axolotl")
-        {
-            roamlingID = 1;
-            AxolotlMenu.SetActive(true);
-            Inventory.SetActive(false);
-        }
+ 
+
+       // roamlingController.UpdateRoamlingStats(roamling);
+
+        //enable Roamlings Menu canvas if item id is CashewBear and set roamling to CashewBear
+        /*  if (item.itemName == "Cashew Bear")
+          {
+              roamlingID = 2;
+             // roamling = roamling2;
+              CashewBearMenu.SetActive(true);
+              Inventory.SetActive(false);
+
+          }
+
+          if (item.itemName == "Mushroom Turtle")
+          {
+              roamlingID = 3;
+             // roamling = roamling3;
+              MushroomTurtleMenu.SetActive(true);
+              Inventory.SetActive(false);
+          }
+
+          if (item.itemName == "Axolotl")
+          {
+              roamlingID = 1;
+              AxolotlMenu.SetActive(true);
+              Inventory.SetActive(false);
+          } */
+        //enable Roamlings menu when an item is clicked
+        /* if (item.itemName == "Cashew Bear" || item.itemName == "Mushroom Turtle" || item.itemName == "Axolotl")
+         {
+             RoamlingMenu.SetActive(true); 
+             Inventory.SetActive(false);
+
+         }
+         */
+
 
 
 

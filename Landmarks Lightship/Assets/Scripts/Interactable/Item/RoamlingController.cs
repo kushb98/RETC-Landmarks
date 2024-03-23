@@ -6,13 +6,13 @@ public class RoamlingController : MonoBehaviour
 {
     public Slider hungerSlider;
     public Slider happinessSlider;
+    public TextMeshProUGUI nameText;
     public TextMeshProUGUI hungerText;
     public TextMeshProUGUI happinessText;
     public RectTransform hungerFillArea;
     public RectTransform happinessFillArea;
 
-    // List of Roamling objects
-    public Item roamling;
+    private Item roamling; // Change selectedRoamling to roamling
     
 
     void Start()
@@ -25,6 +25,25 @@ public class RoamlingController : MonoBehaviour
         UpdateUI();
     }
 
+    public void UpdateRoamlingStats(Item roamling) // Change selectedRoamling to roamling
+    {
+        this.roamling = roamling; // Update the reference to the current roamling
+        // Update roamling name
+        nameText.text = roamling.itemName;
+
+        // Update hunger slider and text
+        hungerSlider.maxValue = roamling.maxHunger;
+        hungerSlider.value = roamling.Hunger;
+        hungerText.text = $"Hunger: {roamling.Hunger}";
+
+        // Update happiness slider and text
+        happinessSlider.maxValue = roamling.maxHappiness;
+        happinessSlider.value = roamling.Happiness;
+        happinessText.text = $"Happiness: {roamling.Happiness}";
+
+        
+    }
+
     void SetPivotToLeft(RectTransform rectTransform)
     {
         rectTransform.pivot = new Vector2(0, 0.5f); // Pivot set to left side
@@ -32,9 +51,7 @@ public class RoamlingController : MonoBehaviour
 
     void UpdateUI()
     {
-
-       
-        
+        if (roamling == null) return; // Return if roamling is not assigned
 
         // Normalize values between 0 and 1 using maxHunger and maxHappiness
         float normalizedHunger = NormalizeValue(roamling.Hunger, 0, roamling.maxHunger);
@@ -45,14 +62,10 @@ public class RoamlingController : MonoBehaviour
 
         // Update happiness slider and text
         UpdateSlider(happinessSlider, normalizedHappiness, roamling.Happiness, happinessText, happinessFillArea);
-
-     
     }
 
     void UpdateSlider(Slider slider, float normalizedValue, int value, TextMeshProUGUI text, RectTransform fillArea)
     {
-
-
         // Update slider value and text
         slider.value = normalizedValue;
         text.text = $"{slider.name}: {value}";
@@ -71,24 +84,25 @@ public class RoamlingController : MonoBehaviour
 
     public void IncreaseHappiness(float amount)
     {
-        if (roamling.Happiness >= roamling.maxHappiness)
+        if (roamling == null)
+            return;
 
+        if (roamling.Happiness >= roamling.maxHappiness)
             return;
 
         roamling.Happiness += (int)amount;
-
-
-        UpdateUI(); 
-
+        UpdateRoamlingStats(roamling); // Update UI with new stats
     }
 
     public void DecreaseHunger(float amount)
     {
+        if (roamling == null)
+            return;
+
         if (roamling.Hunger <= 0)
             return;
 
         roamling.Hunger -= (int)amount;
-        UpdateUI(); 
+        UpdateRoamlingStats(roamling); // Update UI with new stats
     }
-    
 }
