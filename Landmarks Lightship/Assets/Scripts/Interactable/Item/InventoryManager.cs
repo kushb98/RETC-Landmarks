@@ -13,14 +13,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
     public Transform ItemContent;
     public GameObject InventoryItem;
     public RoamlingController roamlingController;
-   public GameObject CashewBearMenu;
-    public GameObject MushroomTurtleMenu;
-    public GameObject AxolotlMenu;
     public GameObject Inventory;
-    public int roamlingID;
-    public Item roamling;
-    public Item roamling2;
-    public Item roamling3;
 
     // Dictionary to map item names to roamling objects
     public Dictionary<string, Item> roamlingDictionary = new Dictionary<string, Item>();
@@ -111,59 +104,6 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
             //Debug.LogError("Roamling not found for item: " + item.itemName);
             return;
         }
-
-        //if the item clicked is the CashewBear, set the roamling to CashewBear
-       /* if (item.itemName == "Cashew Bear")
-        {
-            roamling = roamling2;
-        }
-
-        //if the item clicked is the MushroomTurtle, set the roamling to MushroomTurtle
-        if (item.itemName == "Mushroom Turtle")
-        {
-            roamling = roamling3;
-        } /*
-
- 
-
-       // roamlingController.UpdateRoamlingStats(roamling);
-
-        //enable Roamlings Menu canvas if item id is CashewBear and set roamling to CashewBear
-        /*  if (item.itemName == "Cashew Bear")
-          {
-              roamlingID = 2;
-             // roamling = roamling2;
-              CashewBearMenu.SetActive(true);
-              Inventory.SetActive(false);
-
-          }
-
-          if (item.itemName == "Mushroom Turtle")
-          {
-              roamlingID = 3;
-             // roamling = roamling3;
-              MushroomTurtleMenu.SetActive(true);
-              Inventory.SetActive(false);
-          }
-
-          if (item.itemName == "Axolotl")
-          {
-              roamlingID = 1;
-              AxolotlMenu.SetActive(true);
-              Inventory.SetActive(false);
-          } */
-        //enable Roamlings menu when an item is clicked
-        /* if (item.itemName == "Cashew Bear" || item.itemName == "Mushroom Turtle" || item.itemName == "Axolotl")
-         {
-             RoamlingMenu.SetActive(true); 
-             Inventory.SetActive(false);
-
-         }
-         */
-
-
-
-
 
         Debug.Log($"Item {item.itemName} clicked");
 

@@ -12,7 +12,7 @@ public class RoamlingController : MonoBehaviour
     public RectTransform hungerFillArea;
     public RectTransform happinessFillArea;
 
-    private Item roamling; // Change selectedRoamling to roamling
+    private Item roamling; 
     
 
     void Start()
@@ -25,7 +25,7 @@ public class RoamlingController : MonoBehaviour
         UpdateUI();
     }
 
-    public void UpdateRoamlingStats(Item roamling) // Change selectedRoamling to roamling
+    public void UpdateRoamlingStats(Item roamling) 
     {
         this.roamling = roamling; // Update the reference to the current roamling
         // Update roamling name
@@ -51,7 +51,9 @@ public class RoamlingController : MonoBehaviour
 
     void UpdateUI()
     {
-        if (roamling == null) return; // Return if roamling is not assigned
+        if (roamling == null) 
+            
+        return; // Return if roamling is not assigned
 
         // Normalize values between 0 and 1 using maxHunger and maxHappiness
         float normalizedHunger = NormalizeValue(roamling.Hunger, 0, roamling.maxHunger);
@@ -91,7 +93,7 @@ public class RoamlingController : MonoBehaviour
             return;
 
         roamling.Happiness += (int)amount;
-        UpdateRoamlingStats(roamling); // Update UI with new stats
+        UpdateRoamlingStats(roamling); 
     }
 
     public void DecreaseHunger(float amount)
