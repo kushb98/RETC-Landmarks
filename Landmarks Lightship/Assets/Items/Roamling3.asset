@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf773b9ad4897d49bfb621a9ed9dc3b, type: 3}
   m_Name: Roamling3
   m_EditorClassIdentifier: 
-  id: 3
+  id: 4bf773b9ad4897d49bfb621a9ed9dc13
   itemName: Mushroom Turtle
   value: 3
   icon: {fileID: 21300000, guid: dcd44eadb7fed474e86fe26f876658b2, type: 3}
-  Hunger: 50
+  Hunger: 31
   maxHunger: 100
-  Happiness: 50
+  Happiness: 59
   maxHappiness: 100
+  inventoryManager: {fileID: 8906759257883058183, guid: e0d6cd7fb98844f4392c75442a3e5005,
+    type: 3}
   onClickEvent:
     m_PersistentCalls:
       m_Calls: []

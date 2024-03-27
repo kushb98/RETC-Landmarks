@@ -6,12 +6,18 @@ using UnityEngine;
 public class GameData 
 {
     public int _numCoins;
-    public Dictionary<string, bool> itemsCollected;
+    public SerializableDictionary<string, bool> itemsCollected;
     public Item roamling;
+    public GameObject item;
+
+    public ItemData itemData;
 
     public GameData()
     {
         this._numCoins = 1;
-        itemsCollected = new Dictionary<string, bool>();
+        itemsCollected = new SerializableDictionary<string, bool>();
+        itemData = new ItemData();
+       // item = new GameObject();
+
     }
 }

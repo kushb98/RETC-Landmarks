@@ -42,6 +42,8 @@ public class RoamlingController : MonoBehaviour
         happinessText.text = $"Happiness: {roamling.Happiness}";
 
         
+
+        
     }
 
     void SetPivotToLeft(RectTransform rectTransform)
@@ -107,4 +109,21 @@ public class RoamlingController : MonoBehaviour
         roamling.Hunger -= (int)amount;
         UpdateRoamlingStats(roamling); // Update UI with new stats
     }
+
+   /* public void LoadData(GameData data)
+    {
+        // Implement data loading logic
+       
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        // persist the items in inventory
+        
+        
+        
+
+
+
+    } */
 }

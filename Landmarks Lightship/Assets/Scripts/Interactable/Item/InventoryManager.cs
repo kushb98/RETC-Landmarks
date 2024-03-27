@@ -4,27 +4,39 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Rendering.Universal;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class InventoryManager : MonoBehaviour, IDataPersistence
 {
     public static InventoryManager Instance;
+    [SerializeField]
     public List<Item> Items = new List<Item>();
     public GameObject RoamlingMenu;
     public Transform ItemContent;
     public GameObject InventoryItem;
     public RoamlingController roamlingController;
     public GameObject Inventory;
+    private string filePath;
+    public GameObject InventoryManagerO;
+
+    [SerializeField] private Item itemDataSO;
+
 
     // Dictionary to map item names to roamling objects
-    public Dictionary<string, Item> roamlingDictionary = new Dictionary<string, Item>();
-
-
+   // [SerializeField]
+  //  public Dictionary<string, Item> roamlingDictionary = new Dictionary<string, Item>();
+    
+      
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
         else
             Debug.LogError("Multiple Inventory Managers In Scene");
+
+        // Initialize file path for saving data
+        filePath = Application.persistentDataPath + "/DataPersistence";
     }
 
     private void Start()
@@ -34,13 +46,44 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        // Implement data loading logic
+       itemDataSO.Hunger = data.itemData.Hunger;
+       itemDataSO.Happiness = data.itemData.Happiness;
+       itemDataSO.maxHunger = data.itemData.maxHunger;
+       itemDataSO.maxHappiness = data.itemData.maxHappiness;
+       itemDataSO.itemName = data.itemData.itemName;
+       //itemDataSO.icon = data.itemData.icon;
+       itemDataSO.value = data.itemData.value;
+        //items inside the list
+        Items = data.itemData.Items;
+      
+     
+
+
+
+
+
+
+       
+
+        
+
     }
 
     public void SaveData(ref GameData data)
     {
-        // Implement data saving logic
+        data.itemData.Hunger = itemDataSO.Hunger;
+        data.itemData.Happiness = itemDataSO.Happiness;
+        data.itemData.maxHunger = itemDataSO.maxHunger;
+        data.itemData.maxHappiness = itemDataSO.maxHappiness;
+        data.itemData.itemName = itemDataSO.itemName;
+       // data.itemData.icon = itemDataSO.icon;
+        data.itemData.value = itemDataSO.value;
+        data.itemData.Items = Items;
+
+
     }
+
+
 
     public void Add(Item item)
     {
@@ -84,7 +127,6 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
         // Update UI with the current item's hunger and happiness values
         item.UpdateUI();
 
-        
         //use the update roamling stats method to update the roamling stats based off the item clicked
         roamlingController.UpdateRoamlingStats(item);
 
@@ -94,7 +136,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
         Inventory.SetActive(false);
 
         // Fetch the corresponding roamling from the dictionary based on the item name
-        if (roamlingDictionary.ContainsKey(item.itemName))
+      /*  if (roamlingDictionary.ContainsKey(item.itemName))
         {
             Item selectedRoamling = roamlingDictionary[item.itemName];
             roamlingController.UpdateRoamlingStats(selectedRoamling);
@@ -106,7 +148,12 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
         }
 
         Debug.Log($"Item {item.itemName} clicked");
+      */
+    } 
 
+    private void OnApplicationQuit()
+    {
+       // SaveInventory(); // Save inventory data when the application quits
     }
 }
 
