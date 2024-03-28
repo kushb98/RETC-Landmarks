@@ -12,7 +12,7 @@ public class RoamlingController : MonoBehaviour
     public RectTransform hungerFillArea;
     public RectTransform happinessFillArea;
 
-    private Item roamling; 
+    private Item roamling;
     
 
     void Start()
@@ -109,21 +109,4 @@ public class RoamlingController : MonoBehaviour
         roamling.Hunger -= (int)amount;
         UpdateRoamlingStats(roamling); // Update UI with new stats
     }
-
-   /* public void LoadData(GameData data)
-    {
-        // Implement data loading logic
-       
-    }
-
-    public void SaveData(ref GameData data)
-    {
-        // persist the items in inventory
-        
-        
-        
-
-
-
-    } */
 }

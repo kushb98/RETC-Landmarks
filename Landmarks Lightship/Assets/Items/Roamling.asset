@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Roamling
   m_EditorClassIdentifier: 
   id: 4bf773b9ad4897d49bfb621a9ed9dc3b
-  itemName: Brocolli Axolotl
-  value: 0
+  itemName: Broccoli Axolotl
+  value: 2
   icon: {fileID: 21300000, guid: 2f927fb3e945c0a42bc293d959415e96, type: 3}
-  Hunger: 12
+  Hunger: 79
   maxHunger: 100
-  Happiness: 24
+  Happiness: 43
   maxHappiness: 100
   inventoryManager: {fileID: 8906759257883058183, guid: e0d6cd7fb98844f4392c75442a3e5005,
     type: 3}

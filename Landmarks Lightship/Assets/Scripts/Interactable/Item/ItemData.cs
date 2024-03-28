@@ -14,15 +14,13 @@ public class ItemData
     public int maxHappiness;
     public List<Item> Items = new List<Item>();
 
-    //public SerializableDictionary<string, bool> itemsCollected;
-
 
     [SerializeField]
     public enum ItemID { None, Axolotl, Bear, Turtle }
 
     public ItemData()
     {
-      //  this.itemName = "";
+       // this.itemName = "";
       //  this.value = 0;
        // this.icon = null;
         this.Hunger = 20;

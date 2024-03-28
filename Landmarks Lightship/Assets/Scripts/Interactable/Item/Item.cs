@@ -5,7 +5,7 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "New Item", menuName = "Item/Create New Item")]
 
 [System.Serializable]
-public class Item : ScriptableObject, IDataPersistence
+public class Item : ScriptableObject
 
 
 {
@@ -54,21 +54,4 @@ public class Item : ScriptableObject, IDataPersistence
             uiManager.UpdateUI(this);
         }
     }
-
-    public void LoadData(GameData data)
-    {
-      // item = data.item;
-     //  Debug.Log("Test: Loading item data, Item");
-
-       
-     
-    }
-
-    public void SaveData(ref GameData data)
-    {
-        //save using application.persistentdatapath
-        Application.persistentDataPath.ToString();
-        Debug.Log("Test: Saving item data, Item");
-        
-    }    
 }
