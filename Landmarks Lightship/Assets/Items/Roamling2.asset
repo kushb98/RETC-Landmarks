@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4bf773b9ad4897d49bfb621a9ed9dc12
   itemName: Cashew Bear
-  value: 2
+  value: 1
   icon: {fileID: 21300000, guid: 4440b2c0f258b8142aaf6e65a014cdcc, type: 3}
-  Hunger: 17
+  Hunger: 4
   maxHunger: 100
-  Happiness: 21
+  Happiness: 36
   maxHappiness: 100
   inventoryManager: {fileID: 8906759257883058183, guid: e0d6cd7fb98844f4392c75442a3e5005,
     type: 3}
