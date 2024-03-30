@@ -25,6 +25,8 @@ public class StreetName : InteractableObject
     [SerializeField] private float timeSinceVisit;
     int previousVisits;
 
+    QuestManager QuestUpdater;
+
     protected override void Start()
     {
         base.Start();
@@ -32,6 +34,7 @@ public class StreetName : InteractableObject
         visitDelay = 1f;
         
         nameText.color = outOfRangeColor;
+        QuestUpdater = FindObjectOfType<QuestManager>();
     }
 
     public override void Select(WorldInteractor worldInteractor)
@@ -51,6 +54,7 @@ public class StreetName : InteractableObject
         }
         else if (visits == 2)
         {
+            QuestUpdater.Quest2Update();
             RankManager.Singleton.IncreaseEXP(500);
             Familiarity = "First Encounter";
         }
@@ -61,6 +65,8 @@ public class StreetName : InteractableObject
             RankManager.Singleton.IncreaseEXP(100);
             Familiarity = "Discovered";
         }
+
+        QuestUpdater.Quest3Update();
 
     }
 

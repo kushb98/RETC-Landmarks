@@ -744,12 +744,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1352656833}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &722689699 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8836273476876738636, guid: 1ea805cc2a5697444828a745d226a8a9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1352656833}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &828702209
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1263,12 +1257,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0065c20f13fc326408fe756c97b2d701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &962960434 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8972545926837714111, guid: 1ea805cc2a5697444828a745d226a8a9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1352656833}
-  m_PrefabAsset: {fileID: 0}
 --- !u!20 &981695205 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 5433686425856910964, guid: a73fa87ccd9779c4f8187f95b27916d7,
@@ -1297,17 +1285,17 @@ PrefabInstance:
         type: 3}
       propertyPath: options.Array.data[1]
       value: 
-      objectReference: {fileID: 722689699}
+      objectReference: {fileID: 0}
     - target: {fileID: 3179523337531317836, guid: fb432f0cba0dd0d4eb5bb8ab13864c35,
         type: 3}
       propertyPath: options.Array.data[2]
       value: 
-      objectReference: {fileID: 1564843877}
+      objectReference: {fileID: 0}
     - target: {fileID: 3179523337531317836, guid: fb432f0cba0dd0d4eb5bb8ab13864c35,
         type: 3}
       propertyPath: options.Array.data[3]
       value: 
-      objectReference: {fileID: 962960434}
+      objectReference: {fileID: 0}
     - target: {fileID: 5684608734358731324, guid: fb432f0cba0dd0d4eb5bb8ab13864c35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2156,12 +2144,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1585673779}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1564843877 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4011557051530246729, guid: 1ea805cc2a5697444828a745d226a8a9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1352656833}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1585673779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2295,6 +2277,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5816499905487137560, guid: 75469b8d013ee57439c5eb22a4af29a5,
+        type: 3}
+      propertyPath: EXPSource
+      value: 
+      objectReference: {fileID: 1615049817}
     - target: {fileID: 8769958001807558112, guid: 75469b8d013ee57439c5eb22a4af29a5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -2317,6 +2304,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1352656833}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1615049817 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3560276800841519839, guid: 75469b8d013ee57439c5eb22a4af29a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1585673779}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b7caa4fe0ded6749bcd886b7b3d0359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1624605905
 GameObject:
   m_ObjectHideFlags: 0
@@ -2503,7 +2502,7 @@ MonoBehaviour:
   _lightshipMapView: {fileID: 894067957}
   _editorMovementSpeed: 60
   _camera: {fileID: 256418251}
-  _model: {fileID: 1420231351}
+  _lastGpsUpdateTime: 0
   isWalking: 0
 --- !u!1 &1707840266
 GameObject:
