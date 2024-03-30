@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4482326199306576876}
   - component: {fileID: 2182080130117689530}
-  - component: {fileID: 6030963960841085512}
+  - component: {fileID: 643307196259754737}
   m_Layer: 0
   m_Name: HumanPlayer
   m_TagString: Untagged
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6086869370182357616}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 038a7da3920e4c8682d3424f9b0ba811, type: 3}
   m_Name: 
@@ -136,7 +136,7 @@ MonoBehaviour:
   _editorMovementSpeed: 20
   _camera: {fileID: 0}
   _model: {fileID: 0}
---- !u!114 &6030963960841085512
+--- !u!114 &643307196259754737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,7 +151,7 @@ MonoBehaviour:
   _lightshipMapView: {fileID: 0}
   _editorMovementSpeed: 60
   _camera: {fileID: 0}
-  _model: {fileID: 0}
+  _model: {fileID: 5820306294081613841}
   isWalking: 0
 --- !u!1 &7564237787886752112
 GameObject:
@@ -304,7 +304,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e16d4f3801dfee14bbc397c6f5f8cecf,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3379008593023669548}
+      addedObject: {fileID: 5820306294081613841}
   m_SourcePrefab: {fileID: 100100000, guid: e16d4f3801dfee14bbc397c6f5f8cecf, type: 3}
 --- !u!4 &5006429726375345827 stripped
 Transform:
@@ -331,7 +331,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 345e626954a8741439f2e282fd09b2d9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -355,7 +355,7 @@ MonoBehaviour:
   PlayerAnim: {fileID: 1310388897120421742}
   currentPos: {x: 0, y: 0, z: 0}
   prevPos: {x: 0, y: 0, z: 0}
---- !u!114 &3379008593023669548
+--- !u!114 &5820306294081613841
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -364,7 +364,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5634488993480352793}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99d2fa0a456aa49c393e600ba438eb0a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ca6121ab4e540c4382d700d165163ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 1310388897120421742}
