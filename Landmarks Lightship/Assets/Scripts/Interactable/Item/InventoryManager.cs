@@ -32,25 +32,30 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
             Instance = this;
         else
             Debug.LogError("Multiple Inventory Managers In Scene");
+
+       
     }
 
     private void Start()
     {
         ListItems(); // Initially list items
+       
+        
     }
 
     public void LoadData(GameData data)
     {
-      /* Only needed for using one ScriptableObject for all items
-      itemDataSO.Hunger = data.itemData.Hunger;
-       itemDataSO.Happiness = data.itemData.Happiness;
-       itemDataSO.maxHunger = data.itemData.maxHunger;
-       itemDataSO.maxHappiness = data.itemData.maxHappiness;
-       itemDataSO.itemName = data.itemData.itemName;
-      
-       itemDataSO.icon = data.itemData.icon;
-       itemDataSO.value = data.itemData.value;
-      */
+        /* Only needed for using one ScriptableObject for all items
+        itemDataSO.Hunger = data.itemData.Hunger;
+         itemDataSO.Happiness = data.itemData.Happiness;
+         itemDataSO.maxHunger = data.itemData.maxHunger;
+         itemDataSO.maxHappiness = data.itemData.maxHappiness;
+         itemDataSO.itemName = data.itemData.itemName;
+        
+
+         itemDataSO.icon = data.itemData.icon;
+         itemDataSO.value = data.itemData.value;
+        */
         Items = data.itemData.Items;
 
     }
