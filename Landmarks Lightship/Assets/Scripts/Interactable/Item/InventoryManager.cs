@@ -20,6 +20,10 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
     public RoamlingController roamlingController;
     public GameObject Inventory;
 
+    public Toggle ReleaseRoamlings;
+
+    public InventoryItemController[] InventoryItems;
+
     
     [SerializeField] private Item itemDataSO;
     private void Awake()
@@ -77,11 +81,9 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
 
     public void Remove(Item item)
     {
-
-        Items.Remove(item);             
-       
-        ListItems(); // Update the inventory list when removing an item
-        Debug.Log("Item Removed");
+        List<Item> newItems = Items;
+        newItems.Remove(item);
+        Items = newItems;
     }
 
     public void ListItems()
@@ -96,13 +98,21 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
             GameObject obj = Instantiate(InventoryItem, ItemContent);
             var itemName = obj.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
             var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
+            var removeButton = obj.transform.Find("RemoveButton").GetComponent<Button>();
 
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
 
             // Add an onClick event to each instantiated item
-            obj.GetComponent<Button>().onClick.AddListener(() => OnItemClick(item));
+           obj.GetComponent<Button>().onClick.AddListener(() => OnItemClick(item));
+
+            if (ReleaseRoamlings.isOn)
+            {
+                removeButton.gameObject.SetActive(true);
+            }
         }
+
+        SetInventoryItems();
     }
 
     // Method to handle item click and invoke Unity events
@@ -122,6 +132,34 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
         RoamlingMenu.SetActive(true);
         Inventory.SetActive(false);
     } 
+
+    public void EnableReleaseRoamling()
+    {
+        if (ReleaseRoamlings.isOn)
+        {
+            foreach (Transform item in ItemContent)
+            {
+                item.Find("RemoveButton").gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            foreach (Transform item in ItemContent)
+            {
+                item.Find("RemoveButton").gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void SetInventoryItems()
+    {
+        InventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
+
+        for (int i = 0; i < Items.Count; i++)
+        {
+            InventoryItems[i].AddItem(Items[i]);
+        }
+    }
 
 }
 
