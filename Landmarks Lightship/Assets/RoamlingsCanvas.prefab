@@ -344,6 +344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hungerSlider: {fileID: 5245818392807948328}
   happinessSlider: {fileID: 5212467143825430480}
+  nameText: {fileID: 0}
   hungerText: {fileID: 1451335924170345075}
   happinessText: {fileID: 4610254057796655714}
   hungerFillArea: {fileID: 9185292919087912727}

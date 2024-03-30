@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf773b9ad4897d49bfb621a9ed9dc3b, type: 3}
   m_Name: Roamling2
   m_EditorClassIdentifier: 
-  id: 2
+  id: 4bf773b9ad4897d49bfb621a9ed9dc12
   itemName: Cashew Bear
-  value: 2
+  value: 1
   icon: {fileID: 21300000, guid: 4440b2c0f258b8142aaf6e65a014cdcc, type: 3}
-  Hunger: 60
+  Hunger: 4
   maxHunger: 100
-  Happiness: 70
+  Happiness: 36
   maxHappiness: 100
+  inventoryManager: {fileID: 8906759257883058183, guid: e0d6cd7fb98844f4392c75442a3e5005,
+    type: 3}
   onClickEvent:
     m_PersistentCalls:
       m_Calls: []

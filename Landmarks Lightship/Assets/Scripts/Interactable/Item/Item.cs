@@ -1,10 +1,26 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Item/Create New Item")]
+
+[System.Serializable]
 public class Item : ScriptableObject
+
+
 {
-    public ItemID id;
+   [SerializeField] private string id;
+
+    [ContextMenu("Generate GUID")]
+    private void GenerateGUID()
+    {
+        id = System.Guid.NewGuid().ToString();
+    }
+
+    private bool collected = false;
+    private GameObject item;
+
+  //  public ItemID id;
     public string itemName;
     public int value;
     public Sprite icon;
@@ -12,13 +28,22 @@ public class Item : ScriptableObject
     public int maxHunger;
     public int Happiness;
     public int maxHappiness;
+    public GameObject inventoryManager;
 
-
+    [SerializeField]
     public enum ItemID { None, Axolotl, Bear, Turtle }
+
+    // Convert the item to JSON
+    public string ToJson()
+    {
+        return JsonUtility.ToJson(this);
+    }
+   
 
     // Unity event to be invoked when the item is clicked
     [SerializeField]
     public UnityEvent onClickEvent = new UnityEvent();
+
 
     // Call this method to update UI with the current item's hunger and happiness values
     public void UpdateUI()

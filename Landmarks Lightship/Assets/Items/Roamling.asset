@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf773b9ad4897d49bfb621a9ed9dc3b, type: 3}
   m_Name: Roamling
   m_EditorClassIdentifier: 
-  id: 1
+  id: 4bf773b9ad4897d49bfb621a9ed9dc3b
   itemName: Broccoli Axolotl
-  value: 1
+  value: 2
   icon: {fileID: 21300000, guid: 2f927fb3e945c0a42bc293d959415e96, type: 3}
-  Hunger: 60
+  Hunger: 79
   maxHunger: 100
-  Happiness: 31
+  Happiness: 43
   maxHappiness: 100
+  inventoryManager: {fileID: 8906759257883058183, guid: e0d6cd7fb98844f4392c75442a3e5005,
+    type: 3}
   onClickEvent:
     m_PersistentCalls:
       m_Calls: []
