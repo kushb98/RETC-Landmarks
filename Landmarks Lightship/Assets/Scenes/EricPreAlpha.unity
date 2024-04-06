@@ -732,6 +732,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62eaa3dc68a86374fb62ff7eef5b09d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &598012015 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4612141918092056870, guid: 75469b8d013ee57439c5eb22a4af29a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1585673779}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598012012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38668c0500fbd7245a2837e811b93b61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &644967059 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7221030367132521510, guid: 75469b8d013ee57439c5eb22a4af29a5,
@@ -2162,6 +2174,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1466824983}
+    - target: {fileID: 2970028522312610982, guid: 75469b8d013ee57439c5eb22a4af29a5,
+        type: 3}
+      propertyPath: EXPSource
+      value: 
+      objectReference: {fileID: 1615049817}
+    - target: {fileID: 2970028522312610982, guid: 75469b8d013ee57439c5eb22a4af29a5,
+        type: 3}
+      propertyPath: CoinSource
+      value: 
+      objectReference: {fileID: 598012015}
     - target: {fileID: 3514859041732049880, guid: 75469b8d013ee57439c5eb22a4af29a5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -2282,6 +2304,11 @@ PrefabInstance:
       propertyPath: EXPSource
       value: 
       objectReference: {fileID: 1615049817}
+    - target: {fileID: 5816499905487137560, guid: 75469b8d013ee57439c5eb22a4af29a5,
+        type: 3}
+      propertyPath: CoinSource
+      value: 
+      objectReference: {fileID: 598012015}
     - target: {fileID: 8769958001807558112, guid: 75469b8d013ee57439c5eb22a4af29a5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target

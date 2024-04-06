@@ -9,11 +9,16 @@ using UnityEngine.UI;
 public class QuestManager : MonoBehaviour
 {
     public TextMeshProUGUI QuestText1;
+    private bool Q1State = true;
 
     public TextMeshProUGUI QuestText2;
     public int Q2prog = 0;
+    private bool Q2State = true;
+
 
     public TextMeshProUGUI QuestText3;
+    private bool Q3State = true;
+
 
     public RankManager EXPSource;
 
@@ -39,31 +44,48 @@ public class QuestManager : MonoBehaviour
 
     public void Quest1Update()
     {
-        QuestText1.text = "Quest Complete!";
-        EXPSource.IncreaseEXP(EXPReward);
-        CoinSource.AddCoins(CoinReward);
+        if (Q1State == true)
+        {
+           
+            QuestText1.text = "Quest Complete!";
+            EXPSource.IncreaseEXP(EXPReward);
+            CoinSource.AddCoins(CoinReward);
+            Q1State = false;
+        }
 
     }
 
     public void Quest2Update()
     {
-        Q2prog++;
-
-        QuestText2.text = "Discover " + (3 - Q2prog) + " New Landmarks";
-
-        if (Q2prog >= 3)
+        if (Q2State == true)
         {
-            QuestText2.text = "Quest Complete";
-            EXPSource.IncreaseEXP(EXPReward);
-            CoinSource.AddCoins(CoinReward);
+
+
+            Q2prog++;
+
+            QuestText2.text = "Discover " + (3 - Q2prog) + " New Landmarks";
+
+            if (Q2prog == 3)
+            {
+                QuestText2.text = "Quest Complete";
+                EXPSource.IncreaseEXP(EXPReward);
+                CoinSource.AddCoins(CoinReward);
+                Q2State = false;
+            }
         }
     }
 
     public void Quest3Update()
     {
-        QuestText3.text = "Quest Complete!";
-        EXPSource.IncreaseEXP(EXPReward);
-        CoinSource.AddCoins(CoinReward);
+        if (Q3State == true)
+        {
+
+
+            QuestText3.text = "Quest Complete!";
+            EXPSource.IncreaseEXP(EXPReward);
+            CoinSource.AddCoins(CoinReward);
+            Q3State = false;
+        }
     }
 
     //public void Reward(int EXP)

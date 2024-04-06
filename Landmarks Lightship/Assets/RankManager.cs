@@ -46,7 +46,7 @@ public class RankManager : MonoBehaviour
     public void IncreaseEXP(int amount)
     {
         currentEXP += amount;
-        print(currentEXP);
+        
 
         // Check for rank advancement
         while (currentRank < maxRank && currentEXP >= expRequired)

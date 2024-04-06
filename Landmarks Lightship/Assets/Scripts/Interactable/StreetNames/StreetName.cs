@@ -44,8 +44,10 @@ public class StreetName : InteractableObject
         previousVisits = visits;
 
         if (timeSinceVisit >= visitDelay)
-            
+        {
+            print("Test Print");
             visits++;
+        }
 
         if (visits >= 6)
         {
@@ -54,6 +56,7 @@ public class StreetName : InteractableObject
         }
         else if (visits == 2)
         {
+            print("New visit hopefully.");
             QuestUpdater.Quest2Update();
             RankManager.Singleton.IncreaseEXP(500);
             Familiarity = "First Encounter";

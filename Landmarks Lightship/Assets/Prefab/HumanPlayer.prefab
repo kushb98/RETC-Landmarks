@@ -135,7 +135,7 @@ MonoBehaviour:
   _lightshipMapView: {fileID: 0}
   _editorMovementSpeed: 20
   _camera: {fileID: 0}
-  _model: {fileID: 0}
+  _model: {fileID: 3379008593023669548}
 --- !u!114 &6030963960841085512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   _lightshipMapView: {fileID: 0}
   _editorMovementSpeed: 60
   _camera: {fileID: 0}
-  _model: {fileID: 0}
+  _lastGpsUpdateTime: 0
   isWalking: 0
 --- !u!1 &7564237787886752112
 GameObject:
