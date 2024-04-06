@@ -16,11 +16,11 @@ public class PlayerModel : MonoBehaviour
 	[SerializeField]
 	private Animator _animator;
 
-	private static readonly int YetiWalkAnimation = Animator.StringToHash("YetiWalk");
-	private static readonly int YetiSprintAnimation = Animator.StringToHash("YetiSprint");
-	private static readonly int YetiRunAnimation = Animator.StringToHash("YetiRun");
-	private static readonly int YetiHappyAnimation = Animator.StringToHash("YetiHappy");
-	private static readonly int YetiIdleAnimation = Animator.StringToHash("YetiIdle");
+	private static readonly int YetiWalkAnimation = Animator.StringToHash("HumanWalking");
+	//private static readonly int YetiSprintAnimation = Animator.StringToHash("YetiSprint");
+	//private static readonly int YetiRunAnimation = Animator.StringToHash("YetiRun");
+	//private static readonly int YetiHappyAnimation = Animator.StringToHash("YetiHappy");
+	private static readonly int YetiIdleAnimation = Animator.StringToHash("HumanIdle");
 
 	private const float WalkThreshold = 0.5f;
 	private const float RunThreshold = 10f;
@@ -44,7 +44,7 @@ public class PlayerModel : MonoBehaviour
 				{
 					if (_currentPlayerState != PlayerModelState.Sprint)
 					{
-						_animator.CrossFade(YetiSprintAnimation, 1f);
+						//_animator.CrossFade(YetiSprintAnimation, 1f);
 						_currentPlayerState = PlayerModelState.Sprint;
 					}
 
@@ -54,7 +54,7 @@ public class PlayerModel : MonoBehaviour
 				{
 					if (_currentPlayerState != PlayerModelState.Run)
 					{
-						_animator.CrossFade(YetiRunAnimation, 1f);
+						//_animator.CrossFade(YetiRunAnimation, 1f);
 						_currentPlayerState = PlayerModelState.Run;
 					}
 
@@ -103,7 +103,7 @@ public class PlayerModel : MonoBehaviour
 		if (_lastIdleUpdateTime >= IdleToHappyThreshold &&
 			_currentPlayerState != PlayerModelState.Happy)
 		{
-			_animator.CrossFade(YetiHappyAnimation, 1f);
+			//_animator.CrossFade(YetiHappyAnimation, 1f);
 			_currentPlayerState = PlayerModelState.Happy;
 		}
 	}
