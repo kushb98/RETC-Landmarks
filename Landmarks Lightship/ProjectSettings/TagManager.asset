@@ -9,6 +9,7 @@ TagManager:
   - Interactable Object
   - Audio
   - World Interactor
+  - Marker
   layers:
   - Default
   - TransparentFX
