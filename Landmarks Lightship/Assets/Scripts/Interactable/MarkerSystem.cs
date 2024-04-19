@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MarkerSystem : MonoBehaviour
 {
@@ -9,12 +10,12 @@ public class MarkerSystem : MonoBehaviour
     public GameObject marker;
     public GameObject MarkerUI;
     public GameObject MarkerIndicator;
-    
+    public UnityEngine.AI.NavMeshAgent agent;
 
 
 
 
-    
+
     void Start()
     {
         
@@ -39,7 +40,7 @@ public class MarkerSystem : MonoBehaviour
         MarkerUI.SetActive(false);
         //MarkerIndicator.SetActive(false);
         Debug.Log("Exit Marker Mode");
-        Destroy(MarkerIndicator);
+        //Destroy(MarkerIndicator);
 
     }
 

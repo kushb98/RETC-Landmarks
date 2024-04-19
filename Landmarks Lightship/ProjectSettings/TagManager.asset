@@ -10,6 +10,8 @@ TagManager:
   - Audio
   - World Interactor
   - Marker
+  - Sidewalk
+  - Path
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - UI
   - World Interactable
   - World Interactor
-  - 
-  - 
+  - WhatisGround
+  - WhatIsPlayer
   - 
   - 
   - 
