@@ -20,6 +20,8 @@ public class QuestManager : MonoBehaviour
     private bool Q3State = true;
 
 
+    public Seedling seedReward;
+
     public RankManager EXPSource;
 
     public CoinInventory CoinSource;
@@ -50,6 +52,7 @@ public class QuestManager : MonoBehaviour
             QuestText1.text = "Quest Complete!";
             EXPSource.IncreaseEXP(EXPReward);
             CoinSource.AddCoins(CoinReward);
+            seedReward.seedlingCount++;
             Q1State = false;
         }
 
@@ -70,6 +73,7 @@ public class QuestManager : MonoBehaviour
                 QuestText2.text = "Quest Complete";
                 EXPSource.IncreaseEXP(EXPReward);
                 CoinSource.AddCoins(CoinReward);
+                seedReward.seedlingCount++;
                 Q2State = false;
             }
         }
@@ -84,6 +88,7 @@ public class QuestManager : MonoBehaviour
             QuestText3.text = "Quest Complete!";
             EXPSource.IncreaseEXP(EXPReward);
             CoinSource.AddCoins(CoinReward);
+            seedReward.seedlingCount++;
             Q3State = false;
         }
     }
