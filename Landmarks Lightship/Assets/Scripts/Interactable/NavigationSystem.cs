@@ -31,11 +31,13 @@ public class NavigationSystem : MonoBehaviour
     void Start()
     {
         GuideTrail.enabled = false;
-       
+        //NavMeshSurface navMeshSurface = GetComponent<NavMeshSurface>();
+        //navMeshSurface.BuildNavMesh();
+
         //builds the NavMesh at the start of the game
         //NavMeshSurface nm = GameObject.FindObjectOfType<NavMeshSurface>();
         //build the array of NavMeshSurfaces
-    
+
 
 
     }
@@ -65,20 +67,19 @@ public class NavigationSystem : MonoBehaviour
 
         for (int i = 0; i < pathMeshes.Length; i++)
         {
-         //   pathMeshes[i].BuildNavMesh();
-            Debug.Log("NavMesh Built");
+          //  pathMeshes[i].BuildNavMesh();
+           // Debug.Log("NavMesh Built");
         }
 
 
 
-       /* foreach (var pathMesh in pathMeshes)
-        {
-            //build the NavMesh one by one
-     
-            Debug.Log("Test Building NavMesh");
-        }
-       */
+        /* foreach (var pathMesh in pathMeshes)
+         {
+             //build the NavMesh one by one
 
+             Debug.Log("Test Building NavMesh");
+         }
+        */
         GuideTrail.enabled = true;
         NavigationUI.SetActive(true);   
     }
@@ -90,8 +91,8 @@ public class NavigationSystem : MonoBehaviour
         NavigationUI.SetActive(false);
         //build the GuideSidewalk NavMesh
        // GuideSidewalk.GetComponent<NavMeshSurface>().BuildNavMesh();
-       walkSurface = GuideSidewalk.GetComponent<NavMeshSurface>();
-       walkSurface.BuildNavMesh();
+    //   walkSurface = GuideSidewalk.GetComponent<NavMeshSurface>();
+  //     walkSurface.BuildNavMesh();
        Debug.Log("Guide Sidewalk Built");
 
 
