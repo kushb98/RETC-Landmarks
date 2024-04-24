@@ -33,13 +33,6 @@ public class NavigationSystem : MonoBehaviour
         GuideTrail.enabled = false;
         //NavMeshSurface navMeshSurface = GetComponent<NavMeshSurface>();
         //navMeshSurface.BuildNavMesh();
-
-        //builds the NavMesh at the start of the game
-        //NavMeshSurface nm = GameObject.FindObjectOfType<NavMeshSurface>();
-        //build the array of NavMeshSurfaces
-
-
-
     }
 
     public void EnterNavigationMode()
@@ -53,33 +46,17 @@ public class NavigationSystem : MonoBehaviour
             obj.AddComponent<MeshCollider>();          
             obj.AddComponent<NavMeshSurface>();
             obj.tag = "Sidewalk";
-            //only find the NavMeshSurface that is a child of the object with the name "Path Mesh" and are active
-           // NavMeshSurface nm = obj.GetComponent<NavMeshSurface>();
-            //obj.isStatic = true;        
-
-
-            //NavMeshSurface[] nm = GameObject.FindObjectsOfType<NavMeshSurface>().Where(obj => obj.name == "Path Mesh").ToArray();
-            
-          
+            obj.isStatic = true;       
+            //NavMeshSurface[] nm = GameObject.FindObjectsOfType<NavMeshSurface>().Where(obj => obj.name == "Path Mesh").ToArray();     
         }
 
         pathMeshes = GameObject.FindObjectsOfType<NavMeshSurface>().Where(obj => obj.name == "Path Mesh").ToArray();    
 
         for (int i = 0; i < pathMeshes.Length; i++)
         {
-          //  pathMeshes[i].BuildNavMesh();
-           // Debug.Log("NavMesh Built");
+          //pathMeshes[i].BuildNavMesh();
+          // Debug.Log("NavMesh Built");
         }
-
-
-
-        /* foreach (var pathMesh in pathMeshes)
-         {
-             //build the NavMesh one by one
-
-             Debug.Log("Test Building NavMesh");
-         }
-        */
         GuideTrail.enabled = true;
         NavigationUI.SetActive(true);   
     }
@@ -88,16 +65,7 @@ public class NavigationSystem : MonoBehaviour
     {
         Instantiate(Guide, agent.transform.position, Quaternion.identity);
         GuideTrail.enabled = false;
-        NavigationUI.SetActive(false);
-        //build the GuideSidewalk NavMesh
-       // GuideSidewalk.GetComponent<NavMeshSurface>().BuildNavMesh();
-    //   walkSurface = GuideSidewalk.GetComponent<NavMeshSurface>();
-  //     walkSurface.BuildNavMesh();
-       Debug.Log("Guide Sidewalk Built");
-
-
-        
-      
+        NavigationUI.SetActive(false);                
     }
 
     public void SetDestination(Vector3 destination)
@@ -129,14 +97,10 @@ public class NavigationSystem : MonoBehaviour
                 if (hit.collider.tag == "Sidewalk")
                 {                       
                     SetDestination(hit.point);
-
                     Debug.Log("Destination set");
                 }
             }
             
         }
-
-        //if the tag of an object is not "sidewalk", then the agent can't walk on it
-
     }
 }
