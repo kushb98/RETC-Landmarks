@@ -17,10 +17,12 @@ public class InteractableObject : MonoBehaviour
     private bool _selected = false;
     protected bool _ready = false;
     protected bool _inRange = false;
-
+    private AudioManager audioManager;
+    
     protected virtual void Start()
     {
-        if(readyOnStart)
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        if (readyOnStart)
         {
             _ready = true;
         }
@@ -38,6 +40,7 @@ public class InteractableObject : MonoBehaviour
     {
         _selected = true;
         _worldInteractor = worldInteractor;
+        
     }
 
     // Deselects the object
@@ -57,6 +60,7 @@ public class InteractableObject : MonoBehaviour
     {
         if (_ready)
         {
+            audioManager.Play(audioManager.playerInteract);
             Consume();
         }
         else

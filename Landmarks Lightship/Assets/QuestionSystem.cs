@@ -20,11 +20,14 @@ public class QuestionSystem : MonoBehaviour
     private Question _currentQuestion;
     private AnswerEnum correctAnswer;
     private int attemptsLeft = 2; // Number of attempts allowed
+    private AudioManager audioManager;
 
     private void Awake()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+
         if (Instance == null)
-            Instance = this;
+            Instance = this;    
 
         potentialQuestionsList.AddRange(potentialQuestions);
 
@@ -85,6 +88,8 @@ public class QuestionSystem : MonoBehaviour
 
     private void OnCorrectAnswerChosen()
     {
+        audioManager.Play(audioManager.playerCorrect);
+
         RankManager.Singleton.IncreaseEXP(_currentQuestion.RewardEXP);
 
         Debug.Log("Correct!");
