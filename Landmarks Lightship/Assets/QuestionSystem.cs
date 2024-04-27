@@ -7,6 +7,7 @@ using static Question;
 public class QuestionSystem : MonoBehaviour
 {
     public static QuestionSystem Instance;
+    public AudioManager audioManager;
 
     [SerializeField] private Question[] potentialQuestions;
     private List<Question> potentialQuestionsList = new List<Question>();
@@ -20,7 +21,7 @@ public class QuestionSystem : MonoBehaviour
     private Question _currentQuestion;
     private AnswerEnum correctAnswer;
     private int attemptsLeft = 2; // Number of attempts allowed
-    private AudioManager audioManager;
+    
 
     private void Awake()
     {
@@ -36,6 +37,7 @@ public class QuestionSystem : MonoBehaviour
 
     public void AskRandomQuestion()
     {
+
         gameObject.SetActive(true);
 
         Question question = potentialQuestionsList[Random.Range(0, potentialQuestionsList.Count)];
@@ -75,6 +77,7 @@ public class QuestionSystem : MonoBehaviour
         }
         else
         {
+            audioManager.Play(audioManager.playerIncorrect);
             Debug.Log("Incorrect!");
             attemptsLeft--;
             attemptsLeftText.text = "Attempts Left: " + attemptsLeft.ToString();

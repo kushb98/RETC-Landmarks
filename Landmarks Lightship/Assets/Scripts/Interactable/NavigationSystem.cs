@@ -20,6 +20,7 @@ public class NavigationSystem : MonoBehaviour
     public NavMeshSurface[] pathMeshes;
     public NavMeshSurface walkSurface;
     public GameObject GuideSidewalk;
+    public AudioManager audioManager;
     
     
     //create an array of all NavMeshSurfaces with the name "Path Mesh"
@@ -30,6 +31,7 @@ public class NavigationSystem : MonoBehaviour
 
     void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         GuideTrail.enabled = false;
         //NavMeshSurface navMeshSurface = GetComponent<NavMeshSurface>();
         //navMeshSurface.BuildNavMesh();
@@ -98,6 +100,7 @@ public class NavigationSystem : MonoBehaviour
                 {                       
                     SetDestination(hit.point);
                     Debug.Log("Destination set");
+                    audioManager.Play(audioManager.playerNavigation);
                 }
             }
             

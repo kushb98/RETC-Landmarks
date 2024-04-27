@@ -60,7 +60,7 @@ public class InteractableObject : MonoBehaviour
     {
         if (_ready)
         {
-            audioManager.Play(audioManager.playerInteract);
+            audioManager.Play(audioManager.playerInteract);         
             Consume();
         }
         else

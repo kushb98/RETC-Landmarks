@@ -14,6 +14,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip clickSound;
     public AudioClip playerInteract;
     public AudioClip playerCorrect;
+    public AudioClip playerIncorrect;
+    public AudioClip playerNavigation;
+    public AudioClip roamlingHappy;
 
 
     // Start is called before the first frame update

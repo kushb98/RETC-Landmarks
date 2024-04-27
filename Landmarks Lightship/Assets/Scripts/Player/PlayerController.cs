@@ -205,11 +205,13 @@ public class PlayerController : MonoBehaviour
 				audioManager.Play(audioManager.playerFootsteps);
 			}
 		}
-		else
+
+		/*else
 		{
 			audioManager.Stop(audioManager.playerFootsteps);
-		}
-
+		}		
+	*/
+		
 		_currentMapPosition = Vector3.Lerp(
 			_currentMapPosition,
 			_targetMapPosition,

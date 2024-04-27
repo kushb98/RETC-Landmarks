@@ -11,12 +11,18 @@ public class RoamlingController : MonoBehaviour
     public TextMeshProUGUI happinessText;
     public RectTransform hungerFillArea;
     public RectTransform happinessFillArea;
+    private AudioManager audioManager;
 
     private Item roamling;
-    
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     void Start()
     {
+        //audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         // Set the pivot of fill areas to the left side
         SetPivotToLeft(hungerFillArea);
         SetPivotToLeft(happinessFillArea);
@@ -41,6 +47,7 @@ public class RoamlingController : MonoBehaviour
         happinessSlider.value = roamling.Happiness;
         happinessText.text = $"Happiness: {roamling.Happiness}";
 
+        
         
 
         
@@ -96,6 +103,8 @@ public class RoamlingController : MonoBehaviour
 
         roamling.Happiness += (int)amount;
         UpdateRoamlingStats(roamling); 
+        audioManager.Play(audioManager.roamlingHappy);
+
     }
 
     public void DecreaseHunger(float amount)
