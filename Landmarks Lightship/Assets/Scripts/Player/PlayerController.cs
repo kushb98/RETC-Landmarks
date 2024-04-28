@@ -198,14 +198,14 @@ public class PlayerController : MonoBehaviour
 				break;
 		}
 
-		if(isWalking == true)
+		/*if(isWalking == true)
 		{
 			if(!audioManager.isPlaying())
 			{
 				audioManager.Play(audioManager.playerFootsteps);
 			}
 		}
-
+		*/
 		/*else
 		{
 			audioManager.Stop(audioManager.playerFootsteps);

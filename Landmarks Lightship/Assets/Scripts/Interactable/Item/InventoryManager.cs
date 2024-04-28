@@ -30,6 +30,8 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
 
     public Toggle ReleaseRoamlings;
 
+    private AudioManager audioManager;
+
 
 
 
@@ -41,7 +43,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
         else
             Debug.LogError("Multiple Inventory Managers In Scene");
 
-
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     private void Start()
@@ -88,6 +90,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
     public void Add(Item item)
     {
         Items.Add(item);
+        audioManager.Play(audioManager.itemBought);
         ListItems(); // Update the inventory list when adding an item
         Debug.Log("Item Added");
     }
