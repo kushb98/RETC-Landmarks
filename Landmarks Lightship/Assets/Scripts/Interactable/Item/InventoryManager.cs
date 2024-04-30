@@ -8,6 +8,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using JetBrains.Annotations;
 
+
 public class InventoryManager : MonoBehaviour, IDataPersistence
 {
     public static InventoryManager Instance;
@@ -89,10 +90,19 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
 
     public void Add(Item item)
     {
-        Items.Add(item);
-        audioManager.Play(audioManager.itemBought);
+        Items.Add(item);   
         ListItems(); // Update the inventory list when adding an item
         Debug.Log("Item Added");
+
+        //change later for specifically shop items
+        if (item.itemName == "Toy" || item.itemName == "Treat")
+        {
+            audioManager.Play(audioManager.itemBought);
+        }
+     
+       
+
+        
     }
 
     public void Remove(Item item)

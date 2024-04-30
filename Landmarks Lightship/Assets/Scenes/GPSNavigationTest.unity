@@ -1987,17 +1987,17 @@ PrefabInstance:
         type: 3}
       propertyPath: itemBought
       value: 
-      objectReference: {fileID: 8300000, guid: e945532c9beee584f8f9536df034ef5c, type: 3}
+      objectReference: {fileID: 8300000, guid: 2dfd9d78409f030469100e025311eabf, type: 3}
     - target: {fileID: 8709992761426205494, guid: 3f464f0dbabe1854f8b518da4383bec2,
         type: 3}
       propertyPath: playerCorrect
       value: 
-      objectReference: {fileID: 8300000, guid: ed0f995c8164d8f498bbfe6241c470b6, type: 3}
+      objectReference: {fileID: 8300000, guid: 0f948137af1b20841bc051ac867a0ddf, type: 3}
     - target: {fileID: 8709992761426205494, guid: 3f464f0dbabe1854f8b518da4383bec2,
         type: 3}
       propertyPath: roamlingHappy
       value: 
-      objectReference: {fileID: 8300000, guid: cd055021cf9570e429e641bab5d15aa5, type: 3}
+      objectReference: {fileID: 8300000, guid: 65bc3756ece51424682af2b969356e2c, type: 3}
     - target: {fileID: 8709992761426205494, guid: 3f464f0dbabe1854f8b518da4383bec2,
         type: 3}
       propertyPath: playerInteract
@@ -2012,7 +2012,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerIncorrect
       value: 
-      objectReference: {fileID: 8300000, guid: 2ba0332117cc436458ff367b718f88cf, type: 3}
+      objectReference: {fileID: 8300000, guid: e014b91046f13ef4bb761421a3f51af3, type: 3}
     - target: {fileID: 8709992761426205494, guid: 3f464f0dbabe1854f8b518da4383bec2,
         type: 3}
       propertyPath: playerNavigation
@@ -18363,7 +18363,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 2835266279536020306}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
