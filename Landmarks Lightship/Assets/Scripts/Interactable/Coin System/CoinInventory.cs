@@ -11,12 +11,19 @@ public class CoinInventory : MonoBehaviour, IDataPersistence
 
     private int _numCoins;
 
+    public TextMeshProUGUI fadeText;
+
+    public Animator FadeCoinAnim;
+
+
+
     private void Awake()
     {
         if (Singleton == null)
             Singleton = this;
         else
             Debug.LogError("There can not be more than one instance of a singleton");
+
     }
 
 
@@ -25,6 +32,9 @@ public class CoinInventory : MonoBehaviour, IDataPersistence
     {
         _numCoins += numToAdd;
         coinUI.SetCoinDisplay(_numCoins);
+       // FadeCoins(numToAdd);
+      StartCoroutine(FadeCoins(numToAdd));
+
     }
 
     // Try to remove a number of coins. Returns true if coins were succesfully removed.
@@ -34,7 +44,6 @@ public class CoinInventory : MonoBehaviour, IDataPersistence
         {
             _numCoins -= numToRemove;
             coinUI.SetCoinDisplay(_numCoins);
-
             return true;
         }
 
@@ -42,6 +51,28 @@ public class CoinInventory : MonoBehaviour, IDataPersistence
 
         return false;
     }
+
+    IEnumerator FadeCoins(int numToAdd)
+    {
+        fadeText.gameObject.SetActive(true);
+
+        if (numToAdd > 0)
+        {
+            fadeText.text = "+" + numToAdd;
+        }
+        else
+        {
+            fadeText.text = "" + numToAdd;
+        }
+
+        FadeCoinAnim.Play("FadeCoinAnim");       
+        fadeText.CrossFadeAlpha(0, 3, false);
+        yield return new WaitForSeconds(3);
+        fadeText.gameObject.SetActive(false);
+        fadeText.CrossFadeAlpha(1, 0, false);
+      
+    }
+
 
     // Checks if the player has a certain number of coins 
     private bool DoesHaveCoins(int numToCheck)
