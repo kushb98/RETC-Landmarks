@@ -9,8 +9,15 @@ public class RoamlingController : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI hungerText;
     public TextMeshProUGUI happinessText;
+    public TextMeshProUGUI treatInv;
+    public TextMeshProUGUI foodInv;
     public RectTransform hungerFillArea;
     public RectTransform happinessFillArea;
+
+    public int treatNum;
+    public int foodNum;
+
+
 
     private Item roamling;
     
@@ -23,6 +30,7 @@ public class RoamlingController : MonoBehaviour
 
         // Update UI based on Roamling values
         UpdateUI();
+        UpdateInventory();
     }
 
     public void UpdateRoamlingStats(Item roamling) 
@@ -41,9 +49,20 @@ public class RoamlingController : MonoBehaviour
         happinessSlider.value = roamling.Happiness;
         happinessText.text = $"Happiness: {roamling.Happiness}";
 
-        
 
-        
+
+
+
+    }
+
+    public void UpdateInventory()
+    {
+
+        treatInv.text = "Treats: " +treatNum;
+
+        foodInv.text = "Food: " + foodNum;
+
+
     }
 
     void SetPivotToLeft(RectTransform rectTransform)
@@ -85,6 +104,57 @@ public class RoamlingController : MonoBehaviour
     {
         return Mathf.Clamp01((value - minValue) / (maxValue - minValue));
     }
+
+    public void feedFood(float amount)
+    {
+        if (roamling == null)
+            return;
+
+        print("Feeding Attempted");
+
+        if (foodNum > 0)
+        {
+            print("Feeding successful");
+            DecreaseHunger(amount);
+            foodNum--;
+            UpdateInventory();
+        }
+
+        else
+        {
+            print("Feeding Unsuccessful");
+        }
+    }
+
+
+    public void feedTreat(float amount)
+    {
+
+        if (roamling == null)
+            return;
+
+
+        print("Treating Attempted");
+        if (treatNum > 0)
+        {
+            print("Treating successful");
+            IncreaseHappiness(amount);
+            DecreaseHunger(amount);
+            treatNum--;
+            UpdateInventory();
+        }
+
+        else
+        {
+            print("Treating Unsuccessful");
+        }
+    }
+
+
+
+
+
+
 
     public void IncreaseHappiness(float amount)
     {
