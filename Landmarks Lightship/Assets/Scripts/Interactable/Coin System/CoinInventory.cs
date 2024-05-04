@@ -9,7 +9,7 @@ public class CoinInventory : MonoBehaviour, IDataPersistence
 
     [SerializeField] private CoinUI coinUI;
 
-    private int _numCoins;
+    public int _numCoins;
 
     private void Awake()
     {

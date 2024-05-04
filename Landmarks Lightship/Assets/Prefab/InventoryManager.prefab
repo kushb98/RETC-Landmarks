@@ -45,6 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Items: []
+  RoamlingMenu: {fileID: 0}
   ItemContent: {fileID: 0}
   InventoryItem: {fileID: 8125425832708331906, guid: a629e4fb200d4fa47b66be35cc7d5515,
     type: 3}
+  roamlingController: {fileID: 0}
+  Inventory: {fileID: 0}
+  ReleaseRoamlings: {fileID: 0}
+  InventoryItems: []
+  itemDataSO: {fileID: 11400000, guid: cb8be61e3df847a41a9f58db71b88f76, type: 2}
