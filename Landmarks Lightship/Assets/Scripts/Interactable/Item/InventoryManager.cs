@@ -110,7 +110,7 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
         List<Item> newItems = Items;
         newItems.Remove(item);
         Items = newItems;
-
+        Debug.Log("Item Removed");
 
     }
 

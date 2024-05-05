@@ -66,7 +66,7 @@ public class CoinInventory : MonoBehaviour, IDataPersistence
         }
 
         FadeCoinAnim.Play("FadeCoinAnim");       
-        fadeText.CrossFadeAlpha(0, 3, false);
+        fadeText.CrossFadeAlpha(0, 3, false);      
         yield return new WaitForSeconds(3);
         fadeText.gameObject.SetActive(false);
         fadeText.CrossFadeAlpha(1, 0, false);
