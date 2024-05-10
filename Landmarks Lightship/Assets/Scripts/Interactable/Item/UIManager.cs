@@ -11,4 +11,15 @@ public class UIManager : MonoBehaviour
         hungerSlider.value = item.Hunger;
         happinessSlider.value = item.Happiness;
     }
+    public void UpdateUI(Roamling roamling)
+    {
+        hungerSlider.value = roamling.Hunger;
+        happinessSlider.value = roamling.Happiness;
+    }
+
+    public void UpdateRoamlingUI(Roamling roamling)
+    {
+        hungerSlider.value = roamling.Hunger;
+        happinessSlider.value = roamling.Happiness;
+    }
 }

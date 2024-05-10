@@ -57,7 +57,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af3eb9c8435363649a41b5bff6bb6a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item: {fileID: 11400000, guid: 803e817fc24bb8040bd83c6b409ee053, type: 2}
+  Item: {fileID: 0}
+  Roamling: {fileID: 11400000, guid: f3c1bed9b778c234ebd2f29e0ea8f515, type: 2}
 --- !u!114 &9005705837998549363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   readyOnStart: 1
   name: Roamling 1
-  Item: {fileID: 11400000, guid: 803e817fc24bb8040bd83c6b409ee053, type: 2}
+  Roamling: {fileID: 11400000, guid: f3c1bed9b778c234ebd2f29e0ea8f515, type: 2}
 --- !u!65 &760954124414630608
 BoxCollider:
   m_ObjectHideFlags: 0

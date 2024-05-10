@@ -18,6 +18,8 @@ public class InteractableObject : MonoBehaviour
     protected bool _ready = false;
     protected bool _inRange = false;
     private AudioManager audioManager;
+
+    //public Item Item;
     
     protected virtual void Start()
     {
@@ -69,6 +71,12 @@ public class InteractableObject : MonoBehaviour
         }
     }
 
+   /* public virtual void ShopConsume()
+    {
+        InventoryManager.Instance.Add(Item);
+        Destroy(gameObject);
+    }
+   */
     protected void OnDestroy()
     {
         if (_selected)

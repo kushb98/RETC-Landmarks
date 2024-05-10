@@ -13,7 +13,8 @@ public class RoamlingController : MonoBehaviour
     public RectTransform happinessFillArea;
     private AudioManager audioManager;
 
-    private Item roamling;
+    //private Item roamling;
+    private Roamling roamling;
 
     private void Awake()
     {
@@ -31,11 +32,11 @@ public class RoamlingController : MonoBehaviour
         UpdateUI();
     }
 
-    public void UpdateRoamlingStats(Item roamling) 
+    public void UpdateRoamlingStats(Roamling roamling) 
     {
         this.roamling = roamling; // Update the reference to the current roamling
         // Update roamling name
-        nameText.text = roamling.itemName;
+        nameText.text = roamling.roamlingName;
 
         // Update hunger slider and text
         hungerSlider.maxValue = roamling.maxHunger;
@@ -45,12 +46,7 @@ public class RoamlingController : MonoBehaviour
         // Update happiness slider and text
         happinessSlider.maxValue = roamling.maxHappiness;
         happinessSlider.value = roamling.Happiness;
-        happinessText.text = $"Happiness: {roamling.Happiness}";
-
-        
-        
-
-        
+        happinessText.text = $"Happiness: {roamling.Happiness}";                     
     }
 
     void SetPivotToLeft(RectTransform rectTransform)

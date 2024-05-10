@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryItemController : MonoBehaviour
+public class InventoryController : MonoBehaviour
 {
     Item item;
+    Roamling roamling;
 
     public Button RemoveButton;
 
@@ -20,5 +21,10 @@ public class InventoryItemController : MonoBehaviour
     public void AddItem(Item newItem)
     {
         item = newItem;
+    }
+
+    public void AddRoamling(Roamling newRoamling)
+    {
+        roamling = newRoamling;
     }
 }

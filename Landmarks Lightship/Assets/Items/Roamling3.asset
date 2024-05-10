@@ -20,7 +20,7 @@ MonoBehaviour:
   maxHunger: 100
   Happiness: 59
   maxHappiness: 100
-  inventoryManager: {fileID: 8906759257883058183, guid: e0d6cd7fb98844f4392c75442a3e5005,
+  inventoryManager: {fileID: 816760823784977546, guid: 55260359662e54344ad70d8a64bcd51b,
     type: 3}
   onClickEvent:
     m_PersistentCalls:

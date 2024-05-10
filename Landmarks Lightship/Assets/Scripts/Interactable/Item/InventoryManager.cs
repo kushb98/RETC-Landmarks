@@ -17,17 +17,17 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
     public List<Item> Items = new List<Item>();
     //public List<Item> ShopItems = new List<Item>();
 
-    public InventoryItemController[] InventoryItems;
-    public InventoryItemController[] BoughtItems;
+    public InventoryController[] InventoryItems;
+    //public InventoryController[] BoughtItems;
 
-    public GameObject RoamlingMenu;
+   // public GameObject RoamlingMenu;
     public Transform ItemContent;
     public GameObject InventoryItem;
-    public RoamlingController roamlingController;
+   // public RoamlingController roamlingController;
     public GameObject Inventory;
 
     public GameObject ItemInventory;
-    public Transform BoughtContent;
+    //public Transform BoughtContent;
 
     public Toggle ReleaseRoamlings;
 
@@ -127,14 +127,14 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
             Destroy(item.gameObject);
         }
 
-       foreach (Transform item in BoughtContent)
+      /* foreach (Transform item in BoughtContent)
         {
             Destroy(item.gameObject);
         }
-      
+      */
         foreach (var item in Items)
         {
-            if (item.value > 0)
+          /*  if (item.value > 0)
             {
                 GameObject obj = Instantiate(InventoryItem, ItemContent);
 
@@ -152,13 +152,12 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
                 {
                     removeButton.gameObject.SetActive(true);
                 }
-
             }
-
+          */
             // if the item value is 0, do the same for BoughtContent
             if (item.value == 0)
             {
-                GameObject obj2 = Instantiate(InventoryItem, BoughtContent);
+                GameObject obj2 = Instantiate(InventoryItem, ItemContent);
                 var itemName2 = obj2.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
                 var itemIcon2 = obj2.transform.Find("ItemIcon").GetComponent<Image>();
                 var removeButton2 = obj2.transform.Find("RemoveButton").GetComponent<Button>();
@@ -181,11 +180,10 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
         item.UpdateUI();
 
         //use the update roamling stats method to update the roamling stats based off the item clicked
-        roamlingController.UpdateRoamlingStats(item);
+       // roamlingController.UpdateRoamlingStats(item);
 
         //enable RoamlingMenu and show the hunger and happiness bars based off the roamling
 
-        RoamlingMenu.SetActive(true);
         Inventory.SetActive(false);
     } 
 
@@ -210,34 +208,14 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
     public void SetInventoryItems()
     {
         //set the inventory items to the number in both item content and bought content
-        InventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
-        BoughtItems = BoughtContent.GetComponentsInChildren<InventoryItemController>();
+        InventoryItems = ItemContent.GetComponentsInChildren<InventoryController>();
+       // BoughtItems = BoughtContent.GetComponentsInChildren<InventoryController>();
 
-        // for (int i = 0; i < Items.Count - BoughtContent.childCount; i++)
-        for (int i = 0; i < Items.Count - BoughtContent.childCount; i++)
+
+        for (int i = 0; i < Items.Count - ItemContent.childCount; i++)
         {
             InventoryItems[i].AddItem(Items[i]);
-        }
-       
-        /*if (Items.Count > 0)
-        {
-            for (int i = 0; i < Items.Count - BoughtContent.childCount; i++)
-            {
-                InventoryItems[i].AddItem(Items[i]);
-            }
-        }
-      /*  else
-        {
-            for (int i = 0; i < Items.Count; i++)
-            {
-                BoughtItems[i].AddItem(Items[i]);
-            }
-        }
-     /* for (int i = 0; i < Items.Count; i++)
-        {
-            BoughtItems[i].AddItem(Items[i]);
-        }
-     */   
+        }      
 
     }
 
