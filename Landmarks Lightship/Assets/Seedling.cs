@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Seedling : MonoBehaviour
 {
@@ -8,14 +12,18 @@ public class Seedling : MonoBehaviour
 
     public int seedlingCount = 0;
 
-    int foodtracker = 0;
+    public TextMeshProUGUI seedlingtext;
 
     int newFood = 0;
+    int newTreat = 0;
+
+    public RoamlingController treatfoodInv;
 
 
     void Start()
     {
-        
+        treatfoodInv = FindObjectOfType<RoamlingController>();
+        SeedCountUpdate();
     }
 
     // Update is called once per frame
@@ -30,13 +38,22 @@ public class Seedling : MonoBehaviour
         {
             newFood = Random.Range(3, 6);
 
+            newTreat = Random.Range(3,6);
 
-            foodtracker += newFood;
+            treatfoodInv.foodNum += newFood;
 
-            print(foodtracker);
-
+            treatfoodInv.treatNum += newTreat;
             seedlingCount --;
 
+            treatfoodInv.UpdateInventory();
+
+            SeedCountUpdate();
+
         }
+    }
+
+    public void SeedCountUpdate()
+    {
+        seedlingtext.text = "Seedlings: " + seedlingCount;
     }
 }

@@ -53,6 +53,7 @@ public class QuestManager : MonoBehaviour
             EXPSource.IncreaseEXP(EXPReward);
             CoinSource.AddCoins(CoinReward);
             seedReward.seedlingCount++;
+            seedReward.SeedCountUpdate();
             Q1State = false;
         }
 
@@ -74,6 +75,7 @@ public class QuestManager : MonoBehaviour
                 EXPSource.IncreaseEXP(EXPReward);
                 CoinSource.AddCoins(CoinReward);
                 seedReward.seedlingCount++;
+                seedReward.SeedCountUpdate();
                 Q2State = false;
             }
         }
@@ -89,6 +91,7 @@ public class QuestManager : MonoBehaviour
             EXPSource.IncreaseEXP(EXPReward);
             CoinSource.AddCoins(CoinReward);
             seedReward.seedlingCount++;
+            seedReward.SeedCountUpdate();
             Q3State = false;
         }
     }

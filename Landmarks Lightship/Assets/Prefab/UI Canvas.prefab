@@ -5443,8 +5443,12 @@ MonoBehaviour:
   nameText: {fileID: 6975397006199593093}
   hungerText: {fileID: 7388622509960292007}
   happinessText: {fileID: 4073466247783993465}
+  treatInv: {fileID: 0}
+  foodInv: {fileID: 0}
   hungerFillArea: {fileID: 984718181488834166}
   happinessFillArea: {fileID: 6403003808034039914}
+  treatNum: 0
+  foodNum: 0
 --- !u!114 &6601712738662424434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5639,6 +5643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinUI: {fileID: 4836300955487886983}
+  _numCoins: 0
 --- !u!1 &2167448863821799459
 GameObject:
   m_ObjectHideFlags: 0
@@ -10350,8 +10355,12 @@ MonoBehaviour:
   nameText: {fileID: 0}
   hungerText: {fileID: 220649770020205886}
   happinessText: {fileID: 5298366941345105473}
+  treatInv: {fileID: 0}
+  foodInv: {fileID: 0}
   hungerFillArea: {fileID: 8430463614324768147}
   happinessFillArea: {fileID: 6884384217856052529}
+  treatNum: 0
+  foodNum: 0
 --- !u!1 &3808782757148188688
 GameObject:
   m_ObjectHideFlags: 0
@@ -11474,7 +11483,6 @@ GameObject:
   - component: {fileID: 3790380831993431840}
   - component: {fileID: 3406477531299642535}
   - component: {fileID: 5878069438373643799}
-  - component: {fileID: 7152954598241802858}
   m_Layer: 5
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -11506,6 +11514,7 @@ RectTransform:
   - {fileID: 6040077783902691930}
   - {fileID: 1569596823781871931}
   - {fileID: 4471705547184018653}
+  - {fileID: 5606749644686077975}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -11592,6 +11601,8 @@ MonoBehaviour:
   expText: {fileID: 1107301427121928579}
   levelText: {fileID: 8216495395389141486}
   expSlider: {fileID: 4064316509580413234}
+  QuestUpdater: {fileID: 0}
+  currentEXP: 0
 --- !u!114 &5878069438373643799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11609,25 +11620,12 @@ MonoBehaviour:
   nameText: {fileID: 6975397006199593093}
   hungerText: {fileID: 7388622509960292007}
   happinessText: {fileID: 4073466247783993465}
+  treatInv: {fileID: 0}
+  foodInv: {fileID: 0}
   hungerFillArea: {fileID: 984718181488834166}
   happinessFillArea: {fileID: 6403003808034039914}
---- !u!114 &7152954598241802858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4301607142127614425}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9e9dd977173a2548b88561a5f2465eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roamling: {fileID: 11400000, guid: cb8be61e3df847a41a9f58db71b88f76, type: 2}
-  hungerSlider: {fileID: 4660253235706465086}
-  happinessSlider: {fileID: 8195258008843170464}
-  hungerText: {fileID: 220649770020205886}
-  happinessText: {fileID: 5298366941345105473}
+  treatNum: 0
+  foodNum: 0
 --- !u!1 &4313482686545190449
 GameObject:
   m_ObjectHideFlags: 0
@@ -16563,8 +16561,12 @@ MonoBehaviour:
   nameText: {fileID: 0}
   hungerText: {fileID: 5727421511520270752}
   happinessText: {fileID: 3607358783099778906}
+  treatInv: {fileID: 0}
+  foodInv: {fileID: 0}
   hungerFillArea: {fileID: 691891323523832551}
   happinessFillArea: {fileID: 6320437037973511823}
+  treatNum: 0
+  foodNum: 0
 --- !u!1 &6760908945942293830
 GameObject:
   m_ObjectHideFlags: 0
@@ -22349,3 +22351,127 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1001 &5448436892603232089
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6939087646570193494}
+    m_Modifications:
+    - target: {fileID: 455867846123069262, guid: 33100ef5af118b946bc8212155445cdd,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455867846123069262, guid: 33100ef5af118b946bc8212155445cdd,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 455867846123069262, guid: 33100ef5af118b946bc8212155445cdd,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455867846123069262, guid: 33100ef5af118b946bc8212155445cdd,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 455867846123069262, guid: 33100ef5af118b946bc8212155445cdd,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455867846123069262, guid: 33100ef5af118b946bc8212155445cdd,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 455867846123069262, guid: 33100ef5af118b946bc8212155445cdd,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 715.3699
+      objectReference: {fileID: 0}
+    - target: {fileID: 455867846123069262, guid: 33100ef5af118b946bc8212155445cdd,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 309.049
+      objectReference: {fileID: 0}
+    - target: {fileID: 455867846123069262, guid: 33100ef5af118b946bc8212155445cdd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455867846123069262, guid: 33100ef5af118b946bc8212155445cdd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455867846123069262, guid: 33100ef5af118b946bc8212155445cdd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455867846123069262, guid: 33100ef5af118b946bc8212155445cdd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 455867846123069262, guid: 33100ef5af118b946bc8212155445cdd,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455867846123069262, guid: 33100ef5af118b946bc8212155445cdd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455867846123069262, guid: 33100ef5af118b946bc8212155445cdd,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455867846123069262, guid: 33100ef5af118b946bc8212155445cdd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455867846123069262, guid: 33100ef5af118b946bc8212155445cdd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455867846123069262, guid: 33100ef5af118b946bc8212155445cdd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455867846123069262, guid: 33100ef5af118b946bc8212155445cdd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455867846123069262, guid: 33100ef5af118b946bc8212155445cdd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6790329667138308961, guid: 33100ef5af118b946bc8212155445cdd,
+        type: 3}
+      propertyPath: m_Name
+      value: Quest UI
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 33100ef5af118b946bc8212155445cdd, type: 3}
+--- !u!224 &5606749644686077975 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 455867846123069262, guid: 33100ef5af118b946bc8212155445cdd,
+    type: 3}
+  m_PrefabInstance: {fileID: 5448436892603232089}
+  m_PrefabAsset: {fileID: 0}
