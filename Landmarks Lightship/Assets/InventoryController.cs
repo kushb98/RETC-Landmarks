@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class InventoryController : MonoBehaviour
 {
-    Item item;
-    Roamling roamling;
+   public Item item;
+   public Roamling roamling;
 
     public Button RemoveButton;
 
@@ -26,5 +26,7 @@ public class InventoryController : MonoBehaviour
     public void AddRoamling(Roamling newRoamling)
     {
         roamling = newRoamling;
+        Debug.Log("Roamling added, controller");
     }
+   
 }

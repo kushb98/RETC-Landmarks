@@ -12967,6 +12967,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1466824983}
+    - target: {fileID: 5213917518945291718, guid: 5307b87b81026324e9930d69407f98ea,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5270082950351483304, guid: 5307b87b81026324e9930d69407f98ea,
         type: 3}
       propertyPath: fadeText
@@ -13265,7 +13270,8 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1466824983}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2876219833947921671, guid: 5307b87b81026324e9930d69407f98ea, type: 3}
     m_RemovedGameObjects:
     - {fileID: 3848829511218009977, guid: 5307b87b81026324e9930d69407f98ea, type: 3}
     - {fileID: 6721755096982244474, guid: 5307b87b81026324e9930d69407f98ea, type: 3}

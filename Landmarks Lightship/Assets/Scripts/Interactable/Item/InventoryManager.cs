@@ -20,10 +20,10 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
     public InventoryController[] InventoryItems;
     //public InventoryController[] BoughtItems;
 
-   // public GameObject RoamlingMenu;
+    // public GameObject RoamlingMenu;
     public Transform ItemContent;
     public GameObject InventoryItem;
-   // public RoamlingController roamlingController;
+    // public RoamlingController roamlingController;
     public GameObject Inventory;
 
     public GameObject ItemInventory;
@@ -207,12 +207,14 @@ public class InventoryManager : MonoBehaviour, IDataPersistence
 
     public void SetInventoryItems()
     {
+
         //set the inventory items to the number in both item content and bought content
         InventoryItems = ItemContent.GetComponentsInChildren<InventoryController>();
        // BoughtItems = BoughtContent.GetComponentsInChildren<InventoryController>();
 
 
-        for (int i = 0; i < Items.Count - ItemContent.childCount; i++)
+        //for (int i = 0; i < Items.Count - ItemContent.childCount; i++)
+        for (int i = 0; i < Items.Count; i++)
         {
             InventoryItems[i].AddItem(Items[i]);
         }      

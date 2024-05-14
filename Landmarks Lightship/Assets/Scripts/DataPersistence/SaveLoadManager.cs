@@ -43,6 +43,6 @@ public class SaveLoadManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         // Save inventory data when the application quits
-        SaveInventory(InventoryManager.Instance.Items.ToArray());
+       // SaveInventory(InventoryManager.Instance.Items.ToArray());
     }
 }

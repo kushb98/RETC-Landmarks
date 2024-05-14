@@ -10,7 +10,6 @@ using JetBrains.Annotations;
 
 public class RoamlingManager : MonoBehaviour, IDataPersistence
 {
-
     public static RoamlingManager Instance;
     
     [SerializeField]
@@ -19,6 +18,7 @@ public class RoamlingManager : MonoBehaviour, IDataPersistence
 
     
     public InventoryController[] InventoryRoamlings;
+    
 
     public GameObject RoamlingMenu;
     public Transform RoamlingContent;
@@ -26,7 +26,6 @@ public class RoamlingManager : MonoBehaviour, IDataPersistence
     public RoamlingController roamlingController;
     public GameObject Inventory;
 
-    
     //public Transform BoughtContent;
 
     public Toggle ReleaseRoamlings;
@@ -47,7 +46,7 @@ public class RoamlingManager : MonoBehaviour, IDataPersistence
 
     private void Start()
     {
-        ListRoamlings(); // Initially list items
+      //  ListRoamlings(); // Initially list items
     }
 
     public void LoadData(GameData data)
@@ -65,6 +64,7 @@ public class RoamlingManager : MonoBehaviour, IDataPersistence
         Roamlings.Add(roamling);
         ListRoamlings(); // Update the inventory list when adding an item
         Debug.Log("Roamling Added");
+        
 
         /*
         if (item.itemName == "Toy" || item.itemName == "Treat")
@@ -90,9 +90,17 @@ public class RoamlingManager : MonoBehaviour, IDataPersistence
 
     public void ListRoamlings()
     {
+
+
         foreach (Transform roamling in RoamlingContent)
-        {
-            Destroy(roamling.gameObject);
+        {         
+            Destroy(roamling.gameObject);    
+            //remove all destroyed roamling objects from InventoryRoamlings
+           // InventoryRoamlings = RoamlingContent.GetComponentsInChildren<InventoryController>();
+       
+
+          
+
         }
 
 
@@ -118,8 +126,9 @@ public class RoamlingManager : MonoBehaviour, IDataPersistence
                 }
             }
         }
-
+        
         SetInventoryRoamlings();
+        Debug.Log("ListRoamlings");
     }
 
     // Method to handle item click and invoke Unity events
@@ -161,14 +170,36 @@ public class RoamlingManager : MonoBehaviour, IDataPersistence
 
     public void SetInventoryRoamlings()
     {
-        //set the inventory items to the number in both item content and bought content
-        InventoryRoamlings = RoamlingContent.GetComponentsInChildren<InventoryController>();      
-
-        // for (int i = 0; i < Items.Count - BoughtContent.childCount; i++)
-        for (int i = 0; i < Roamlings.Count - RoamlingContent.childCount; i++)
+      
+        InventoryRoamlings = RoamlingContent.GetComponentsInChildren<InventoryController>();    
         {
-            InventoryRoamlings[i].AddRoamling(Roamlings[i]);
+            // for (int i = 0; i < Roamlings.Count - RoamlingContent.childCount; i++)
+            for (int i = 0; i < Roamlings.Count; i++)
+            {
+                InventoryRoamlings[i].AddRoamling(Roamlings[i]);
+                
+            }
         }
+
+        for (int i = Roamlings.Count; i < RoamlingContent.childCount; i++)
+        {
+            Destroy(RoamlingContent.GetChild(i).gameObject);
+        }
+
+        //Roamlings.Remove(Roamlings[i]);
+        // 
+
+        /*if (Roamlings.Count != RoamlingContent.childCount)
+        {
+            //subtract objects from the Roamling content until it matches the Roamling list
+            for (int i = 0; i > RoamlingContent.childCount - Roamlings.Count; i++)
+            {
+                Destroy(RoamlingContent.GetChild(i).gameObject);
+            }
+        }
+        */
+
+        Debug.Log("SetInventoryRoamling");
     }
 
     private void OnApplicationQuit()
