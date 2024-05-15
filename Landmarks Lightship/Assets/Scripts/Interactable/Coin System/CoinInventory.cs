@@ -9,7 +9,7 @@ public class CoinInventory : MonoBehaviour, IDataPersistence
 
     [SerializeField] private CoinUI coinUI;
 
-    public int _numCoins;
+    private int _numCoins;
 
     public TextMeshProUGUI fadeText;
 
