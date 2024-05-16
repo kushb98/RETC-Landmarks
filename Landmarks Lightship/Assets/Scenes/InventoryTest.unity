@@ -9400,6 +9400,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1084257010}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1671825551 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1227105354641375734, guid: 5307b87b81026324e9930d69407f98ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1241480485898306600}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1761779025 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8906759257883058183, guid: e0d6cd7fb98844f4392c75442a3e5005,
@@ -10190,6 +10202,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seedlingCount: 0
+  seedlingtext: {fileID: 1671825551}
+  treatfoodInv: {fileID: 0}
 --- !u!1 &1962241451
 GameObject:
   m_ObjectHideFlags: 0
@@ -11344,6 +11358,11 @@ PrefabInstance:
       propertyPath: treatNum
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3089465523423400822, guid: 5307b87b81026324e9930d69407f98ea,
+        type: 3}
+      propertyPath: m_Name
+      value: SeedlingButtonText
+      objectReference: {fileID: 0}
     - target: {fileID: 3406477531299642535, guid: 5307b87b81026324e9930d69407f98ea,
         type: 3}
       propertyPath: QuestUpdater
@@ -11353,6 +11372,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3903230816394483842, guid: 5307b87b81026324e9930d69407f98ea,
+        type: 3}
+      propertyPath: m_Name
+      value: SeedlingButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949888868222236891, guid: 5307b87b81026324e9930d69407f98ea,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949888868222236891, guid: 5307b87b81026324e9930d69407f98ea,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949888868222236891, guid: 5307b87b81026324e9930d69407f98ea,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1943290911}
+    - target: {fileID: 3949888868222236891, guid: 5307b87b81026324e9930d69407f98ea,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949888868222236891, guid: 5307b87b81026324e9930d69407f98ea,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenSeedling
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949888868222236891, guid: 5307b87b81026324e9930d69407f98ea,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Seedling, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3949888868222236891, guid: 5307b87b81026324e9930d69407f98ea,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4301607142127614425, guid: 5307b87b81026324e9930d69407f98ea,
         type: 3}
@@ -11666,6 +11725,7 @@ PrefabInstance:
     - {fileID: 2876219833947921671, guid: 5307b87b81026324e9930d69407f98ea, type: 3}
     - {fileID: 223523606595842582, guid: 5307b87b81026324e9930d69407f98ea, type: 3}
     - {fileID: 1159095586039204895, guid: 5307b87b81026324e9930d69407f98ea, type: 3}
+    - {fileID: 1866874616714027318, guid: 5307b87b81026324e9930d69407f98ea, type: 3}
     m_RemovedGameObjects:
     - {fileID: 3848829511218009977, guid: 5307b87b81026324e9930d69407f98ea, type: 3}
     m_AddedGameObjects:
