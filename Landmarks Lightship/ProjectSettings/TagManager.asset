@@ -12,6 +12,7 @@ TagManager:
   - Marker
   - Sidewalk
   - Path
+  - UI
   layers:
   - Default
   - TransparentFX
