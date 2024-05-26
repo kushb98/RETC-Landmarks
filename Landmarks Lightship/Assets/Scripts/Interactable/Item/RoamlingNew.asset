@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RoamlingNew
   m_EditorClassIdentifier: 
   id: 0
-  roamlingName: New Axolotl
+  roamlingName: Broccoli Axolotl
   value: 1
   roamlingIcon: {fileID: 21300000, guid: 2f927fb3e945c0a42bc293d959415e96, type: 3}
   Hunger: 70
@@ -22,6 +22,7 @@ MonoBehaviour:
   maxHappiness: 100
   RoamlingManager: {fileID: 816760823784977546, guid: 55260359662e54344ad70d8a64bcd51b,
     type: 3}
+  roamlingDescription: I am an Axolotl that is cool!
   onClickEvent:
     m_PersistentCalls:
       m_Calls: []

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RoamlingNew 2
   m_EditorClassIdentifier: 
   id: 0
-  roamlingName: New Turtle
+  roamlingName: Mushroom Turtle
   value: 3
   roamlingIcon: {fileID: 21300000, guid: dcd44eadb7fed474e86fe26f876658b2, type: 3}
   Hunger: 50
@@ -22,6 +22,7 @@ MonoBehaviour:
   maxHappiness: 100
   RoamlingManager: {fileID: 816760823784977546, guid: 55260359662e54344ad70d8a64bcd51b,
     type: 3}
+  roamlingDescription: I am a Turtle and I am smart!
   onClickEvent:
     m_PersistentCalls:
       m_Calls: []

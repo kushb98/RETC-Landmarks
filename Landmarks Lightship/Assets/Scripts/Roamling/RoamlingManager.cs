@@ -106,9 +106,11 @@ public class RoamlingManager : MonoBehaviour, IDataPersistence
                 var roamlingName = obj.transform.Find("RoamlingName").GetComponent<TextMeshProUGUI>();
                 var roamlingIcon = obj.transform.Find("RoamlingIcon").GetComponent<Image>();
                 var removeButton = obj.transform.Find("RemoveButton").GetComponent<Button>();
+                var roamlingDescription = obj.transform.Find("RoamlingDescription").GetComponent<TextMeshProUGUI>();
 
                 roamlingName.text = roamling.roamlingName;
                 roamlingIcon.sprite = roamling.roamlingIcon;
+                roamlingDescription.text = roamling.roamlingDescription;
 
                 obj.GetComponent<Button>().onClick.AddListener(() => OnRoamlingClick(roamling));
 
