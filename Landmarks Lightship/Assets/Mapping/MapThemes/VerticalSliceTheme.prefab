@@ -107,7 +107,7 @@ MonoBehaviour:
   _undefinedFeatures: 
   _boundaryFeatures: 
   _structureFeatures: 
-  _landUseFeatures: 21000000
+  _landUseFeatures: 0c0000001f0000004a0000002100000010000000
   _placesFeatures: 
   _linearFeatures: 
   _transitFeatures: 
@@ -117,10 +117,10 @@ MonoBehaviour:
   _maxLOD: 17
   _zOffset: 0
   _mapLayer: 4
-  _features: 21000000
+  _features: 0c0000001f0000004a0000002100000010000000
   _prefab: {fileID: 1051237958070371599, guid: 317dc2b6f9702e64ab57f6a5146155e9, type: 3}
   maxOffset: 0.1
-  chanceToSpawn: 0.33
+  chanceToSpawn: 1
 --- !u!1 &1670784197805931123
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,7 +388,7 @@ MonoBehaviour:
   _undefinedFeatures: 
   _boundaryFeatures: 
   _structureFeatures: 
-  _landUseFeatures: 21000000
+  _landUseFeatures: 0d0000004a0000001f0000002100000010000000
   _placesFeatures: 
   _linearFeatures: 
   _transitFeatures: 
@@ -398,10 +398,10 @@ MonoBehaviour:
   _maxLOD: 17
   _zOffset: 0
   _mapLayer: 4
-  _features: 21000000
+  _features: 0d0000004a0000001f0000002100000010000000
   _prefab: {fileID: 6900594401148361998, guid: 11d9445076339a347b85f46584a60682, type: 3}
   maxOffset: 0.1
-  chanceToSpawn: 0.55
+  chanceToSpawn: 1
 --- !u!1 &3243621308758044660
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,7 +1371,7 @@ MonoBehaviour:
   _undefinedFeatures: 
   _boundaryFeatures: 
   _structureFeatures: 
-  _landUseFeatures: 21000000
+  _landUseFeatures: 0d0000004a0000001f0000002100000010000000
   _placesFeatures: 
   _linearFeatures: 
   _transitFeatures: 
@@ -1381,7 +1381,7 @@ MonoBehaviour:
   _maxLOD: 17
   _zOffset: 0
   _mapLayer: 4
-  _features: 21000000
+  _features: 0d0000004a0000001f0000002100000010000000
   _prefab: {fileID: 2876120627164188463, guid: 66a314ad636a8104eb37d8653fb873b6, type: 3}
   maxOffset: 0.1
   chanceToSpawn: 1
