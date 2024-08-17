@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 	private Camera _camera;
 
 	[SerializeField]
-	private PlayerModel _model;
+	//private PlayerModel _model;
 
 	private double _lastGpsUpdateTime;
 	private Vector3 _targetMapPosition;
@@ -218,7 +218,7 @@ public class PlayerController : MonoBehaviour
 			Time.deltaTime);
 
 		transform.position = _currentMapPosition;
-		_model.UpdatePlayerState(movementDistance);
+		//_model.UpdatePlayerState(movementDistance);
 	}
 
 	//Keyboard inputs

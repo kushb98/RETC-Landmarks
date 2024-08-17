@@ -45,10 +45,20 @@ public class WorldInteractor : MonoBehaviour
         {
             return; // TODO: Put code for what happens durring interactions here
         }
-
+        
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit, interactionRange, interactable))
+
+        //if ray hits UI, return
+        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
         {
+            Debug.Log("UI hit");
+            return;
+        }
+    
+
+        if (Physics.Raycast(ray, out RaycastHit hit, interactionRange, interactable) )
+        {
+          
             if (hit.transform.CompareTag("Interactable Object"))
             {
                 _currentInteractableObject = hit.transform.GetComponent<InteractableObject>();

@@ -24,6 +24,7 @@ public class Roamling : ScriptableObject
     public int Happiness;
     public int maxHappiness;
     public GameObject RoamlingManager;
+    public string roamlingDescription;
 
     [SerializeField]
     public enum ItemID { None, Axolotl, Bear, Turtle }
