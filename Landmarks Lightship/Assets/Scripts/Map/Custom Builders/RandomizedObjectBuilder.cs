@@ -31,8 +31,13 @@ public class RandomizedObjectBuilder : AreaObjectBuilder
     {
         base.Initialize(lightshipMapView);
         if (buildings.Length > 0)
-        {
-            _objectPool = new ObjectPool<GameObject>(buildings[Random.Range(0, buildings.Length)], onAcquire: OnObjectAcquired, onRelease: OnObjectReleased);
+        {   
+            
+                _objectPool = new ObjectPool<GameObject>(buildings[Random.Range(0, buildings.Length)], onAcquire: OnObjectAcquired, onRelease: OnObjectReleased);
+            
+
+
+            
         }
 
     }
