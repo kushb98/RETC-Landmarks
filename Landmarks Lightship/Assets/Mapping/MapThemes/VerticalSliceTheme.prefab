@@ -121,6 +121,7 @@ MonoBehaviour:
   _prefab: {fileID: 1051237958070371599, guid: 317dc2b6f9702e64ab57f6a5146155e9, type: 3}
   maxOffset: 0.1
   chanceToSpawn: 1
+  buildings: []
 --- !u!1 &1670784197805931123
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,6 +342,7 @@ MonoBehaviour:
   _prefab: {fileID: 2706641027663776789, guid: 98da03af771ee6a41b000883795c45bb, type: 3}
   maxOffset: 0.5
   chanceToSpawn: 0.06
+  buildings: []
 --- !u!1 &2505446112869667383
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,6 +404,7 @@ MonoBehaviour:
   _prefab: {fileID: 6900594401148361998, guid: 11d9445076339a347b85f46584a60682, type: 3}
   maxOffset: 0.1
   chanceToSpawn: 1
+  buildings: []
 --- !u!1 &3243621308758044660
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,6 +665,7 @@ MonoBehaviour:
   _prefab: {fileID: 3242016033353729383, guid: 45f5a8595e6567f48abe437158c9d02b, type: 3}
   maxOffset: 0.5
   chanceToSpawn: 0.586
+  buildings: []
 --- !u!1 &4347875691547121748
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,6 +1114,7 @@ MonoBehaviour:
   _prefab: {fileID: 4408639536463175595, guid: 261d2b7d14f8d984aa3c8e35ec057d2c, type: 3}
   maxOffset: 0.5
   chanceToSpawn: 0.086
+  buildings: []
 --- !u!1 &7256950239405208732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,6 +1269,7 @@ MonoBehaviour:
   _prefab: {fileID: 1661903390005594816, guid: 2bebdfd7aee1f704088599b5a6414f00, type: 3}
   maxOffset: 0.5
   chanceToSpawn: 0.086
+  buildings: []
 --- !u!1 &7660159121819928430
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,6 +1391,7 @@ MonoBehaviour:
   _prefab: {fileID: 2876120627164188463, guid: 66a314ad636a8104eb37d8653fb873b6, type: 3}
   maxOffset: 0.1
   chanceToSpawn: 1
+  buildings: []
 --- !u!1 &8227139081283635545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1547,6 +1554,12 @@ MonoBehaviour:
   _prefab: {fileID: 6555399154572785297, guid: a0bcde8bdb3d4794cb0fe61128514e9c, type: 3}
   maxOffset: 0.5
   chanceToSpawn: 0.234
+  buildings:
+  - {fileID: 2661655376051049980, guid: 9b7955fe7ddae264bb77f589a5d0994d, type: 3}
+  - {fileID: 6344045993835909961, guid: 0853fafa38594b444b0389fb03fd8272, type: 3}
+  - {fileID: 6555399154572785297, guid: a0bcde8bdb3d4794cb0fe61128514e9c, type: 3}
+  - {fileID: 1311829483884927226, guid: 41b76c6056ce2424da56f278165fb7f1, type: 3}
+  - {fileID: 2437096890709755754, guid: 6c561ef6f386c4446a82e921e6790898, type: 3}
 --- !u!1 &8856361436128326381
 GameObject:
   m_ObjectHideFlags: 0
