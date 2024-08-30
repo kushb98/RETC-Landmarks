@@ -21,6 +21,8 @@ public class QuestionSystem : MonoBehaviour
     private Question _currentQuestion;
     private AnswerEnum correctAnswer;
     private int attemptsLeft = 2; // Number of attempts allowed
+    //landmark type 
+    public string landmarkType;
     
 
     private void Awake()
@@ -37,10 +39,13 @@ public class QuestionSystem : MonoBehaviour
 
     public void AskRandomQuestion()
     {
+        gameObject.SetActive(true);     
 
-        gameObject.SetActive(true);
+
 
         Question question = potentialQuestionsList[Random.Range(0, potentialQuestionsList.Count)];
+
+        // Get a random question from the list depending on the landmark type
 
         SetQuestion(question);
     }
