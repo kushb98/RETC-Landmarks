@@ -911,7 +911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _undefinedFeatures: 
   _boundaryFeatures: 
-  _structureFeatures: 2e000000
+  _structureFeatures: 2e00000032000000
   _landUseFeatures: 4400000001000000030000000c0000000d00000010000000110000001200000013000000140000001d000000490000004a0000001f00000021000000220000004c0000004d0000004e000000290000002b0000005000000031000000510000005200000036000000550000003b0000003c000000
   _placesFeatures: 
   _linearFeatures: 
@@ -922,10 +922,10 @@ MonoBehaviour:
   _maxLOD: 17
   _zOffset: 0
   _mapLayer: 2
-  _features: 2e000000
+  _features: 2e00000032000000
   _prefab: {fileID: 2706641027663776789, guid: 98da03af771ee6a41b000883795c45bb, type: 3}
   maxOffset: 0.5
-  chanceToSpawn: 0.56
+  chanceToSpawn: 0.719
 --- !u!1 &6264390028887809546
 GameObject:
   m_ObjectHideFlags: 0
