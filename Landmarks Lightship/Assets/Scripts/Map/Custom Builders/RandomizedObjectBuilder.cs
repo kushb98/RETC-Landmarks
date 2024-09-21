@@ -1,8 +1,10 @@
+using Niantic.Lightship.Maps;
 using Niantic.Lightship.Maps.Builders.Standard.Objects;
 using Niantic.Lightship.Maps.Core;
 using Niantic.Lightship.Maps.Core.Features;
 using Niantic.Lightship.Maps.Utilities;
 using Niantic.Platform.Debugging;
+using Niantic.Lightship.Maps.ObjectPools;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Dependencies.NCalc;
@@ -11,10 +13,51 @@ using UnityEngine;
 /// <summary>
 /// This is a script that extends AreaObjectBuilder but adds funtionality to randomize positioning
 /// </summary>
+
+
+
 public class RandomizedObjectBuilder : AreaObjectBuilder
 {
     [SerializeField] private float maxOffset = 0.5f;
     [SerializeField][Range(0, 1f)] private float chanceToSpawn = 1f;
+
+    [SerializeField] private GameObject[] buildings;
+
+    
+
+
+
+    public override void Initialize(ILightshipMapView lightshipMapView)
+    {
+        base.Initialize(lightshipMapView);
+        if (buildings.Length > 0)
+        {   
+            
+                _objectPool = new ObjectPool<GameObject>(buildings[Random.Range(0, buildings.Length)], onAcquire: OnObjectAcquired, onRelease: OnObjectReleased);
+            
+
+
+            
+        }
+
+    }
+
+    private void OnObjectAcquired(PooledObject<GameObject> pooledObject)
+    {
+        var featureInstance = pooledObject.Value;
+        
+
+        // Enable and un-hide this object (if it was pooled)
+       
+    }
+
+    private static void OnObjectReleased(GameObject poolGameObject)
+    {
+        // Detach this child object from its parent,
+        // disable it, and hide it in the hierarchy.
+        
+    }
+
 
     protected override void BuildFeature(IMapTile mapTile, GameObject parent, IMapTileFeature feature)
     {
