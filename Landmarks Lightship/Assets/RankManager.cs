@@ -10,9 +10,10 @@ public class RankManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI expText;
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private Slider expSlider;
+    [SerializeField] private QuestManager QuestUpdater;
 
     private int currentRank = 1;
-    private int currentEXP = 0;
+    public int currentEXP = 0;
     private int expRequired = 2000; // Initial EXP required
     private int maxRank = 10; // Maximum rank
     private int maxEXP = 20000; // Maximum EXP
@@ -34,22 +35,28 @@ public class RankManager : MonoBehaviour
 
     private void Update()
     {
-    /*  if (Input.GetMouseButtonDown(0)) // Check if the left mouse button is clicked
-        {
-            IncreaseEXP(expIncreaseOnMouseClick); // Increase EXP when clicked
-        }*/
+        /*  if (Input.GetMouseButtonDown(0)) // Check if the left mouse button is clicked
+            {
+                IncreaseEXP(expIncreaseOnMouseClick); // Increase EXP when clicked
+            }*/
+
+        
     }
 
     public void IncreaseEXP(int amount)
     {
         currentEXP += amount;
+        
 
         // Check for rank advancement
         while (currentRank < maxRank && currentEXP >= expRequired)
         {
+            
             currentRank++;
             currentEXP -= expRequired;
             expRequired = currentRank * 2000; // Update EXP required for the next rank
+            QuestUpdater.Quest1Update();
+            
         }
 
         // Ensure EXP doesn't exceed the maximum

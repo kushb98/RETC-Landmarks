@@ -45,6 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Items: []
+  InventoryItems: []
   ItemContent: {fileID: 0}
   InventoryItem: {fileID: 8125425832708331906, guid: a629e4fb200d4fa47b66be35cc7d5515,
     type: 3}
+  Inventory: {fileID: 0}
+  ItemInventory: {fileID: 0}
+  ReleaseRoamlings: {fileID: 0}
+  itemDataSO: {fileID: 0}

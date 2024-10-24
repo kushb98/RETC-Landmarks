@@ -8,6 +8,8 @@ using UnityEngine.Android;
 
 public class PlayerController : MonoBehaviour
 {
+	public static PlayerController Instance { get; private set; } // My GitHub Copilot made this a property, don't know if it's necessary
+
 	private AudioManager audioManager;
 
 	[SerializeField]
@@ -20,7 +22,7 @@ public class PlayerController : MonoBehaviour
 	private Camera _camera;
 
 	[SerializeField]
-	private PlayerModel _model;
+	//private PlayerModel _model;
 
 	private double _lastGpsUpdateTime;
 	private Vector3 _targetMapPosition;
@@ -44,6 +46,15 @@ public class PlayerController : MonoBehaviour
 
 	private void Awake()
 	{
+		if (Instance == null)
+		{
+            Instance = this;
+        }
+        else
+		{
+            Debug.LogError("Multiple PlayerControllers in scene");
+        }
+
 		audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
 	}
 	private void Start()
@@ -187,25 +198,27 @@ public class PlayerController : MonoBehaviour
 				break;
 		}
 
-		if(isWalking == true)
+		/*if(isWalking == true)
 		{
 			if(!audioManager.isPlaying())
 			{
 				audioManager.Play(audioManager.playerFootsteps);
 			}
 		}
-		else
+		*/
+		/*else
 		{
 			audioManager.Stop(audioManager.playerFootsteps);
-		}
-
+		}		
+	*/
+		
 		_currentMapPosition = Vector3.Lerp(
 			_currentMapPosition,
 			_targetMapPosition,
 			Time.deltaTime);
 
 		transform.position = _currentMapPosition;
-		_model.UpdatePlayerState(movementDistance);
+		//_model.UpdatePlayerState(movementDistance);
 	}
 
 	//Keyboard inputs

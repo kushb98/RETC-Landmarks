@@ -12,10 +12,16 @@ public class AudioManager : MonoBehaviour
 	public AudioClip playerFootsteps;
     public AudioClip hoverSound;
     public AudioClip clickSound;
+    public AudioClip playerInteract;
+    public AudioClip playerCorrect;
+    public AudioClip playerIncorrect;
+    public AudioClip playerNavigation;
+    public AudioClip roamlingHappy;
+    public AudioClip itemBought;
 
 
-	// Start is called before the first frame update
-	private void Start()
+    // Start is called before the first frame update
+    private void Start()
     {
     }
 

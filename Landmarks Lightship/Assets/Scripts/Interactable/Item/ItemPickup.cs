@@ -5,12 +5,29 @@ using UnityEngine;
 public class ItemPickup : InteractableObject
 {
     public Item Item;
+    public Roamling Roamling;
+
 
     protected override void Consume()
     {
-        InventoryManager.Instance.Add(Item);
+        if (Item != null)
+        {
+            InventoryManager.Instance.Add(Item);
+        }
+        else
+        {
+            RoamlingManager.Instance.Add(Roamling);
+        }
+        
+       // RoamlingManager.Instance.Add(Roamling);
         Destroy(gameObject); // This works because OnDestroy is overridden in InteractableObject!
+
     }
+
+
+
+
+
 
     /*
     Old Code :)

@@ -6,6 +6,13 @@ TagManager:
   tags:
   - Roamling
   - Coin Source
+  - Interactable Object
+  - Audio
+  - World Interactor
+  - Marker
+  - Sidewalk
+  - Path
+  - UI
   layers:
   - Default
   - TransparentFX
@@ -14,9 +21,9 @@ TagManager:
   - Water
   - UI
   - World Interactable
-  - 
-  - 
-  - 
+  - World Interactor
+  - WhatisGround
+  - WhatIsPlayer
   - 
   - 
   - 

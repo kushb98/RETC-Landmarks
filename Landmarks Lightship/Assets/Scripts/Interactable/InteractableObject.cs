@@ -16,11 +16,15 @@ public class InteractableObject : MonoBehaviour
 
     private bool _selected = false;
     protected bool _ready = false;
-    
+    protected bool _inRange = false;
+    private AudioManager audioManager;
 
+    //public Item Item;
+    
     protected virtual void Start()
     {
-        if(readyOnStart)
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        if (readyOnStart)
         {
             _ready = true;
         }
@@ -34,22 +38,23 @@ public class InteractableObject : MonoBehaviour
     }
 
     // Selects the object
-    public void Select(WorldInteractor worldInteractor)
+    public virtual void Select(WorldInteractor worldInteractor)
     {
         _selected = true;
         _worldInteractor = worldInteractor;
+        
     }
 
     // Deselects the object
-    public void Deselect()
+    public virtual void Deselect()
     {
         _selected = false;
         _worldInteractor = null;
     }
     
-    public virtual bool ReadyForInteraction()
+    public virtual bool InRange()
     {
-        return _ready;
+        return _inRange;
     }
 
     // Interacts with the object
@@ -57,6 +62,7 @@ public class InteractableObject : MonoBehaviour
     {
         if (_ready)
         {
+            audioManager.Play(audioManager.playerInteract);         
             Consume();
         }
         else
@@ -65,6 +71,12 @@ public class InteractableObject : MonoBehaviour
         }
     }
 
+   /* public virtual void ShopConsume()
+    {
+        InventoryManager.Instance.Add(Item);
+        Destroy(gameObject);
+    }
+   */
     protected void OnDestroy()
     {
         if (_selected)
@@ -82,5 +94,37 @@ public class InteractableObject : MonoBehaviour
     protected virtual void MakeReady()
     {
         _ready = true;
+    }
+
+    protected virtual void OnInRange()
+    {
+        _inRange = true;
+    }
+
+    protected virtual void OnOutOfRange()
+    {
+        _inRange = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("World Interactor"))
+        {
+            if (!_inRange)
+            {
+                OnInRange();
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("World Interactor"))
+        {
+            if (_inRange)
+            {
+                OnOutOfRange();
+            }
+        }
     }
 }

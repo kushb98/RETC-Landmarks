@@ -9,10 +9,11 @@ using UnityEngine.UI;
 public class WorldInteractor : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private float interactionRange = 200;
+    [SerializeField] private float interactionRange = 250;
 
     [Header("References")]
     [SerializeField] private CoinInventory coinInventory;
+    [SerializeField] private FamiliarityUI fUI;
     [SerializeField] private CameraController cameraController;
 
     [Header("UI References")]
@@ -23,6 +24,8 @@ public class WorldInteractor : MonoBehaviour
 
     private InteractableObject _currentInteractableObject;
     private bool _inInteraction;
+
+    public StreetName currentStreetName;
 
     private void Start()
     {
@@ -42,28 +45,54 @@ public class WorldInteractor : MonoBehaviour
         {
             return; // TODO: Put code for what happens durring interactions here
         }
-
+        
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit, interactionRange, interactable))
-        {
-            if (hit.transform.CompareTag("Interactable Object"))
-                InitializeInteraction(hit);
 
-            TryCoinInteraction(hit); // This is depreciated!
+        //if ray hits UI, return
+        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+        {
+            Debug.Log("UI hit");
+            return;
+        }
+    
+
+        if (Physics.Raycast(ray, out RaycastHit hit, interactionRange, interactable) )
+        {
+          
+            if (hit.transform.CompareTag("Interactable Object"))
+            {
+                _currentInteractableObject = hit.transform.GetComponent<InteractableObject>();
+                currentStreetName = hit.transform.GetComponent<StreetName>();
+
+                
+
+
+                if (_currentInteractableObject.InRange())
+                {
+                    InitializeInteraction();
+                }
+            }
         }
     }
 
     // Initializes an object interaction, sets the current interactable object
-    private void InitializeInteraction(RaycastHit hit)
+    private void InitializeInteraction()
     {
         interactingIndicator.SetActive(true);
         _inInteraction = true;
-
-        _currentInteractableObject = hit.transform.GetComponent<InteractableObject>();
         
         _currentInteractableObject.Select(this);
         interactButton.onClick.AddListener(_currentInteractableObject.Interact);
         cameraController.FocusOn(_currentInteractableObject.transform);
+
+        if (currentStreetName != null)
+        {
+            fUI.SetFamiliarity();
+        }
+
+
+
+
     }
 
     // Clears the current interactable object
@@ -80,24 +109,7 @@ public class WorldInteractor : MonoBehaviour
 
         _inInteraction = false;
         interactingIndicator.SetActive(false);
+        
     }
 
-    // Tries to pickup or discard coins 
-    // This is depreciated!
-    private void TryCoinInteraction(RaycastHit hit)
-    {
-        if (hit.transform.CompareTag("Coin Source"))
-        {
-            TestingCoinSource coinSource = hit.transform.GetComponent<TestingCoinSource>();
-
-            coinInventory.AddCoins(coinSource.NumberOfCoins);
-        }
-/*
-        if (hit.transform.CompareTag("Coin Remover"))
-        {
-            TestingCoinRemover coinRemover = hit.transform.GetComponent<TestingCoinRemover>();
-
-            coinInventory.TryRemoveCoins(coinRemover.NumberOfCoins);
-        }*/
-    }
 }
